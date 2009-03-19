@@ -1,0 +1,87 @@
+es:
+  movie_pole: "Zona de la peli"
+  txt:
+    main_title: "Apariencia the newest movies for choosen category" ##############
+    without: "No torrents"
+    trailers: "Vísperas"
+    genre: "Género: "
+    year: "Año: "
+    votes: "Votos: "
+    directors: "Directors: "
+    writers: "Escribitors: "
+    release_date: "Liberación data: "
+    tagline: "Palabra: "
+    plot: "Breviario: "
+    query_title: "Busca: "
+    result: "Searching results: " #############
+    main: "Capital página"
+    language: "Lengua: "
+  sort:
+    sort: "Sort results by: " ############
+    title: "Título"
+    release_date: "Data"
+    rating: "Apreciación"
+  buttons:
+    show: "Apariencia"
+    query: "Busca"
+  subtitles:
+    foreign: "Spanish subtítulos"
+    english: "English subtítulos"
+  title: "Title: "
+  
+  genres:
+    all: ..Todo..
+    action: Acción
+    adventure: Aventurero
+    animation: Animatión
+    biography: Biografía
+    comedy: Comedia
+    crime: Delictiva
+    documentary: Documento
+    drama: Drame
+    family: Familia
+    fantasy: Ficción
+    film_noir: Blanco-cambujo
+    game_show: Game_show
+    history: Historia
+    horror: Horror
+    music: Música
+    musical: Melodioso
+    mystery: Arcano
+    news: Noticias 
+    reality_tv: Reality_tv
+    romance: Amorío
+    sci_fi: Sci-fi
+    short: Short ##########################
+    sport: Sport
+    talk_show: Talk_show
+    thriller: Thriller
+    war: Bélico
+    western: Western
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 2
+    currency:
+      format:
+        format: "%n %u"
+        unit: "PLN"
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units: [B, KB, MB, GB, TB]
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%d %b"
+      long: "%d %B %Y"
+

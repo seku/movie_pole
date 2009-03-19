@@ -1,0 +1,186 @@
+/* BASIC PAGE ELEMENTS */
+
+/* note: this td assumes the existing consumer site liquid layout. */
+#root, #root td {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 10pt;
+  color: #000;
+}
+
+/* link colors 
+enable these 4 rules when site is fully migrated to Wheel
+*/
+
+/*
+a:link {
+  color: #53698C;
+}
+a:visited {
+  color: #350D06;
+}
+a:hover {
+  color: #B19200;
+}
+a:active {
+  color: #E7BE00;
+}
+*/
+
+a:link {
+  color: #003399;
+}
+a:visited {
+  color: #800080;
+}
+
+/* this overrides consumersite.css, which defines Verdana as the first font */
+h1, h2, h3, h4 {
+  font-family: Verdana, Arial, sans-serif;
+}
+p {
+  margin: .75em 0;
+}
+img {
+  border: none;
+}
+h1 {
+  font-size: 160%;
+  font-weight: bold;
+}
+h2 {
+  font-size: 130%;
+  color: #655300;
+}
+h3 {
+  font-size: 110%;
+  font-weight: bold;
+  margin:1em 0pt -0.25em;
+}
+ol,ul {
+  margin: 0;
+  padding-left: 2em;
+}
+ol li {
+  list-style-type: decimal;
+}
+
+/* SPECIALTY ELEMENTS */
+.clear {
+  clear: both;
+}
+hr {
+  height: 1px;
+  border: 0;
+  border-top: 1px dotted #CCC;
+}
+a.linkastext { 
+  text-decoration: none;
+  color: black;
+}
+a.linkastext:hover { 
+  text-decoration: underline;
+  color: blue;
+}
+.error {
+  font-weight: bold;
+  color: #900;
+}
+.emphasis {
+  font-weight: bold;
+  background: #FFC;
+}
+.less-emphasis {
+  font-size: 85%;
+  margin: 0.25em 0;
+}
+
+/* FORM ELEMENTS */
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: .5em;
+  padding-bottom: .5em;
+}
+legend {
+  font-size: 130%;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #655300;
+  margin: 0;
+  padding: 0.5em 0 0.25em 0;
+}
+label {
+  font-weight: bold;
+}
+label.block {
+  margin: 1em 0 0.5em 0;
+  display: block;
+}
+
+/* BUTTONS */
+
+button {
+  font-weight: bold;
+  padding: 0.25em;
+  cursor: pointer;
+}
+
+button.primary,
+.linkasbutton-primary {
+  font-size: 12px;
+  color: #000;
+  background: url('/images/wheel/button-bg-primary.gif') repeat-x left top;
+  background-color: #ff9;
+  border: 3px double #c93;
+}
+button.primary:hover,
+button.primary-hover,
+.linkasbutton-primary:hover {
+  color: #333;
+  border-color: #fc3;
+}
+
+.linkasbutton-primary,
+.linkasbutton-secondary {
+  position:relative;
+  font-weight:normal;
+  text-decoration:none;
+  padding:0px 8px;
+  height:20px;
+}
+
+button.secondary,
+.linkasbutton-secondary {
+  font-size: 10px;
+  color: #330;
+  background: url('/images/wheel/button-bg-secondary.gif') repeat-x left top;
+  background-color: #eee;
+  border: 3px double #996;
+}
+button.secondary:hover,
+button.secondary-hover,
+.linkasbutton-secondary:hover {
+  color: #336;
+  border-color: #cc9;
+}
+
+button.media {
+  font-size: 12px;
+  color: #fff;
+  background: url('/images/wheel/button-bg-media.gif') repeat-x left top;
+  background-color: #333;
+  border: 3px double #666;
+}
+button.media:hover,
+button.media-hover
+{
+  color: #ccc;
+  border-color: #999;
+}
+
+.footer {
+  font-size:13px;
+}

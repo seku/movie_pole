@@ -1,7 +1,7 @@
 module IMDB
   class NowPlaying
-    def movies(year, month)
-      uri = "#{BASE_URI}/nowplaying/%04d/%02d" % [year, month]
+    def movies(year, month, day)
+      uri = "#{BASE_URI}/nowplaying/%04d/%02d/%02d" % [year, month, day]
       doc = Hpricot(open(uri, HEADERS)) # open-uri - biblioteka standardowa
       results = []
       (doc / "a.title").each do |a|

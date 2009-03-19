@@ -1,0 +1,70 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+<script type="text/javascript">
+var loc = document.location.toString();
+var args_idx = loc.indexOf("#");
+if (args_idx != -1) {
+    var args_str = loc.substring(args_idx + 1);
+
+    var args = args_str.split(";");
+    for (var i=0; i<args.length; i++) {
+        var key_val = args[i].split(":");
+
+        if (key_val[0] == "key") {
+            slot = key_val[1];
+            afc_div = parent.document.getElementById("sponsored_links_afc_div_" + slot);
+            title = parent.afc_data[slot].title;
+            help = parent.afc_data[slot].help;
+            google_language = parent.afc_data[slot].language;
+            google_ad_channel = parent.afc_data[slot].channel;
+            google_ad_client = parent.afc_data[slot].client;
+        }
+    }
+}
+
+function google_ad_request_done(google_ads) {
+    if (google_ads.length == 0)
+        return;
+
+    if (!afc_div || !title || !help)
+        return;
+
+    var s = '';
+    s += '<hr/><h3>' + title + 
+         '&nbsp;&nbsp;<span style="font-size:8pt">' +
+         '(<a href="/help/show_leaf?sponsoredlinks" target="_blank">' +
+         help + '</a>)</span></h3>';
+
+    for (var i=0; i<google_ads.length; ++i) {
+        s += '<div style="height:5px;"></div><a href="' +
+             google_ads[i].url + '" ' + 'target="_top" ' +
+             'onmouseout="window.status=\'\'" ' +
+             'onmouseover="window.status=\'go to ' + google_ads[i].visible_url +
+             '\';return true;" ' + 'style="text-decoration:none">' +
+             '<span style="text-decoration:underline">' +
+             google_ads[i].line1 + '<br></span>' +
+             '<span style="color:#000000">' + google_ads[i].visible_url +
+             '</span>&nbsp;*&nbsp;' + '<span style="color:#000000">' +
+             google_ads[i].line2 + ' ' + google_ads[i].line3 + '</span></a><br>';
+    }
+
+    afc_div.innerHTML = s;
+    return;
+}
+
+google_ad_output = 'js';
+google_max_num_ads = '3';
+google_ad_type = 'text'; // type of ads to display
+google_language = 'en';
+google_encoding = 'utf8';
+google_safe = 'high';
+google_adtest = 'off';
+google_ad_section = 'default';
+</script>
+
+<script type="text/javascript" src="google_afc_data/show_ads.js">
+</script><script src="google_afc_data/test_domain.js"></script><script>window.google_render_ad();</script><script language="JavaScript1.1" src="google_afc_data/ads"></script>
+
+</head><div FirebugVersion="1.3.3" style="display: none;" id="_firebugConsole"></div><body></body></html>

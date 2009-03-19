@@ -1,3 +1,199 @@
 pl:
-  movie: Film  
-  movies: Filmy
+  movie_pole: "Pole filmowe"
+  txt:
+    main_title: "Pokaż najnowsze filmy dla wybranej kategorii"
+    without: "Bez torrentów"
+    trailers: "Zwiastuny"
+    genre: "Rodzaj: "
+    year: "Rok: "
+    votes: "Głosów: "
+    directors: "Producenci: "
+    writers: "Twórcy: "
+    release_date: "Data publikacji: "
+    tagline: "Słówkiem: "
+    plot: "Opis: "
+    query_title: "Szukaj: "
+    result: "Wyniki wyszukiwania: "
+    main: "Strona główna"
+    language: "Język: "
+  sort: 
+    sort: "Sortuj wyniki za pomocą: "
+    title: "Tytuł"
+    release_date: "Data"
+    rating: "Ocena"
+  buttons:
+    show: "pokaż"
+    query: "szukaj"
+  subtitles:
+    foreign: "Polskie napisy"
+    english: "Angielskie napisy"
+  title: "Tytuł: "
+  genres:
+    all: ..Wszystkie..
+    action: Akcja 
+    adventure: Przygodowy
+    animation: Animacja
+    biography: Biograficzny
+    comedy: Komedia
+    crime: Kriminał
+    documentary: Dokumentalny
+    drama: Dramat
+    family: Rodzinny
+    fantasy: Fantasytka
+    film_noir: Biało-czarny
+    game_show: Game-show
+    history: Historyczny
+    horror: Horror
+    music: Muzyczny
+    musical: Musical
+    mystery: Tajemniczy
+    news: Wiadomości
+    reality_tv: Reality_tv
+    romance: Romans
+    sci_fi: Sci-Fi
+    short: Krótkometrażowy
+    sport: Sport
+    talk_show: Talk-show
+    thriller: Thriller
+    war: Wojenny
+    western: Western
+    
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 2
+    currency:
+      format:
+        format: "%n %u"
+        unit: "PLN"
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units: [B, KB, MB, GB, TB]
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%d %b"
+      long: "%d %B %Y"
+    
+    day_names: [Niedziela, Poniedziałek, Wtorek, Środa, Czwartek, Piątek, Sobota]
+    abbr_day_names: [nie, pon, wto, śro, czw, pia, sob]
+    
+    month_names: [~, Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
+    abbr_month_names: [~, sty, lut, mar, kwi, maj, cze, lip, sie, wrz, paź, lis, gru]
+    order: [ :day, :month, :year]
+
+  time:
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+    am: "przed południem"
+    pm: "po południu"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "pół minuty"
+      less_than_x_seconds:
+        one:   "mniej niż sekundę"
+        few:   "mniej niż {{count}} sekundy"
+        other: "mniej niż {{count}} sekund"
+      x_seconds:
+        one:   "sekundę"
+        few:   "{{count}} sekundy"
+        other: "{{count}} sekund"
+      less_than_x_minutes:
+        one:   "mniej niż minutę"
+        few:   "mniej niż {{count}} minuty"
+        other: "mniej niż {{count}} minut"
+      x_minutes:
+        one:   "minutę"
+        few:   "{{count}} minuty"
+        other: "{{count}} minut"
+      about_x_hours:
+        one:   "około godziny"
+        other: "about {{count}} godzin"
+      x_days:
+        one:   "1 dzień"
+        other: "{{count}} dni"
+      about_x_months:
+        one:   "około miesiąca"
+        other: "około {{count}} miesięcy"
+      x_months:
+        one:   "1 miesiąc"
+        few:   "{{count}} miesiące"
+        other: "{{count}} miesięcy"
+      about_x_years:
+        one:   "około roku"
+        other: "około {{count}} lat"
+      over_x_years:
+        one:   "ponad rok"
+        few:   "ponad {{count}} lata"
+        other: "ponad {{count}} lat"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "{{model}} nie został zachowany z powodu jednego błędu"
+          other:  "{{model}} nie został zachowany z powodu {{count}} błędów"
+        body: "Błędy dotyczą następujących pól:"
+      messages:
+        inclusion: "nie znajduje się na liście dopuszczalnych wartości"
+        exclusion: "znajduje się na liście zabronionych wartości"
+        invalid: "jest nieprawidłowe"
+        confirmation: "nie zgadza się z potwierdzeniem"
+        accepted: "musi być zaakceptowane"
+        empty: "nie może być puste"
+        blank: "nie może być puste"
+        too_long: "jest za długie (maksymalnie {{count}} znaków)"
+        too_short: "jest za krótkie (minimalnie {{count}} znaków)"
+        wrong_length: "jest nieprawidłowej długości (powinna wynosić {{count}} znaków)"
+        taken: "zostało już zajęte"
+        not_a_number: "nie jest liczbą"
+        greater_than: "musi być większe niż {{count}}"
+        greater_than_or_equal_to: "musi być większe lub równe {{count}}"
+        equal_to: "musi być równe {{count}}"
+        less_than: "musie być mniejsze niż {{count}}"
+        less_than_or_equal_to: "musi być mniejsze lub równe {{count}}"
+        odd: "musi być nieparzyste"
+        even: "musi być parzyste"
+      
+  support:
+    array:
+      sentence_connector: "i"
+      skip_last_comma: true
+      
+  destroy: "Usuń"
+  edit: "Edytuj"
+  show: "Pokaż"
+  update: "Aktualizuj"
+  month: "Miesiąc"
+  year: "Rok"
+   
+  paid: "zapłacone"
+  unpaid: "niezapłacone"
+  details: "Szczegóły"
+  nett_value: "Wartość netto"
+  vat_value: "VAT"
+  declaration_id: Deklaracja
+  name: "Nazwa"
+  paid_at: "Zapłacono dnia"
+  due_at: "Termin płatności"
+  issued_at: "Wystawiono dnia"
+  
+  health_insurance_base: "Podstawa ubezpieczenia zdrowotnego"
+  health_insurance_rate: "Stawka ubezpieczenia zdrowotnego"
+  minimal_salary: "Minimalne wynagrodzenie"
+  
+  expense: "Wydatek"
+  expense_details: "Szczegoly wydatku"

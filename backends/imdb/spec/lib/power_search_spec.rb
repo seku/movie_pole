@@ -26,8 +26,8 @@ describe IMDB::PowerSearch, "#parse_search_options" do
   end
 
   it "should parse rating option" do
-    params = @power_search.parse_search_options(:rating => 6)
-    params.should include("lo-rating=6")
+    params = @power_search.parse_search_options(:rating => 6.4)
+    params.should include("lo-rating=6.4")
     params.should include("hi-rating=10")
   end
 
@@ -60,7 +60,7 @@ describe IMDB::PowerSearch, "using babylon.html fixture" do
     movies.should have_key(:query)
     movies.should have_key(:results)
     results = movies[:results]
-    results.count.should == 1
+    results.size.should == 1
     result = results.first
     result.should include(:title => "Babylon A.D.")
     result.should include(:year => "2008")
@@ -98,7 +98,7 @@ describe IMDB::PowerSearch, "using monkeys.html fixture" do
     movies.should have_key(:query)
     movies.should have_key(:results)
     results = movies[:results]
-    results.count.should == 5
+    results.size.should == 5
 
     result = results[0]
     result.should include(:title => "Dana Carvey: Squatting Monkeys Tell No Lies")

@@ -1,0 +1,42 @@
+#yui-main
+  .yui-b
+    .yui-gd{:style => "border: 1px solid red"}
+      %h2
+        = t('txt.main_title') 
+      -form_tag(movies_path, :method => :get) do 
+        = t('sort.sort') 
+        = hidden_field_tag :genre_id, params[:genre_id]
+        = hidden_field_tag :rating, params[:rating]
+        = select_tag :sort_by, options_for_select(@sort_by, params[:sort_by]) 
+        = submit_tag t('buttons.show') 
+        = check_box_tag :without, 1, params[:without] == "1" ? true : false
+        = t('txt.without')
+      = t('txt.result') 
+      = will_paginate @movies 
+      %ul
+        -@movies.each do |movie| 
+          = render :partial => movie
+      %br
+      = will_paginate @movies 
+      %br
+      = link_to t('txt.main'), genres_path
+      >>
+      = link_to(t("genres.#{@genre.name}"), genre_movies_path(@genre))
+
+
+.yui-b
+  #search_block 
+    = t('txt.query_title')
+    -form_tag(searches_path, :method => :get) do 
+      = text_field_tag :query
+      = select_tag :genre_id, options_for_select(Genre.options_for_select, params[:genre_id].to_i)
+      %br
+      = t('sort.rating') 
+      = select_tag :rating, options_for_select(@rating, params[:rating]) 
+      %br
+      = check_box_tag :without, 1, params[:without] == "1" ? true : false  
+      = t('txt.without')
+      %br
+      %br
+      = submit_tag t('buttons.show') 
+

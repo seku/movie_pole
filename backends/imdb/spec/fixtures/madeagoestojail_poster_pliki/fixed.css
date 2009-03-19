@@ -1,0 +1,189 @@
+
+/****** fixed-width styleguide-v2 changes ******/
+
+/* @group BASIC PAGE ELEMENTS */
+
+#styleguide-v2 {
+  margin: 0px;
+  background-color: #d4d9dd;
+}
+
+/* @end */
+
+/* @group PAGE LAYOUT */
+
+/* #wrapper is the base container and is always used */
+#styleguide-v2 #wrapper {
+  position:static;
+  width: auto;
+  margin: auto;
+  background: #d4d9dd url(bg-1008.gif) repeat-y center;
+}
+/* #content-left and content-right are containers used in three-column layout. */
+#styleguide-v2 #content-left,
+#styleguide-v2 .content-left {
+/*  float: left;
+  width: 160px; */
+}
+#styleguide-v2 #content-right {
+  float: right;
+  margin-right: 20px;
+  width: 780px;
+}
+/* #content is used for all two- and one-column layouts. */
+/* lepera: we need to specify hard margins to keep the content from wrapping around the bottoms of left and right columns */
+
+#styleguide-v2 #content-2col-right,
+#styleguide-v2 .content-2col-right {
+/*  margin-left: 180px; */
+  width: auto;
+}
+#styleguide-v2 #content-2col-left,
+#styleguide-v2 .content-2col-left {
+  margin-right: 180px;
+  width: auto;
+}
+/*sidebars: narrow can appear on left or right. wide is always on the right*/
+#styleguide-v2 #sidebar-narrow {
+  font-size: 90%;
+  float: left;
+  width: 160px;
+  border-right: #aab 1px dotted;
+}
+#styleguide-v2 #sidebar-narrow-odd {
+  font-size: 90%;
+  width: 160px;
+  float: right;
+}
+#styleguide-v2 #sidebar-wide {
+  font-size: 90%;
+  width: 300px;
+  float: right;
+}
+
+/* @group tn15 overrides */
+
+div.filmo {
+    position:relative;
+}
+
+#tn15main .filmo .label {
+    left:0px !important;
+}
+
+#tn15 {
+   margin:0px 20px;
+   position:static;
+}
+#tn15lhs {
+    padding-left:0px;
+    background-color:#fff;
+    width:120px !important;
+}
+
+#tn15shopbox {
+    position:relative !important;
+    float:right;
+    right:0px !important;
+}
+
+#tn15dupe {
+}
+
+#charhelplink {
+    position:relative;
+    float:right;
+    right:0px;
+}
+
+#nb15 {
+    position:relative;
+    min-width:none !important;
+    width:auto;
+    padding-top:0px !important;
+}
+
+#nb15home,
+#nb15botbg {
+    position:relative;
+}
+
+#nb15home {
+  z-index:100;
+}
+
+#nb15home img {
+   position:absolute;
+}
+
+#root {
+    width:1008px;
+    margin:auto;
+    background-color:#fff;
+}
+
+#pagecontent {
+    background-color:#fff;
+}
+
+div.tvgrid {
+    width:auto !important;
+}
+
+table#outerbody {
+    width:968px;
+    margin:auto;
+}
+
+#nb15tabs a:hover {
+    text-decoration:none;
+}
+
+td#homepage-center-content a img {
+    margin:0px 8px 8px 0px;
+}
+b.coolheadline {
+    line-height:2em;
+}
+
+#nb15supertab {
+   width:100%;
+}
+
+#swf_NavbarBamf {
+}
+
+.dvd_buckets {
+    padding:10px;
+    width:auto;
+}
+
+.tv_tune_in img {
+  margin:0px 10px 10px 0px;
+}
+
+.tv_bucket2 {
+    margin:15px 10px 0px 0px;
+}
+.tv_nav_logo {
+    position:static !important;
+    float:left;
+    left:0px !important;
+    margin-left:10px;
+}
+.tv_navbar {
+    position:static !important;
+}
+
+/* runway thumbnail fixes */
+
+div#context_strip,
+div.thumb_list {
+    font-family:Tahoma,Verdana,Arial,sans-serif;
+}
+
+#fixedwidthpreview {
+    display:none;
+}
+
+/* @end */

@@ -13,7 +13,7 @@ describe IMDB::NowPlaying, "with 2009-07 fixture" do
   end
 
   it "should parse HTML and return hash with results" do
-    result = @now_playing.movies(2009, 07)
+    result = @now_playing.movies(2009, 7)
     results = result[:results]
     results.should include(:imdb_id => "0417741", :title => "Harry Potter and the Half-Blood Prince")
     results.should include(:imdb_id => "0775552", :title => "They Came from Upstairs")

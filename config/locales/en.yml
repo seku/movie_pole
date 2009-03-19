@@ -2,5 +2,88 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  movie: Movie
-  movies: Movies
+  movie_pole: "Movie Pole"
+  txt:
+    main_title: "Show the newest movies for choosen category"
+    without: "No torrents"
+    trailers: "Trailers"
+    genre: "Genre: "
+    year: "Year: "
+    votes: "Votes: "
+    directors: "Directors: "
+    writers: "Writers: "
+    release_date: "Release_date: "
+    tagline: "Tagline: "
+    plot: "Plot: "
+    query_title: "Search: "
+    result: "Searching results: "
+    main: "Main page"
+    language: "Language: "
+  sort:
+    sort: "Sort results by: "
+    title: "Name"
+    release_date: "Date"
+    rating: "Rating"
+  buttons:
+    show: "show"
+    query: "search"
+  subtitles:
+    english: "English subtitles"
+  title: "Title: "
+  
+  genres:
+    all: ..All..
+    action: Action 
+    adventure: Adventure
+    animation: Animation
+    biography: Biography
+    comedy: Comedy
+    crime: Crime
+    documentary: Documentary
+    drama: Drama
+    family: Family
+    fantasy: Fantasy
+    film_noir: Film_noir
+    game_show: Game_show
+    history: History
+    horror: Horror
+    music: Music
+    musical: Musical
+    mystery: Mystery
+    news: News
+    reality_tv: Reality_tv
+    romance: Romance
+    sci_fi: Sci_fi
+    short: Short
+    sport: Sport
+    talk_show: Talk_show
+    thriller: Thriller
+    war: War
+    western: Western
+    
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 2
+    currency:
+      format:
+        format: "%n %u"
+        unit: "PLN"
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units: [B, KB, MB, GB, TB]
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%d %b"
+      long: "%d %B %Y"

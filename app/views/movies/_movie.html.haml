@@ -1,0 +1,48 @@
+%li
+  #poster
+    = image_tag(movie.poster, :width => 100)
+  #movie_features
+    = t 'title' 
+    = link_to(movie.title, movie_path(movie)) 
+    |
+    = link_to(movie.imdb_id, imdb_url(movie.imdb_id)) 
+    |
+    = movie.rating 
+    -if movie.torrents.any? 
+      | torrents: 
+      -movie.torrents.each do |torrent| 
+        = link_to("torrent (#{number_to_human_size(torrent.size)})", torrent_url(torrent), :title => torrent.title)
+    -else 
+      | there's no torrent avaliable yet
+    = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{movie.imdb_id}")) if cookies[:locale] != "en"
+    |
+    = link_to(t('subtitles.english'), subtitles_url("eng", "#{movie.imdb_id}")) 
+    |
+    = link_to(t('txt.trailers'), movie.official_site) if movie.official_site
+    %br
+    = t 'txt.genre' 
+    -movie.genres.each do |genre|
+      = link_to(t("genres.#{genre.name}"), genre_movies_path(genre)) unless genre.id == 1
+    %br
+    = t 'txt.year' 
+    = movie.year 
+    %br
+    = t 'txt.votes' 
+    = movie.votes 
+    %br
+    = t 'txt.directors' 
+    = movie.directors 
+    %br
+    = t 'txt.writers' 
+    = movie.writers
+    %br
+    = t 'txt.release_date' 
+    = movie.release_date 
+    %br
+    = t 'txt.tagline' 
+    = movie.tagline 
+    %br
+    = t 'txt.plot'
+    = movie.plot 
+    %br
+

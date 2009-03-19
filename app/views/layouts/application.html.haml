@@ -3,17 +3,27 @@
 %html{html_attrs("en-US")}
   %head
     %title Movie Pole
+    = stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" 
     = stylesheet_link_tag "application"
     = javascript_include_tag :defaults
+    = javascript_include_tag "locale"
+    = javascript_include_tag "jquery_cookie"
     = auto_discovery_link_tag(:rss, movies_path(:format => :rss))
-  %body
-    #doc
-      #hd
-        %h1 Movie Pole
 
+  %body
+    #doc2.yui-t4
+      #hd
+        = t('txt.language')
+        = select_tag(:locale, options_for_select(languages, cookies[:locale]))
+        %h1
+          = link_to(t('movie_pole'), genres_path) 
+        
+                
       #bd
         = flash[:notice]
         = flash[:error]
         = yield
 
-      #ft
+      #ft 
+        #copyright
+          Copyright Trix.pl

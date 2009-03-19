@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def show
-    redirect_to(movies_path)
+    redirect_to(admin_path)
   end
   
 end

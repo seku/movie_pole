@@ -1,0 +1,50 @@
+{ 
+ 
+var google_ads = new Array(); 
+var google_ad; 
+var google_radlinks = new Array(); 
+var google_radlink; 
+var google_info = new Object(); 
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/pagead/iclk?sa=l&amp;ai=BrJm62li6SbWRNJCN-Aa36ZCBBb_CwoMB96SDxAfAjbcBsOoBEAEYASD96aoGKAM4AFDJmfZbYOmU0IXwGrIBDHd3dy5pbWRiLmNvbcgBAdoBL2h0dHA6Ly93d3cuaW1kYi5jb20vbWVkaWEvcm00MzcxNjA0NDgvdHQxMTQyODAwgAIByALb3OIGqAMB6AMi6AOlBPUDAAQABPUDBAAAAJgEAA&amp;num=1&amp;adurl=http://www.tomcruise.com/%3Futm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_content%3DSC%26utm_campaign%3DEUR&amp;client=ca-amazon-imdb_js"; 
+google_ad.visible_url = "TomCruise.com"; 
+google_ad.line1 = "Tom Cruise-Tropic Thunder"; 
+google_ad.line2 = "25 Years Since \x26quot;Risky Business\x26quot;"; 
+google_ad.line3 = "Visit TomCruise.com - Official Site"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/pagead/iclk?sa=l&amp;ai=BEQfm2li6SbWRNJCN-Aa36ZCBBcKJroIBjIGH8QjAjbcBkE4QAhgCIP3pqgYoAzgAUMeOsIwBYOmU0IXwGqAButfC_gOyAQx3d3cuaW1kYi5jb23IAQHaAS9odHRwOi8vd3d3LmltZGIuY29tL21lZGlhL3JtNDM3MTYwNDQ4L3R0MTE0MjgwMKgDAegDIugDpQT1AwAEAAT1AwQAAACYBAA&amp;num=2&amp;adurl=http://mark155.themovdwn.hop.clickbank.net%3Ftid%3Dmovies7%26glid%3D1070640058%26ovid%3D%26id%3Dthemoviedls_com&amp;client=ca-amazon-imdb_js"; 
+google_ad.visible_url = "www.AllMovie.com"; 
+google_ad.line1 = "Movies \x26#8212; Download"; 
+google_ad.line2 = "Get a massive movie library now."; 
+google_ad.line3 = "Get a movie fast! \x26#8212;Need any movie?"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/pagead/iclk?sa=l&amp;ai=BVC0u2li6SbWRNJCN-Aa36ZCBBdLerH6e1a6GC8CNtwGQThADGAMg_emqBigDOABQ97HRtfz_____AWDplNCF8BqyAQx3d3cuaW1kYi5jb23IAQHaAS9odHRwOi8vd3d3LmltZGIuY29tL21lZGlhL3JtNDM3MTYwNDQ4L3R0MTE0MjgwMMgC_MHxCKgDAegDIugDpQT1AwAEAAT1AwQAAACYBAA&amp;num=3&amp;adurl=http://geoswitch.4dh.com/key/find/movies/%3Fq3%3Dmovies&amp;client=ca-amazon-imdb_js"; 
+google_ad.visible_url = "www.4dh.com/Video"; 
+google_ad.line1 = "Free Video"; 
+google_ad.line2 = "Watch \x26amp; Share Millions of Videos"; 
+google_ad.line3 = "about movies"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+if (window.google_ad_request_done) { 
+google_ad_request_done(google_ads); 
+} 
+if (window.google_radlink_request_done) { 
+google_radlink_request_done(google_radlinks); 
+} 
+}

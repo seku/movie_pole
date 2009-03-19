@@ -1,0 +1,6 @@
+document.write('<object type=\"application/x-shockwave-flash\" data=\"http://content.yieldmanager.edgesuite.net/atoms/d9/a7/dc/2f/d9a7dc2f5ddfb29fc6ea33fb5b29bc77.swf?clickTag=http%3A%2F%2Fad%2Edirectaclick%2Ecom%2Fclick%2CAAAAAFTKCACgjA8ABOMEAAIAAAAAAP8AAAAGDQIAAQKs0gcAwUMHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpFukkAAAAA%2C%2C%2C\" height=\"600\" width=\"120\" loop=\"false\" bgcolor=\"#FFFFFF\" wmode=\"transparent\"><param name=\"wmode\" value=\"transparent\"><param name=\"movie\" value=\"http://content.yieldmanager.edgesuite.net/atoms/d9/a7/dc/2f/d9a7dc2f5ddfb29fc6ea33fb5b29bc77.swf?clickTag=http%3A%2F%2Fad%2Edirectaclick%2Ecom%2Fclick%2CAAAAAFTKCACgjA8ABOMEAAIAAAAAAP8AAAAGDQIAAQKs0gcAwUMHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpFukkAAAAA%2C%2C%2C\" /></object><img src=\"http://map.media6degrees.com/orbserv/aopix?pixId=1062\" height=\"1\" width=\"1\" alt=\"\"><script> var pp_gemius_identifier = new String(\'pzBFLPc_9csHi5QdEnn2qpbBDqugVs9yCwAqcJMBm1H.W7\');</script><script src=\"http://qnet.hit.gemius.pl/pp_gemius.js\"></script>');
+var rm_data = new Object();
+rm_data.creative_id = 1019040;
+rm_data.offer_type = 47;
+rm_data.entity_id = 82661;
+if (window.rm_crex_data) {rm_crex_data.push(1019040);}
