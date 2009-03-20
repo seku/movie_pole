@@ -2,8 +2,8 @@ class Movie < ActiveRecord::Base
   named_scope :most_voted, :order => "movies.votes desc"
   named_scope :rated_with, lambda { |rating| { :conditions => ["rating >= ?", rating] } }
   named_scope :only_torrents, :conditions => ["torrents_count > 0"]
-  named_scope :sorted_by, lambda { |sort_by| {:order => "movies.#{sort_by} desc" } }
-  named_scope :title, :order => "movies.title asc"
+  named_scope :sorted_by, lambda { |sort_by, how| {:order => "movies.#{sort_by} #{how}" } }
+  #named_scope :title, :order => "movies.title asc"
   
   before_validation :sanitize_title
 
@@ -27,7 +27,6 @@ class Movie < ActiveRecord::Base
     # attributes
     has genres(:id), :as => :genre_ids
     has release_date, rating, torrents_count
-    
   end
  
   def sanitize_title
@@ -43,7 +42,7 @@ class Movie < ActiveRecord::Base
   	end
   end
   
-  private
+  protected
   
   def self.current_week_movies(date)
     ids = current_week_imdb_ids(date).reject{|id| Movie.find_by_id(id)}

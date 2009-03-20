@@ -15,14 +15,15 @@ class ApplicationController < ActionController::Base
   
   def set_defaults
     @rating = %w{1.0 5.0 6.0 7.0 8.0 9.0}
-    @sort_by = Sort.all.map{ |s| [I18n.translate("sort.#{s.name}"), s.name] } 
+    @sort_by = ["release_date", "title", "rating"].map {|sort| [I18n.translate("sort.#{sort}"), sort] }
+    @sort_mode = {:release_date => "desc", :rating => "desc", :title => "asc"}
   end
   
   def set_locale
     I18n.locale = cookies[:locale] || :en
   end
 
-  def pn #pagination number
+  def per_page
     10
   end
 end

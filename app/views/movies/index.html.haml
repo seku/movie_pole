@@ -25,18 +25,4 @@
 
 
 .yui-b
-  #search_block 
-    = t('txt.query_title')
-    -form_tag(searches_path, :method => :get) do 
-      = text_field_tag :query
-      = select_tag :genre_id, options_for_select(Genre.options_for_select, params[:genre_id].to_i)
-      %br
-      = t('sort.rating') 
-      = select_tag :rating, options_for_select(@rating, params[:rating]) 
-      %br
-      = check_box_tag :without, 1, params[:without] == "1" ? true : false  
-      = t('txt.without')
-      %br
-      %br
-      = submit_tag t('buttons.show') 
-
+  = render :partial => "movies/side_panel"
