@@ -4,6 +4,7 @@
 en:
   movie_pole: "Movie Pole"
   txt:
+    category: "Category: "
     main_title: "Show the newest movies for choosen category"
     without: "No torrents"
     trailers: "Trailers"
@@ -19,16 +20,24 @@ en:
     result: "Searching results: "
     main: "Main page"
     language: "Language: "
+    more: "more"
+    register_urge: "If you register you can get weekly the newest movies with torrent on mail (just those you are interested in)"
+    why_register: "Register, what for"
+    alert_information1: "Create your alert !!"
+    alert_information2: "Get weekly the newest movies list with links to existing torrents and subtitles."
+    alert_information3: "Only movies which will fit your alerts will be sent !!" 
   sort:
     sort: "Sort results by: "
     title: "Name"
     release_date: "Date"
     rating: "Rating"
   buttons:
-    show: "show"
-    query: "search"
+    show: "Show"
+    query: "Search"
+    send: "Send"
   subtitles:
     english: "English subtitles"
+    sub: "Subtitles: "
   title: "Title: "
   
   genres:
@@ -60,16 +69,47 @@ en:
     thriller: Thriller
     war: War
     western: Western
-    
+  user:
+    login: Login
+    register: Register
+    account: My_account
+    logout: Logout
+    confirm: Are you sure ?
+    delete: Delete account
+    edit: Edit
+    photo: "Photo: "
+    user: "User: "
+    submit: Submit
+    edit_account: Edit my account
+    access_link: "Access link will be send to you"
+    form: "Your movies choice"
+    change: Change
+    create_order: Create your order
+    count: "Number of movies send to you:"
+    language: "Yours subtitles language: "
+    params: "Order parameters: "
+    edit_params: "Edit order parameters: "
+    alert_add: "Add alert"
+    alert_all: "In case of choice \"All\" the rest alerts will be deleted"
+    alert_del: "Delete"
+    email_name: "List of movies"
+    torrents: "Torrents: "
+    trailer: "Trailers (Official site): "
+    alert_cancel: "Cancel"
+    alert_exist: "You have already choosen this genre"
+    alert_aceptation: "Do you realy want to delete this alert?"
   number:
     format:
-      separator: ","
-      delimiter: " "
-      precision: 2
+      separator: "."
+      delimiter: ","
+      precision: 3
     currency:
       format:
-        format: "%n %u"
-        unit: "PLN"
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
     percentage:
       format:
         delimiter: ""
@@ -80,10 +120,63 @@ en:
       format:
         delimiter: ""
         precision: 1
-      storage_units: [B, KB, MB, GB, TB]
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
 
-  date:
-    formats:
-      default: "%Y-%m-%d"
-      short: "%d %b"
-      long: "%d %B %Y"
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one: "less than 1 second"
+        other: "less than {{count}} seconds"
+      x_seconds:
+        one: "1 second"
+        other: "{{count}} seconds"
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than {{count}} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "{{count}} minutes"
+      about_x_hours:
+        one: "about 1 hour"
+        other: "about {{count}} hours"
+      x_days:
+        one: "1 day"
+        other: "{{count}} days"
+      about_x_months:
+        one: "about 1 month"
+        other: "about {{count}} months"
+      x_months:
+        one: "1 month"
+        other: "{{count}} months"
+      about_x_years:
+        one: "about 1 year"
+        other: "about {{count}} years"
+      over_x_years:
+        one: "over 1 year"
+        other: "over {{count}} years"
+    prompts:
+      year: "Year"
+      month: "Month"
+      day: "Day"
+      hour: "Hour"
+      minute: "Minute"
+      second: "Seconds"
+ 
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 error prohibited this {{model}} from being saved"
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+        body: "There were problems with the following fields:"
+

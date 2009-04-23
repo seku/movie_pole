@@ -1,6 +1,7 @@
 es:
   movie_pole: "Zona de la peli"
   txt:
+    category: "Category: "
     main_title: "Apariencia the newest movies for choosen category" ##############
     without: "No torrents"
     trailers: "Vísperas"
@@ -16,6 +17,12 @@ es:
     result: "Searching results: " #############
     main: "Capital página"
     language: "Lengua: "
+    more: "więcej"
+    register_urge: "If you register you can get weekly the newest movies with torrent on mail (just those you are interested in)"
+    why_register: "Rejestracja, po co"
+    alert_information1: "Stwórz swoje powiadomienie !!"
+    alert_information2: "Otrzymuj co tydzień listę z najnowszymi filmami dla których istnieją torrenty i napisy !!"
+    alert_information3: "Otrzymasz tylko te filimy, które będą spełniać twoje wymagania" 
   sort:
     sort: "Sort results by: " ############
     title: "Título"
@@ -24,7 +31,9 @@ es:
   buttons:
     show: "Apariencia"
     query: "Busca"
+    send: "SEND" #####
   subtitles:
+    sub: "Napisy: " 
     foreign: "Spanish subtítulos"
     english: "English subtítulos"
   title: "Title: "
@@ -58,15 +67,47 @@ es:
     thriller: Thriller
     war: Bélico
     western: Western
+  user:
+    login: Zaloguj się ######
+    register: Zarejestruj się ###########
+    account: konto #########
+    logout: wylog ###########
+    conirm: sure ? 
+    delete: agda #######
+    edit: edytuj #######
+    photo: fota ############
+    user: User ##########
+    submit: Submit ##
+    edit_account: ETg ###
+    access_link: "Access link will be send to you" ########
+    form: "Twój wybór filmów na maila" ####
+    change: Zmień #####
+    create_order: Create your order #######
+    count: Ilość filmów wysyłanych na maila #########
+    language: "Subtitles language: " ######
+    params: "Order parameters: " ###########
+    edit_params: "Edytuj pozycje zamówienia: " #######
+    alert_add: "Add alert" ###
+    alert_all: "In case of choice \"All\" the rest alerts will be deleted" ### 
+    alert_del: "Usuń" ###
+    email_name: "Lista filmów" #######
+    torrents: "Torrenty: " #######
+    trailer: "Trailers (Official site): "
+    alert_cancel: "Anuluj" #########
+    alert_exist: "Wybrałeś już tą pozycję" ##########
+    alert_aceptation: "lajja"
   number:
     format:
-      separator: ","
-      delimiter: " "
-      precision: 2
+      separator: "."
+      delimiter: ","
+      precision: 3
     currency:
       format:
-        format: "%n %u"
-        unit: "PLN"
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
     percentage:
       format:
         delimiter: ""
@@ -77,11 +118,63 @@ es:
       format:
         delimiter: ""
         precision: 1
-      storage_units: [B, KB, MB, GB, TB]
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
 
-  date:
-    formats:
-      default: "%Y-%m-%d"
-      short: "%d %b"
-      long: "%d %B %Y"
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one: "less than 1 second"
+        other: "less than {{count}} seconds"
+      x_seconds:
+        one: "1 second"
+        other: "{{count}} seconds"
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than {{count}} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "{{count}} minutes"
+      about_x_hours:
+        one: "about 1 hour"
+        other: "about {{count}} hours"
+      x_days:
+        one: "1 day"
+        other: "{{count}} days"
+      about_x_months:
+        one: "about 1 month"
+        other: "about {{count}} months"
+      x_months:
+        one: "1 month"
+        other: "{{count}} months"
+      about_x_years:
+        one: "about 1 year"
+        other: "about {{count}} years"
+      over_x_years:
+        one: "over 1 year"
+        other: "over {{count}} years"
+    prompts:
+      year: "Year"
+      month: "Month"
+      day: "Day"
+      hour: "Hour"
+      minute: "Minute"
+      second: "Seconds"
+ 
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 error prohibited this {{model}} from being saved"
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+        body: "There were problems with the following fields:"
 

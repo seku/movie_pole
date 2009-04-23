@@ -1,6 +1,7 @@
 pl:
   movie_pole: "Pole filmowe"
   txt:
+    category: "Kategoria: "
     main_title: "Pokaż najnowsze filmy dla wybranej kategorii"
     without: "Bez torrentów"
     trailers: "Zwiastuny"
@@ -16,17 +17,25 @@ pl:
     result: "Wyniki wyszukiwania: "
     main: "Strona główna"
     language: "Język: "
+    more: "więcej"
+    register_urge: "Jeśli się zarejestrujesz, będziesz miał możliwość otrzymywania listy najnowszych filmów na maila co tydzień (Tylko interesujących konkretnie Ciebie)"
+    why_register: "Rejestracja, po co"
+    alert_information1: "Stwórz swoje powiadomienie !!"
+    alert_information2: "Otrzymuj co tydzień listę z najnowszymi filmami dla których istnieją torrenty i napisy !!"
+    alert_information3: "Otrzymasz tylko te filimy, które będą spełniać twoje wymagania" 
   sort: 
     sort: "Sortuj wyniki za pomocą: "
     title: "Tytuł"
     release_date: "Data"
     rating: "Ocena"
   buttons:
-    show: "pokaż"
-    query: "szukaj"
+    show: "Pokaż"
+    query: "Szukaj"
+    send: "Wyślij"
   subtitles:
     foreign: "Polskie napisy"
     english: "Angielskie napisy"
+    sub: "Napisy: "
   title: "Tytuł: "
   genres:
     all: ..Wszystkie..
@@ -57,16 +66,47 @@ pl:
     thriller: Thriller
     war: Wojenny
     western: Western
-    
+  user:
+    login: Zaloguj się
+    register: Zarejestruj się
+    account: Moje konto
+    logout: Wyloguj się
+    confirm: Jesteś pewien ?
+    delete: Usuń konto
+    edit: Edytuj
+    photo: "Zdjęcie: "
+    user: "Użytkownik: "
+    submit: Zatwierdź
+    edit_account: Edytuj swoje konto
+    access_link: "Link dostępu zostanie wysłany na twoją skrzynkę"
+    form: "Twój wybór filmów na maila"
+    change: Zmień
+    create_order: Stwórz zamówienie
+    count: "Ilość filmów wysyłanych na maila:"
+    language: "Twój język napisów: "
+    params: "Parametry zamówienia: "
+    edit_params: "Edytuj pozycje zamówienia: "
+    alert_add: "Dodaj do powiadomienia"
+    alert_all: "W przypadku wyboru \"Wszystkie\" pozostałe powiadomienia zostaną usuniętę"
+    alert_del: "Usuń"
+    email_name: "Lista filmów"
+    torrents: "Torrenty: "
+    trailer: "Zwiastuny (Oficjalna strona): "
+    alert_cancel: "Anuluj"
+    alert_exist: "Wybrałeś już tą pozycję"
+    alert_aceptation: "Napewno chcesz usunąć powiadomienie ?"
   number:
     format:
-      separator: ","
-      delimiter: " "
-      precision: 2
+      separator: "."
+      delimiter: ","
+      precision: 3
     currency:
       format:
-        format: "%n %u"
-        unit: "PLN"
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
     percentage:
       format:
         delimiter: ""
@@ -77,7 +117,17 @@ pl:
       format:
         delimiter: ""
         precision: 1
-      storage_units: [B, KB, MB, GB, TB]
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
 
   date:
     formats:
@@ -139,6 +189,13 @@ pl:
         one:   "ponad rok"
         few:   "ponad {{count}} lata"
         other: "ponad {{count}} lat"
+    prompts:
+      year: "Rok"
+      month: "Miesiąc"
+      day: "Dzień"
+      hour: "Godzina"
+      minute: "Minuta"
+      second: "Sekunda"  
 
   activerecord:
     errors:

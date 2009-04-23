@@ -5,10 +5,11 @@
     %title Movie Pole
     = stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" 
     = stylesheet_link_tag "application"
-    = javascript_include_tag :defaults
-    = javascript_include_tag "locale"
-    = javascript_include_tag "jquery_cookie"
+    = javascript_include_tag :defaults, "movie_pole", "jquery_cookie", "jquery.autocomplete", "jquery.tmpl", "jquery.blockUI"
     = auto_discovery_link_tag(:rss, movies_path(:format => :rss))
+    - document_ready do
+      = render_authenticity_token
+      == translations = {"edit": "#{t("user.edit")}", "del": "#{t("user.alert_del")}", "rating": "#{t("sort.rating")}", "genre": "#{t("txt.genre")}", "alert_exist" : "#{t("user.alert_exist")}" }
 
   %body
     #doc2.yui-t4

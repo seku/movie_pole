@@ -9,7 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090318084053) do
+ActiveRecord::Schema.define(:version => 20090401134756) do
+
+  create_table "alerts", :force => true do |t|
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "genre_id"
+  end
+
+  create_table "alerts_movies", :id => false, :force => true do |t|
+    t.integer  "alert_id",   :null => false
+    t.integer  "movie_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "genres", :force => true do |t|
     t.string   "name"
@@ -59,6 +74,21 @@ ActiveRecord::Schema.define(:version => 20090318084053) do
     t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "persistence_token"
+    t.string   "password_salt"
+    t.string   "crypted_password"
+    t.string   "email"
+    t.string   "perishable_token"
+    t.string   "language"
   end
 
 end

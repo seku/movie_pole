@@ -1,0 +1,15 @@
+%h1
+  = t('user.login')
+ 
+= t('user.access_link')
+%br
+%br
+ 
+-form_tag login_emails_path do 
+  Email:
+  %br
+  = text_field_tag "email" 
+  %br
+  %br
+  = submit_tag t('buttons.send')
+

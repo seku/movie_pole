@@ -1,6 +1,6 @@
-require 'test/test_helper'
+require '../test_helper'
 
-class MovieTest < Test::Unit::TestCase
+class MovieTest < ActiveSupport::TestCase
   fixtures :movies, :torrents, :genres
 
   context "Arguments" do
@@ -27,7 +27,7 @@ class MovieTest < Test::Unit::TestCase
     setup do
       @movie = movies(:first_movie)
     end
-    
+    should_have_and_belong_to_many :alerts
     should_have_many :torrents
     should_have_and_belong_to_many :genres
     should_validate_uniqueness_of :imdb_id
@@ -37,7 +37,6 @@ class MovieTest < Test::Unit::TestCase
     should_validate_numericality_of :year
     should_have_named_scope :most_voted, :order => "movies.votes desc"
     should_have_named_scope :only_torrents, :conditions => ["torrents_count > 0"]
-    should_have_named_scope :title, :order => "movies.title asc"
     should_have_named_scope "rated_with(7.0)", :conditions => ["rating >= ?", 7.0]
     #should_have_named_scope "sorted_by(rating)", :order => "movies.rating desc"
   end

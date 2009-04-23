@@ -1,8 +1,12 @@
 #yui-main
   .yui-b
     .yui-gd{:style => "border: 1px solid red"}
+      = link_to t('txt.main'), genres_path
+      >>
+      = link_to(t("genres.#{@genre.name}"), genre_movies_path(@genre))
       %h2
-        = t('txt.main_title') 
+        = t('txt.category')
+        = t("genres.#{@genre.name}") 
       -form_tag(movies_path, :method => :get) do 
         = t('sort.sort') 
         = hidden_field_tag :genre_id, params[:genre_id]
@@ -25,4 +29,4 @@
 
 
 .yui-b
-  = render :partial => "movies/side_panel"
+  = render :partial => "movies/side_panel" 

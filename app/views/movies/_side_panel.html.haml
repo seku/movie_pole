@@ -1,0 +1,37 @@
+#search_block 
+  = t('txt.query_title')
+  -form_tag(searches_path, :method => :get) do 
+    = text_field_tag :query, params[:query], :id => "search_query"
+    %ul.autocomplete_results
+    #more
+      = link_to(t('txt.more'))
+    = submit_tag t('buttons.query') 
+    #advanced_search
+      %br
+      = select_tag :genre_id, options_for_select(Genre.options_for_select)
+      %br
+      = t('sort.rating') 
+      = select_tag :rating, options_for_select(@rating, params[:rating]) 
+      %br
+      = check_box_tag :without, 1, params[:without] == "1" ? true : false  
+      = t('txt.without')
+      %br
+    
+    
+#login
+  #account
+    -if !current_user
+      = link_to(t('user.login'), new_user_session_path)
+      = link_to(t('user.register'), new_user_path)
+      #why_register
+        = link_to(t('txt.why_register'))
+        = link_to(image_tag("http://darmowegrafiki.5m.pl/pytajniki/gify_ikony/scr_symQuestion.gif"))
+      #register_urge
+        = t('txt.register_urge')
+    -else
+      = link_to(t('user.account'), user_path(current_user))
+      = link_to(t('user.logout'), user_session_path, :method => :delete, :confirm => t('user.confirm'))
+
+
+
+

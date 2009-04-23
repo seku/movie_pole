@@ -1,0 +1,2 @@
+module AlertsEmailsHelper
+end

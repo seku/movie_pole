@@ -1,0 +1,8 @@
+%h1
+  =t('user.edit_account')
+-form_for @user, :html => { :multipart => true }, :url => account_path do |f| 
+  = f.error_messages 
+  = render :partial => "form", :object => f 
+  = f.submit t('user.submit') 
+%br 
+= link_to(t('user.account'), user_path(current_user))

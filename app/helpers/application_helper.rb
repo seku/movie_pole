@@ -9,5 +9,5 @@ module ApplicationHelper
     languages.delete("")
     languages
   end
-
+  
 end

@@ -1,0 +1,35 @@
+%h2 
+  = t('user.account')
+%br
+-content_tag :div, :class => "user account" do
+  = link_to(t('user.delete'), user_path(@user), :method => :delete, :confirm => t('user.confirm'))
+  %br
+  = t('user.user')
+  =h @user.login 
+  %br
+  = t('user.photo')
+  = image_tag @user.gravatar_url(:default => "wavatar", :size => 50) 
+  %br
+  = t('user.language')
+  = @user.language
+  %br
+  = link_to(t('user.edit'), edit_account_path)
+-content_tag :div, :class => "user_form" do
+  %h3
+    = t('user.form')
+  -content_tag :div, :id => "results" do
+    = render :partial => "alerts/user_alerts"
+  %br
+  - unless (!@user.alerts.blank?) && (@user.alerts.first.genre_id == "1")
+    #alert_add
+      = link_to(t('user.alert_add'), new_user_alert_path(@user))
+  #message
+    = render :partial => "alerts/alert_params"
+-content_tag :div, :class => "alert_information" do
+  = t('txt.alert_information1')
+  %br
+  = t('txt.alert_information2')
+  %br
+  = t('txt.alert_information3')
+
+

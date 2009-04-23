@@ -1,0 +1,17 @@
+%br
+%h1
+  = t('user.register')
+%br
+-form_for @user, :html => { :multipart => true }, :url => account_path do |f|
+  = f.error_messages
+  = f.label t('user.user') 
+  %br
+  = f.text_field :login 
+  %br
+  %br
+  = f.label :Email
+  %br
+  = f.text_field :email
+  %br 
+  = f.submit t('user.register')
+
