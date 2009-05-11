@@ -1,0 +1,15 @@
+one:
+  name: All
+two:
+  name: Action 
+  movies: first_movie, last_movie
+three:
+  name: Adventure
+  movies: last_movie
+four:
+  name: Animation
+five:
+  name: Biography
+six:
+  name: Comedy
+

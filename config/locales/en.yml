@@ -4,6 +4,7 @@
 en:
   movie_pole: "Movie Pole"
   txt:
+    category_choice: "Choose from category"
     category: "Category: "
     main_title: "Show the newest movies for choosen category"
     without: "No torrents"
@@ -18,9 +19,11 @@ en:
     plot: "Plot: "
     query_title: "Search: "
     result: "Searching results: "
+    no_result: "There are no movies match your request"
     main: "Main page"
     language: "Language: "
     more: "more"
+    less: "less"
     register_urge: "If you register you can get weekly the newest movies with torrent on mail (just those you are interested in)"
     why_register: "Register, what for"
     alert_information1: "Create your alert !!"
@@ -71,9 +74,15 @@ en:
     western: Western
   user:
     login: Login
+    login_success: "Login successful!"
+    login_failed: "Login unsuccessful, please try again"
     register: Register
+    cancel: Cancel
     account: My_account
+    account_update: "The account was updated"
+    account_register: "The account was succesfully registered"
     logout: Logout
+    logout_success: "Logout successful!"
     confirm: Are you sure ?
     delete: Delete account
     edit: Edit
@@ -89,15 +98,25 @@ en:
     language: "Yours subtitles language: "
     params: "Order parameters: "
     edit_params: "Edit order parameters: "
-    alert_add: "Add alert"
-    alert_all: "In case of choice \"All\" the rest alerts will be deleted"
-    alert_del: "Delete"
     email_name: "List of movies"
     torrents: "Torrents: "
     trailer: "Trailers (Official site): "
+    alert_add: "Add alert"
+    alert_all: "In case of choice \"All\" the rest alerts will be deleted"
+    alert_del: "Delete"
     alert_cancel: "Cancel"
     alert_exist: "You have already choosen this genre"
     alert_aceptation: "Do you realy want to delete this alert?"
+    alert_flash_genre: "You have allready choosen this genre"
+    alert_flash_create: "The alert was succesfully created"
+    add_movie: "Add to information"
+    movies_list: "Lista twoich filmów, oczekujących na torrenty"
+    del_from_movie_list: "Usuń z listy"
+    movies_list_info1: "Create your own movies list, which haven't yet torrents" 
+    movies_list_info2: "You will get info email, as soon as torrent for your movie will be avilable " 
+    movies_list_info3: "Don't wast your time searching throught the net, leave it to us !!"
+    movies_list_add: "movie was added to your list"
+    movies_list_exist: "You have already this movie in your list"
   number:
     format:
       separator: "."

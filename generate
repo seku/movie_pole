@@ -1,0 +1,334 @@
+Script started on czw, 30 kwi 2009, 08:44:26
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ cd ..rak rescue[5Pcd ..[Kscript/se[K[Kgenerate migration MoviesUsers
+      exists  db/migrate
+      create  db/migrate/20090430064447_movies_users.rb
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:migrate
+(in /home/seku/repos/movie_pole)
+rake aborted!
+./db/migrate//20090430064447_movies_users.rb:11: syntax error, unexpected $end, expecting kEND
+
+(See full trace by running task with --trace)
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:migrate
+(in /home/seku/repos/movie_pole)
+==  MoviesUsers: migrating ====================================================
+-- create_table(:movies_users, {:id=>false})
+   -> 0.0964s
+==  MoviesUsers: migrated (0.0966s) ===========================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ c[Kscript/console 
+Loading development environment (Rails 2.3.2)
+>> User.movies.fi[K[K[K[K[K[K[K[K[Kfirst.movies
+=> []
+>> Movies[K.first.users
+=> []
+>> User,[K.first.[K[K[K[K[K[K[K[K[K[K[Ka = Movie.first
+=> #<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">
+>> User [K.first << a
+NoMethodError: undefined method `<<' for #<User:0xb6ee468c>
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/attribute_methods.rb:260:in `method_missing'
+	from (irb):4
+>> User.first << a[C[1@.[1@m[1@o[1@v[1@i[1@e[1@s
+=> [#<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">]
+>> User.first.movies
+=> [#<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">]
+>> Moov[K[Kvies.[K[K.find(74).users
+=> [#<User id: 1, login: "robert", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, persistence_token: "63e9947f09ef451283a8a33f9ef7c46513bf902847485ead4d4...", password_salt: "Es0kW_0cbUrCEkmsHSuX", crypted_password: "8367032db4d28c6148e80f0a788d006290930c2ccb12fd0a12c...", email: "sseku@o2.pl", perishable_token: "bpa-ui3udlYEAOc8u-gD", language: "pl">]
+>> Usr[Ker.fist[K[Krst.Mov[K[K[Kmovies.[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KMovie.last
+=> #<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">
+>> M[Kb = Movie.alst[K[K[K[Klast
+=> #<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">
+>> User.fist.[K[K[Krst.movies << b
+=> [#<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">, #<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> User.first [K.movies
+=> [#<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">, #<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> Mo[K[KMov[K[K[Ka = Movie.find(74)
+=> #<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">
+>> Ussssre[K[K[K[Ker.[K[K[K[Ker.first.movies
+=> [#<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">, #<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> User.first.movies.destroy(a)
+=> [#<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> User.first.movies.destroy(a)[K[K[K[K[K[K[K[K[K[K[K
+=> [#<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> a 
+=> #<Movie id: 74, title: "Quarantine", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.2, votes: 10821, imdb_id: 1082868, genre: nil, release_date: "2008-10-10", directors: ["John Erick Dowdle"], writers: ["John Erick Dowdle", "Drew Dowdle"], tagline: "On March 11 2008, the government sealed off an apar...", plot: "A television reporter and her cameraman are trapped...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjY0MDgwNTQ4O...", official_site: "http://www.zombiefriends.com/quarantine">
+>> a User.first.movies
+=> [#<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> 
+[1]+  Stopped                 script/console
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ c[Kscript/generate controo[Kller UserMovies
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/user_movies
+      exists  test/functional/
+      exists  test/unit/helpers/
+      create  app/controllers/user_movies_controller.rb
+      create  test/functional/user_movies_controller_test.rb
+      create  app/helpers/user_movies_helper.rb
+      create  test/unit/helpers/user_movies_helper_test.rb
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ script/console 
+Loading development environment (Rails 2.3.2)
+User.first
+>> User.first
+=> #<User id: 1, login: "robert", created_at: "2009-04-02 11:59:43", updated_at: "2009-04-29 09:31:30", photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, persistence_token: "63e9947f09ef451283a8a33f9ef7c46513bf902847485ead4d4...", password_salt: "Es0kW_0cbUrCEkmsHSuX", crypted_password: "8367032db4d28c6148e80f0a788d006290930c2ccb12fd0a12c...", email: "sseku@o2.pl", perishable_token: "bpa-ui3udlYEAOc8u-gD", language: "pl">
+>> User.first.mocies[K[K[K[Kvies
+=> [#<Movie id: 105, title: "The Boy in the Striped Pyjamas", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 7.8, votes: 6919, imdb_id: 914798, genre: nil, release_date: "2008-11-07", directors: ["Mark Herman"], writers: ["John Boyne", "Mark Herman"], tagline: "A timeless story of innocence lost and humanity fou...", plot: "Set during World War II, a story seen through the i...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTMzMTc3MjA5N...", official_site: "http://www.thefilmfactory.co.uk/boy/">]
+>> 
+[2]+  Stopped                 script/console
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ c script/generate model user    UserMovies
+script/generate model UserMovies
+      exists  app/models/
+      exists  test/unit/
+      exists  test/fixtures/
+      create  app/models/user_movies.rb
+      create  test/unit/user_movies_test.rb
+      create  test/fixtures/user_movies.yml
+      exists  db/migrate
+      create  db/migrate/20090430094303_create_user_movies.rb
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:rollc[Kback
+(in /home/seku/repos/movie_pole)
+==  MoviesUsers: reverting ====================================================
+-- drop_table(:movies_users)
+   -> 0.0055s
+==  MoviesUsers: reverted (0.0057s) ===========================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:migrate
+(in /home/seku/repos/movie_pole)
+==  CreateUserMovies: migrating ===============================================
+-- create_table(:user_movies)
+   -> 0.0055s
+==  CreateUserMovies: migrated (0.0057s) ======================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ c[Kscript.[K/console 
+Loading development environment (Rails 2.3.2)
+>> UserMovies.[K[K.first
+NameError: uninitialized constant UserMovie
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:443:in `load_missing_constant'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:80:in `const_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:92:in `const_missing'
+	from (irb):1
+>> UserMovie.first_Movie.first[C[C[C[C[C[C[C[C[1Povie.first[C[C[C[C[C[C[C[Cmovie.first[1Pmovie.first[C[C[C[C[C[C[C[1Povie.first[C[C[C[C[C[C[CMovie.first[C[C[C[C[C[C[C[C[C[C[C[Cs.first
+=> nil
+>> UserMovies.first[K[K[K[K[K[K.all
+=> []
+>> 
+[3]+  Stopped                 script/console
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:migrate
+(in /home/seku/repos/movie_pole)
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:rollback
+(in /home/seku/repos/movie_pole)
+==  CreateUserMovies: reverting ===============================================
+-- drop_table(:user_movies)
+   -> 0.0058s
+==  CreateUserMovies: reverted (0.0059s) ======================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:migrate
+(in /home/seku/repos/movie_pole)
+==  CreateUserMovies: migrating ===============================================
+-- create_table(:user_movies)
+   -> 0.0068s
+==  CreateUserMovies: migrated (0.0069s) ======================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ scrtip[K[K[Kipt/console 
+Loading development environment (Rails 2.3.2)
+User.>> User.first.user_movies
+NameError: uninitialized constant User::UserMovie
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:105:in `const_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2204:in `compute_type'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2200:in `compute_type'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:187:in `quoted_table_name'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_many_association.rb:96:in `construct_sql'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:21:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `user_movies'
+	from (irb):1
+>> User.first.user_movies[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KUser.movies
+NoMethodError: undefined method `movies' for #<Class:0xb716b48c>
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:1964:in `method_missing_without_paginate'
+	from /home/seku/repos/movie_pole/vendor/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+	from (irb):2
+>> User.moviesfmoviesimoviesrmoviessmoviestmovies.movies[1Pmovies[1Pmovies[1Pmovies[1Pmovies[1Pmovies[1Pmovies[1Pmovies[1PoviesMovies[C[C[C[C[K.first
+NameError: uninitialized constant UserMovie
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:443:in `load_missing_constant'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:80:in `const_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:92:in `const_missing'
+	from (irb):3
+>> UserMovie.firsts.first
+=> #<UserMovies id: 1, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:31:26", updated_at: "2009-04-30 10:31:26">
+>> User.fis[Krst_[K.user_movies
+NameError: uninitialized constant User::UserMovie
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:105:in `const_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2204:in `compute_type'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2200:in `compute_type'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:187:in `quoted_table_name'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_many_association.rb:96:in `construct_sql'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:21:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `user_movies'
+	from (irb):5
+>> User.first.user_movies[C[C[C[C[C[C[C[K
+NoMethodError: undefined method `user_movie' for #<User:0xb6ec2eb0>
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/attribute_methods.rb:260:in `method_missing'
+	from (irb):6
+>> User.first.user_movies.all
+NameError: uninitialized constant User::UserMovie
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:105:in `const_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2204:in `compute_type'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2200:in `compute_type'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:187:in `quoted_table_name'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_many_association.rb:96:in `construct_sql'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:21:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `user_movies'
+	from (irb):7
+>> User.first.user_movies.all[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KUser.[KMovies.destroy_all
+=> [#<UserMovies id: 1, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:31:26", updated_at: "2009-04-30 10:31:26">]
+>> reload!
+Reloading...
+=> true
+>> 
+[4]+  Stopped                 script/console
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:rollab  back
+rake db:rollback
+(in /home/seku/repos/movie_pole)
+==  CreateUserMovies: reverting ===============================================
+-- drop_table(:user_movies)
+   -> 0.0043s
+==  CreateUserMovies: reverted (0.0044s) ======================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ rake db:mui[K[Kigrate
+(in /home/seku/repos/movie_pole)
+==  CreateUserMovies: migrating ===============================================
+-- create_table(:user_movies)
+   -> 0.0068s
+==  CreateUserMovies: migrated (0.0070s) ======================================
+
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ script/console 
+Loading development environment (Rails 2.3.2)
+User. Movie>> UserMovie.all
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">]
+>> User.first.user_movies
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">]
+>> User.first.Mov[K[K[Kmovies
+=> [#<Movie id: 90, title: "Synecdoche, New York", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 7.8, votes: 5015, imdb_id: 383028, genre: nil, release_date: "2008-10-24", directors: ["Charlie Kaufman"], writers: ["Charlie Kaufman"], tagline: "", plot: "A theater director struggles with his work, and the...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMjA0MjIyOTI3M...", official_site: "http://www.sonyclassics.com/synecdocheny">]
+>> reload!
+Reloading...
+=> true
+>> U^?[K[Kreload![C[C[CUser.first.moviesuser_movies
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">, #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">, #<UserMovie id: 3, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:38:08", updated_at: "2009-04-30 10:38:08">]
+>> User.first.user_movies.size
+=> 3
+>> Movie.[K.find(90)
+=> #<Movie id: 90, title: "Synecdoche, New York", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 7.8, votes: 5015, imdb_id: 383028, genre: nil, release_date: "2008-10-24", directors: ["Charlie Kaufman"], writers: ["Charlie Kaufman"], tagline: "", plot: "A theater director struggles with his work, and the...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMjA0MjIyOTI3M...", official_site: "http://www.sonyclassics.com/synecdocheny">
+>> Movie[K[K[K[K[Ka = Movie.find(90)
+=> #<Movie id: 90, title: "Synecdoche, New York", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 7.8, votes: 5015, imdb_id: 383028, genre: nil, release_date: "2008-10-24", directors: ["Charlie Kaufman"], writers: ["Charlie Kaufman"], tagline: "", plot: "A theater director struggles with his work, and the...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMjA0MjIyOTI3M...", official_site: "http://www.sonyclassics.com/synecdocheny">
+>> a.users
+=> [#<User id: 1, login: "robert", created_at: "2009-04-02 11:59:43", updated_at: "2009-04-30 08:38:39", photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, persistence_token: "63e9947f09ef451283a8a33f9ef7c46513bf902847485ead4d4...", password_salt: "Es0kW_0cbUrCEkmsHSuX", crypted_password: "8367032db4d28c6148e80f0a788d006290930c2ccb12fd0a12c...", email: "sseku@o2.pl", perishable_token: "yjjCaFM2Vn7j7ju9Khug", language: "pl">]
+>> a.user_movies
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">]
+>> a.user_movies.id
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221: warning: Object#id will be deprecated; use Object#object_id
+=> -613696678
+>> a.id
+=> 90
+>> a.iduser_movies.id[K[K[K
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">]
+>> reload!
+Reloading...
+=> true
+>> User.first
+=> #<User id: 1, login: "robert", created_at: "2009-04-02 11:59:43", updated_at: "2009-04-30 08:38:39", photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, persistence_token: "63e9947f09ef451283a8a33f9ef7c46513bf902847485ead4d4...", password_salt: "Es0kW_0cbUrCEkmsHSuX", crypted_password: "8367032db4d28c6148e80f0a788d006290930c2ccb12fd0a12c...", email: "sseku@o2.pl", perishable_token: "yjjCaFM2Vn7j7ju9Khug", language: "pl">
+>> u[KUser.firse[Kt.user_movies.movies
+NoMethodError: undefined method `movies' for #<Class:0xb711b518>
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:1964:in `method_missing_without_paginate'
+	from /home/seku/repos/movie_pole/vendor/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:375:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:375:in `method_missing_without_paginate'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2148:in `with_scope'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:206:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:206:in `with_scope'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:371:in `method_missing_without_paginate'
+	from /home/seku/repos/movie_pole/vendor/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+	from (irb):16
+>> User.first.user_movies.movies[K[K[K[K[K[K[K[Ks
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">, #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">, #<UserMovie id: 3, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:38:08", updated_at: "2009-04-30 10:38:08">]
+>> User.first.user_movies.id
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221: warning: Object#id will be deprecated; use Object#object_id
+=> -612068898
+>> User.first.user_movies.id[K[K[K[1Pser.first.user_movies[C[C[C[1Per.first.user_movies[C[C[C[1Pr.first.user_movies[C[C[C[1P.first.user_movies[C[C[C[1Pfirst.user_movies[C[C[C[1Pirst.user_movies[C[C[C[1Prst.user_movies[C[C[C[1Pst.user_movies[C[C[C[1Pt.user_movies[C[C[C[1P.user_movies[C[C[C[1Puser_movies[C[C[C[1Pser_movies[C[C[CUser_movies[C[C[C[C[C[C[C[1Pmovies[1PoviesMovies[C[C[C[C[K.all
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">, #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">, #<UserMovie id: 3, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:38:08", updated_at: "2009-04-30 10:38:08">]
+>> UserMovie.all[K[K[Kfirest[K[K[Kst.ifd[K[Kd
+=> 1
+>> UserMovie.first.id[C[C[1P.id[1P.id[1P.id[1P.id[1P.idl.ida.ids.idt.id
+=> 3
+>> User.fires[K[Kst.useraUser.first.user[C[C[C[C=User.first.user[C[C[C[C[C User.first.user[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_movies
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">, #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">, #<UserMovie id: 3, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:38:08", updated_at: "2009-04-30 10:38:08">]
+>> a
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">, #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">, #<UserMovie id: 3, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:38:08", updated_at: "2009-04-30 10:38:08">]
+>> a.movies
+NoMethodError: undefined method `movies' for #<Class:0xb711b518>
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:1964:in `method_missing_without_paginate'
+	from /home/seku/repos/movie_pole/vendor/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:375:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:375:in `method_missing_without_paginate'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2148:in `with_scope'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:206:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:206:in `with_scope'
+	from /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:371:in `method_missing_without_paginate'
+	from /home/seku/repos/movie_pole/vendor/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+	from (irb):24
+>> 
+[5]+  Stopped                 script/console
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ cd app 
+]0;seku@qa01: ~/repos/movie_pole/appseku@qa01:~/repos/movie_pole/app$ rak belongd[Ks_to
+[1;31mmodels/alert.rb[0m
+   3|  [1;37m[41mbelongs_to[0m :user
+   4|  has_and_[1;37m[41mbelongs_to[0m_many :movies
+
+[1;31mmodels/genre.rb[0m
+   3|  has_and_[1;37m[41mbelongs_to[0m_many :movies
+
+[1;31mmodels/movie.rb[0m
+  12|  has_and_[1;37m[41mbelongs_to[0m_many :genres
+  13|  has_and_[1;37m[41mbelongs_to[0m_many :alerts
+
+[1;31mmodels/user_movie.rb[0m
+   2|  [1;37m[41mbelongs_to[0m :user
+   3|  [1;37m[41mbelongs_to[0m :movie  
+
+[1;31mmodels/torrent.rb[0m
+   2|  [1;37m[41mbelongs_to[0m :movie, :counter_cache => true
+
+]0;seku@qa01: ~/repos/movie_pole/appseku@qa01:~/repos/movie_pole/app$ s[Kcd ..
+]0;seku@qa01: ~/repos/movie_poleseku@qa01:~/repos/movie_pole$ c[Kscript/console 
+Loading development environment (Rails 2.3.2)
+>> User.firest[K[K[Kst.mo[K[Kuer[K[Kser_movies
+=> [#<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">, #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">, #<UserMovie id: 3, movie_id: 95, user_id: 1, created_at: "2009-04-30 10:38:08", updated_at: "2009-04-30 10:38:08">]
+>> UserMovie.fire[Kst
+=> #<UserMovie id: 1, movie_id: 90, user_id: 1, created_at: "2009-04-30 10:36:58", updated_at: "2009-04-30 10:36:58">
+>> User.first.user_movies.find_by_movie_id(92)
+=> #<UserMovie id: 2, movie_id: 92, user_id: 1, created_at: "2009-04-30 10:37:48", updated_at: "2009-04-30 10:37:48">
+>> Movie.firsr[Kt[K[K[K[K[Kfind(id[K[K[K[K[K[K[Kall
+=> [#<Movie id: 75, title: "Body of Lies", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 7.3, votes: 26848, imdb_id: 758774, genre: nil, release_date: "2008-10-10", directors: ["Ridley Scott"], writers: ["William Monahan", "David Ignatius"], tagline: "Trust no one. Deceive everyone. more", plot: "Roger Ferris uncovers a lead on a major terrorist l...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTI1NDM4NDU2M...", official_site: "http://wwws.warnerbros.it/bodyoflies/">, #<Movie id: 76, title: "The Express", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 7.0, votes: 2148, imdb_id: 469903, genre: nil, release_date: "2008-10-10", directors: ["Gary Fleder"], writers: ["Charles Leavitt", "Robert Gallagher"], tagline: "", plot: "A drama based on the life of college football hero ...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTM3MTY5OTA5M...", official_site: "http://www.theexpressmovie.com/">, #<Movie id: 77, title: "RocknRolla", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 7.4, votes: 25858, imdb_id: 1032755, genre: nil, release_date: "2008-10-10", directors: ["Guy Ritchie"], writers: ["Guy Ritchie"], tagline: "", plot: "In London, a real-estate scam puts millions of poun...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMTQ0NTk5Mzk2O...", official_site: "http://wwws.warnerbros.co.uk/rocknrolla/">, #<Movie id: 78, title: "City of Ember", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 6.5, votes: 7303, imdb_id: 970411, genre: nil, release_date: "2008-10-10", directors: ["Gil Kenan"], writers: ["Caroline Thompson", "Jeanne Duprau"], tagline: "Discover The Secret more", plot: "For generations, the people of the City of Ember ha...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTU3MDE4MDU1N...", official_site: "http://www.lacitedelombre.fr/">, #<Movie id: 79, title: "Happy-Go-Lucky", created_at: "2009-03-18 12:21:35", updated_at: "2009-03-18 12:21:35", year: 2008, rating: 7.2, votes: 8160, imdb_id: 1045670, genre: nil, release_date: "2008-10-10", directors: ["Mike Leigh"], writers: ["Mike Leigh"], tagline: "The one movie this fall that will put a smile on yo...", plot: "A look at a few chapters in the life of Poppy, a ch...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMTI4ODY1MjIyN...", official_site: "http://www.happygoluckythemovie.com/">, #<Movie id: 80, title: "Nights and Weekends", created_at: "2009-03-18 12:21:35", updated_at: "2009-03-18 12:21:35", year: 2008, rating: 6.6, votes: 108, imdb_id: 1186248, genre: nil, release_date: "2008-10-10", directors: ["Greta Gerwig", "Joe Swanberg"], writers: ["Greta Gerwig", "Joe Swanberg"], tagline: "", plot: "A man and woman must face the tension that builds b...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTU5NzM0NjUxO...", official_site: "http://www.nightsandweekendsmovie.com/">, #<Movie id: 81, title: "W.", created_at: "2009-03-18 12:22:01", updated_at: "2009-03-18 12:22:01", year: 2008, rating: 6.7, votes: 14045, imdb_id: 1175491, genre: nil, release_date: "2008-10-17", directors: ["Oliver Stone"], writers: ["Stanley Weiser"], tagline: "Get Ready more", plot: "A chronicle on the life and presidency of George W....", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BOTgxMTE3ODM1M...", official_site: "http://www.wthefilm.com/">, #<Movie id: 82, title: "Sex Drive", created_at: "2009-03-18 12:22:01", updated_at: "2009-03-18 12:22:01", year: 2008, rating: 6.9, votes: 11998, imdb_id: 1135985, genre: nil, release_date: "2008-10-17", directors: ["Sean Anders"], writers: ["Sean Anders", "John Morris"], tagline: "He's leaving virgin territory", plot: "A high school senior drives cross-country with his ...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMTk0MTQ0OTg5M...", official_site: "http://www.sexdrivethemovie.com/">, #<Movie id: 83, title: "What Just Happened", created_at: "2009-03-18 12:22:01", updated_at: "2009-03-18 12:22:01", year: 2008, rating: 6.4, votes: 5230, imdb_id: 486674, genre: nil, release_date: "2008-10-17", directors: ["Barry Levinson"], writers: ["Art Linson", "Art Linson"], tagline: "In Hollywood, everybody can hear you scream. more", plot: "Two weeks in the life of a fading Hollywood produce...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTY0NzQ3MTgxM...", official_site: "http://www.whatjusthappenedfilm.com/">, #<Movie id: 84, title: "Max Payne", created_at: "2009-03-18 12:22:01", updated_at: "2009-03-18 12:22:01", year: 2008, rating: 5.5, votes: 32181, imdb_id: 467197, genre: nil, release_date: "2008-10-17", directors: ["John Moore"], writers: ["Beau Thorne", "Sam Lake"], tagline: "", plot: "Coming together to solve a series of murders in New...", torrents_count: 1, poster: "http://ia.media-imdb.com/images/M/MV5BOTc3NjE4MTE1O...", official_site: "http://www.maxpaynethemovie.com/">, #<Movie id: 85, title: "The Secret Life of Bees", created_at: "2009-03-18 12:22:01", updated_at: "2009-03-18 12:22:01", year: 2008, rating: 7.0, votes: 3132, imdb_id: 416212, genre: nil, release_date: "2008-10-17", directors: ["Gina Prince-Bythewood"], writers: ["Gina Prince-Bythewood", "Sue Monk Kidd"], tagline: "Bring Your Girlfriends, Sisters, Mothers and Daught...", plot: "set in South Carolina in 1964, this is the tale of ...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTQ1NzM4MzkzN...", official_site: "http://www.secretlifeofbeesmovie.co.uk/">, #<Movie id: 86, title: "Morning Light", created_at: "2009-03-18 12:22:01", updated_at: "2009-03-18 12:22:01", year: 2008, rating: 5.3, votes: 55, imdb_id: 1198405, genre: nil, release_date: "2008-10-17", directors: ["Mark Monroe"], writers: [], tagline: "A 2500 mile journey that will change the course of ...", plot: "Fifteen young sailors... six months of intense trai...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTI3MjIwOTM2M...", official_site: "http://disney.go.com/disneypictures/morninglight/">, #<Movie id: 88, title: "Changeling", created_at: "2009-03-18 12:22:39", updated_at: "2009-03-18 12:22:39", year: 2008, rating: 8.1, votes: 2147483647, imdb_id: 824747, genre: nil, release_date: "2008-10-24", directors: ["Clint Eastwood"], writers: ["J. Michael Straczynski"], tagline: "To find her son, she did what no one else dared.", plot: "A mother's prayer for her kidnapped son to return h...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BOTA1Mzg3NjIxN...", official_site: "http://www.universalpictures.nl/changeling.html">, #<Movie id: 89, title: "Saw V", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 5.8, votes: 19862, imdb_id: 1132626, genre: nil, release_date: "2008-10-24", directors: ["David Hackl"], writers: ["Patrick Melton", "Marcus Dunstan"], tagline: "You won't believe how it ends.", plot: "Detective Hoffman and Agent Strahm clash as they ea...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjA4NzgzMjkyM...", official_site: "http://www.saw5.com/">, #<Movie id: 90, title: "Synecdoche, New York", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 7.8, votes: 5015, imdb_id: 383028, genre: nil, release_date: "2008-10-24", directors: ["Charlie Kaufman"], writers: ["Charlie Kaufman"], tagline: "", plot: "A theater director struggles with his work, and the...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMjA0MjIyOTI3M...", official_site: "http://www.sonyclassics.com/synecdocheny">, #<Movie id: 91, title: "Pride and Glory", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 6.9, votes: 13089, imdb_id: 482572, genre: nil, release_date: "2008-10-24", directors: ["Gavin O'Connor"], writers: ["Joe Carnahan", "Gavin O'Connor"], tagline: "The last thing you want to uncover...is the truth. ...", plot: "A saga centered on a multi-generational family of N...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTI2Mjg1MDk3O...", official_site: "http://www.prideandglorymovie.com/">, #<Movie id: 92, title: "Passengers", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 5.6, votes: 3877, imdb_id: 449487, genre: nil, release_date: "2008-10-24", directors: ["Rodrigo García"], writers: ["Ronnie Christensen"], tagline: "The Truth Can't Hide Forever", plot: "A grief counselor working with a group of plane-cra...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTQ3ODE5MjIzM...", official_site: "http://www.sonypictures.com/movies/passengers/">, #<Movie id: 93, title: "Il y a longtemps que je t'aime", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 7.7, votes: 2895, imdb_id: 1068649, genre: nil, release_date: "2008-10-24", directors: ["Philippe Claudel"], writers: ["Philippe Claudel"], tagline: "", plot: "Juliette was 15 years in prison. Confronted with th...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMTY1Njg2ODI1M...", official_site: "http://www.sonyclassics.com/ivelovedyousolong">, #<Movie id: 94, title: "L&#229;t den r&#228;tte komma in", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2008, rating: 8.2, votes: 2147483647, imdb_id: 1139797, genre: nil, release_date: "2008-10-24", directors: ["Tomas Alfredson"], writers: ["John Ajvide Lindqvist", "John Ajvide Lindqvist"], tagline: "Oscar, an overlooked and bullied boy, finds love an...", plot: "Oskar, a bullied 12-year old, dreams of revenge. He...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMjE1OTY2MTM5M...", official_site: "http://www.morse-lefilm.com/">, #<Movie id: 95, title: "Peur(s) du noir", created_at: "2009-03-18 12:22:40", updated_at: "2009-03-18 12:22:40", year: 2007, rating: 6.9, votes: 664, imdb_id: 792986, genre: nil, release_date: "2008-10-24", directors: ["Blutch", "Charles Burns"], writers: ["Blutch", "Charles Burns"], tagline: "Don't come alone! (UK)", plot: "Several scary black-and-white animated segments in ...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTUwOTczMjQ5O...", official_site: "http://www.PeursduNoir-lefilm.com/">, #<Movie id: 96, title: "The Haunting of Molly Hartley", created_at: "2009-03-18 12:22:56", updated_at: "2009-03-18 12:22:56", year: 2008, rating: 3.4, votes: 1898, imdb_id: 1045655, genre: nil, release_date: "2008-10-31", directors: ["Mickey Liddell"], writers: ["John Travis", "Rebecca Sonnenshine"], tagline: "This Halloween her past is yet to come.", plot: "Molly Hartley looks to put her troubled past behind...", torrents_count: 2, poster: "http://ia.media-imdb.com/images/M/MV5BMTMyMzI5Nzg2N...", official_site: nil>, #<Movie id: 97, title: "Zack and Miri Make a Porno", created_at: "2009-03-18 12:22:56", updated_at: "2009-03-18 12:22:56", year: 2008, rating: 7.3, votes: 31780, imdb_id: 1007028, genre: nil, release_date: "2008-10-31", directors: ["Kevin Smith"], writers: ["Kevin Smith"], tagline: "What would you do to get out of debt? more", plot: "Lifelong platonic friends Zack and Miri look to sol...", torrents_count: 2, poster: "http://ia.media-imdb.com/images/M/MV5BMTM0NzgxODA2M...", official_site: "http://zackandmiri.com/">, #<Movie id: 98, title: "Splinter", created_at: "2009-03-18 12:22:56", updated_at: "2009-03-18 12:22:56", year: 2008, rating: 6.3, votes: 1714, imdb_id: 1031280, genre: nil, release_date: "2008-10-31", directors: ["Toby Wilkins"], writers: ["Kai Barry", "Ian Shorr"], tagline: "It will get under your skin. more", plot: "Trapped in an isolated gas station by a voracious S...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMTY1NzYzNTU5N...", official_site: "http://www.splinterfilm.com/">, #<Movie id: 99, title: "The Other End of the Line", created_at: "2009-03-18 12:22:56", updated_at: "2009-03-18 12:22:56", year: 2008, rating: 5.3, votes: 204, imdb_id: 1049405, genre: nil, release_date: "2008-10-31", directors: ["James Dodson"], writers: ["Tracey Jackson"], tagline: "Two countries. Two cultures. One chance at love.", plot: "An employee at an Indian call-center travels to San...", torrents_count: 2, poster: "http://ia.media-imdb.com/images/M/MV5BMTQ3MTMzMjcxO...", official_site: "http://www.theotherendofthelinemovie.com/">, #<Movie id: 100, title: "Soul Men", created_at: "2009-03-18 12:23:23", updated_at: "2009-03-18 12:23:23", year: 2008, rating: 6.4, votes: 1681, imdb_id: 1111948, genre: nil, release_date: "2008-11-07", directors: ["Malcolm D. Lee"], writers: ["Robert Ramsey", "Matthew Stone"], tagline: "Out of sync. Never out of style.", plot: "Though it's been some twenty years since they have ...", torrents_count: 3, poster: "http://ia.media-imdb.com/images/M/MV5BMTgxNjM4NDM4O...", official_site: "http://www.SoulMen-Movie.com/">]
+>> Movie.find([K[K[K[K[Kfirrst[K[K[Kst
+=> #<Movie id: 75, title: "Body of Lies", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 7.3, votes: 26848, imdb_id: 758774, genre: nil, release_date: "2008-10-10", directors: ["Ridley Scott"], writers: ["William Monahan", "David Ignatius"], tagline: "Trust no one. Deceive everyone. more", plot: "Roger Ferris uncovers a lead on a major terrorist l...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTI1NDM4NDU2M...", official_site: "http://wwws.warnerbros.it/bodyoflies/">
+>> Movie.find(75)
+=> #<Movie id: 75, title: "Body of Lies", created_at: "2009-03-18 12:21:34", updated_at: "2009-03-18 12:21:34", year: 2008, rating: 7.3, votes: 26848, imdb_id: 758774, genre: nil, release_date: "2008-10-10", directors: ["Ridley Scott"], writers: ["William Monahan", "David Ignatius"], tagline: "Trust no one. Deceive everyone. more", plot: "Roger Ferris uncovers a lead on a major terrorist l...", torrents_count: nil, poster: "http://ia.media-imdb.com/images/M/MV5BMTI1NDM4NDU2M...", official_site: "http://wwws.warnerbros.it/bodyoflies/">
+>> Movie.find(75).title
+=> "Body of Lies"
+>> reload!
+Reloading...
+=> true
+>> User.first
+=> #<User id: 1, login: "robert", created_at: "2009-04-02 11:59:43", updated_at: "2009-04-30 12:30:06", photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, persistence_token: "63e9947f09ef451283a8a33f9ef7c46513bf902847485ead4d4...", password_salt: "Es0kW_0cbUrCEkmsHSuX", crypted_password: "8367032db4d28c6148e80f0a788d006290930c2ccb12fd0a12c...", email: "sseku@o2.pl", perishable_token: "DdLlWu-kHGpFawVw8SY2", language: "pl">
+>> User.first.user_movies
+=> [#<UserMovie id: 19, movie_id: 86, user_id: 1, created_at: "2009-04-30 13:07:37", updated_at: "2009-04-30 13:07:37">, #<UserMovie id: 22, movie_id: 95, user_id: 1, created_at: "2009-04-30 13:15:12", updated_at: "2009-04-30 13:15:12">, #<UserMovie id: 23, movie_id: 92, user_id: 1, created_at: "2009-04-30 13:16:22", updated_at: "2009-04-30 13:16:22">]
+>> User.first

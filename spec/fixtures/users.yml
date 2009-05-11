@@ -1,0 +1,8 @@
+# in fixtures you can use <%= %> erb constructions to create dynamicaly formuls
+
+
+first:
+  login: robert
+  email: sseku@o2.pl
+  language: en
+  

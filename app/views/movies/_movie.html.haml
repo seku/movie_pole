@@ -2,7 +2,6 @@
   #poster
     = link_to(image_tag(movie.poster, :width => 100), movie_path(movie))
   #movie_features
-    = t('title') 
     = link_to(movie.title, movie_path(movie)) 
     = t('sort.rating')
     = movie.rating 
@@ -21,4 +20,10 @@
     = t('txt.plot')
     = movie.plot 
     %br
-
+    -if movie.torrents.blank?
+      -if !current_user
+        #redirect_login
+          = link_to(t("user.add_movie"), new_user_session_path)
+      -else
+        #add_movie
+          = link_to(t("user.add_movie"), edit_desirable_alert_path(movie))

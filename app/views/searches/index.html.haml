@@ -1,27 +1,37 @@
 #yui-main
   .yui-b
     .yui-g
-      -form_tag(searches_path, :method => :get) do 
-        = t('sort.sort') 
-        = hidden_field_tag :query, params[:query]
-        = hidden_field_tag :genre_id, params[:genre_id]
-        = hidden_field_tag :rating, params[:rating]
-        = hidden_field_tag :without, params[:without]
-        = select_tag :sort_by, options_for_select(@sort_by, params[:sort_by]) 
-        = submit_tag t('buttons.show') 
-        = check_box_tag :without, 1, params[:without] == "1" ? true : false
-        = t('txt.without')
+      -if @movies.blank?
+        %br
+        .sort_result
+          = t('txt.no_result') 
+        %br
+      -else
+        .sort_title
+          = t('sort.sort') 
+        .sort_choice
+          -form_tag(searches_path, :method => :get) do 
+            = hidden_field_tag :query, params[:query]
+            = hidden_field_tag :genre_id, params[:genre_id]
+            = hidden_field_tag :rating, params[:rating]
+            = hidden_field_tag :without, params[:without]
+            = select_tag :sort_by, options_for_select(@sort_by, params[:sort_by]) 
+            = submit_tag t('buttons.show') 
+            = check_box_tag :without, 1, params[:without] == "1" ? true : false
+            = t('txt.without')
+        .sort_result
+          = t('txt.result') 
+        .paginate
+          = will_paginate @movies 
+        %br
+        %ul
+          -@movies.each do |movie| 
+            = render :partial => movie
+        %br
+        .paginate
+          = will_paginate @movies
       %br
-      = t('txt.result') 
-      = will_paginate @movies 
-      %br
-      %ul
-        -@movies.each do |movie| 
-          = render :partial => movie
-      %br
-      = will_paginate @movies
-      %br
-      = link_to t('txt.main'), genres_path
-      = @ppp
+      .link_comunication
+        = link_to t('txt.main'), genres_path
 .yui-b
   = render :partial => "movies/side_panel" 

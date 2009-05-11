@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: "Quarantine 2008 DvDRip-FxM"
+  seeders: 327
+  leechers: 67
+  size: 734045143
+two:
+  title: "Quarantine[DVDRip]XViD-EXTREMEZONE.TK"
+  seeders: 327
+  leechers: 67
+  size: 748232376
+three:
+  title: "Quarantine DVDRip XViD-PUKKA [www torrentfive com]"
+  seeders: 234
+  leechers: 1205
+  size: 1309965025
+four:
+  title: "Size test"
+  seeders: 1
+  leechers: 1
+  size: 400300200

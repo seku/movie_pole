@@ -1,14 +1,18 @@
 #yui-main
   .yui-b
     .yui-g
+      .page_topic
+        = t('txt.category_choice')
       -@genres.in_groups_of(14, false) do |group| 
         -content_tag :div, :class => "genre #{group.first.name}" do
           -group.each do |genre| 
-            = link_to(t("genres.#{genre.name}"), genre_movies_path(genre))
-            = link_to "(#{genre_movies_torrents(genre)} /", genre_movies_path(genre)  
-            = link_to "#{genre.movies.size})", genre_movies_path(genre, :without => 1) 
-            %br
+            -content_tag :div, :class => "movie_genre", :id => genre.id do
+              = link_to(t("genres.#{genre.name}"), genre_movies_path(genre))
+              = link_to "(#{genre_movies_torrents(genre)} /", genre_movies_path(genre)  
+              = link_to "#{genre.movies.size})", genre_movies_path(genre, :without => 1) 
         %br
 
-.yui-b
+.yui-b#side_panel
   = render :partial => "movies/side_panel" 
+  
+

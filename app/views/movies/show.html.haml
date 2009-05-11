@@ -1,6 +1,7 @@
-= link_to(t('txt.main'), genres_path) 
->> 
-= @movie.title
+.link_comunication
+  = link_to(t('txt.main'), genres_path) 
+  >> 
+  = @movie.title
 #yui-main
   .yui-b
     .yui-g
@@ -31,7 +32,7 @@
       = @movie.tagline 
       %br 
       = link_to(t('txt.trailers'), @movie.official_site) if @movie.official_site
-.yui-b
+.yui-b#side_panel
   = render :partial => "movies/side_panel" 
 
 

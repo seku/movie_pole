@@ -1,0 +1,8 @@
+%br
+= t('user.alert_aceptation')
+%br
+%br
+-form_for @desirable_alert, :html => { :method => :delete } do |f|
+  = submit_tag t('user.alert_del') 
+%br
+= link_to(t('user.alert_cancel'), user_path(current_user));

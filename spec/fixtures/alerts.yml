@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating: 6.0
+  genre_id: 5
+  type: WeeklyAlert
+two:
+  user_id: 1
+  movie_id: 88
+  type: DesirableAlert 
+three:
+  rating: 6.0
+  genre_id: 2
+  type: WeeklyAlert
+four:
+  rating: 6.0
+  genre_id: 3
+  type: WeeklyAlert
+five:
+  rating: 6.0
+  genre_id: 85
+  type: WeeklyAlert
+

@@ -1,0 +1,9 @@
+-@user.movies.each do |movie|
+  -content_tag :div, :id => movie.id do
+    %br 
+    = link_to(movie.title, movie_path(movie))
+    %br
+    = image_tag(movie.poster, :width => 30)
+    %br
+    .del_from_movie_list
+      = link_to(t('user.del_from_movie_list'), desirable_alert_path(movie))

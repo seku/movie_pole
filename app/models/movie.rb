@@ -10,8 +10,8 @@ class Movie < ActiveRecord::Base
 
   has_many :torrents
   has_and_belongs_to_many :genres
-  has_and_belongs_to_many :alerts
-  
+  has_many :desirable_alerts
+  has_many :users, :through => :desirable_alerts
   serialize :directors, Array
   serialize :writers, Array 
   validates_presence_of :title, :imdb_id

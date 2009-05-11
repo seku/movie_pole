@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" 
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+   <ShortName>Search Movie</ShortName>
+   <Description>Use Movie Pole to search the Movies</Description>
+   <InputEncoding>UTF-8</InputEncoding>
+   <Contact>admin@trix.com</Contact>
+   <Image height="16" width="16" type="image/x-icon">"/images/movie_pole.ico"</Image>
+   <Url type="text/html" method="GET" template="http://localhost:3000/searches?query={searchTerms}&amp;commit=Search&amp;genre_id=1&amp;rating=1.0&amp;without=1"/>
+   <Url type="application/x-suggestions+json" template="http://localhost:3000/searches/suggest?query={searchTerms}" />
+
+ </OpenSearchDescription>
+
+
+
+

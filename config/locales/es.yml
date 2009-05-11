@@ -1,6 +1,7 @@
 es:
   movie_pole: "Zona de la peli"
   txt:
+    category_choice: "Choose from category"
     category: "Category: "
     main_title: "Apariencia the newest movies for choosen category" ##############
     without: "No torrents"
@@ -15,9 +16,11 @@ es:
     plot: "Breviario: "
     query_title: "Busca: "
     result: "Searching results: " #############
+    no_result: "There are no movies match your request" ############
     main: "Capital página"
     language: "Lengua: "
     more: "więcej"
+    less: "mniej"
     register_urge: "If you register you can get weekly the newest movies with torrent on mail (just those you are interested in)"
     why_register: "Rejestracja, po co"
     alert_information1: "Stwórz swoje powiadomienie !!"
@@ -69,9 +72,15 @@ es:
     western: Western
   user:
     login: Zaloguj się ######
+    login_success: "Login successful!"
+    login_failed: "Login unsuccessful, please try again"
     register: Zarejestruj się ###########
+    cancel: Anuluj
     account: konto #########
+    account_update: "Konto zostało zaktualizowane"
+    account_register: "Konto zostało utworzone"
     logout: wylog ###########
+    logout_success: "Logout successful!"
     conirm: sure ? 
     delete: agda #######
     edit: edytuj #######
@@ -87,15 +96,25 @@ es:
     language: "Subtitles language: " ######
     params: "Order parameters: " ###########
     edit_params: "Edytuj pozycje zamówienia: " #######
-    alert_add: "Add alert" ###
-    alert_all: "In case of choice \"All\" the rest alerts will be deleted" ### 
-    alert_del: "Usuń" ###
     email_name: "Lista filmów" #######
     torrents: "Torrenty: " #######
     trailer: "Trailers (Official site): "
+    alert_add: "Add alert" ###
+    alert_all: "In case of choice \"All\" the rest alerts will be deleted" ### 
+    alert_del: "Usuń" ###
     alert_cancel: "Anuluj" #########
     alert_exist: "Wybrałeś już tą pozycję" ##########
     alert_aceptation: "lajja"
+    alert_flash_genre: "Wybrałeś już tą kategorię filmu"
+    alert_flash_create: "Powiadomienie zostało utworzone"
+    add_movie: "Add to information"
+    movies_list: "Lista twoich filmów, oczekujących na torrenty"
+    del_from_movie_list: "Usuń z listy"
+    movies_list_info1: "Stwórz własną listę filmów, które nie posiadają jeszcze torrentów" 
+    movies_list_info2: "Otrzymasz informację na maila , jak tylko będzie dostępny torrent interesującego cię filmu" 
+    movies_list_info3: "Nie trać czasu na zbędne grzebanie po sieci, zrobimy to za Ciebie !!"
+    movies_list_add: "The movie was added to your list"
+    movies_list_exist: "You have already this movie in your list"
   number:
     format:
       separator: "."

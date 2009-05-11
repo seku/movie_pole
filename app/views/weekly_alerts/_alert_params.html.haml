@@ -1,0 +1,14 @@
+%br
+= t('user.alert_all')
+%br
+%br
+-form_for [@current_user, @weekly_alert] do |f|
+  = t('txt.genre') 
+  = f.select :genre_id, Genre.options_for_select
+  = t('sort.rating')  
+  = f.select :rating, @rating
+  = submit_tag t('user.submit') 
+.alert_cancel
+  = link_to(t('user.alert_cancel'), user_path(current_user))
+%br   
+

@@ -9,21 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090401134756) do
+ActiveRecord::Schema.define(:version => 20090504081743) do
 
   create_table "alerts", :force => true do |t|
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.integer  "genre_id"
-  end
-
-  create_table "alerts_movies", :id => false, :force => true do |t|
-    t.integer  "alert_id",   :null => false
-    t.integer  "movie_id",   :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.string   "type"
   end
 
   create_table "genres", :force => true do |t|

@@ -8,20 +8,19 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    render :layout => false if request.xhr? 
   end
 
   def create
-    @user = User.create!(
+    @user = User.new(
     :login => params[:user][:login],
     :password => params[:user][:email],
     :password_confirmation => params[:user][:email],
     :email => params[:user][:email],
     :language => "en")
-    
-    #@user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Account registered!"
-      redirect_back_or_default genres_url
+      flash[:notice] = t('user.account_register')
+      redirect_back_or_default user_path(@user)
     else
       render :action => :new
     end
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
-    @alert = current_user.alerts.new
+    @weekly_alert = current_user.weekly_alerts.new
   end
 
   def edit
@@ -39,19 +38,18 @@ class UsersController < ApplicationController
   def update
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
+      flash[:notice] = t('user.account_update')
       redirect_to account_url
     else
       render :action => :edit
     end
   end
 
-
-
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
+    @user.alerts.destroy_all
     @user.destroy
     redirect_to genres_path
   end  

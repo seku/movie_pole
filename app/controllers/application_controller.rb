@@ -29,8 +29,7 @@ class ApplicationController < ActionController::Base
   def per_page #pagination number
     10
   end
-  
-  protected 
+
     
 
 

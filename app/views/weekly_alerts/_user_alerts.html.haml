@@ -1,0 +1,13 @@
+-@user.weekly_alerts.each do |weekly_alert|
+  -content_tag :div, :id => weekly_alert.id do
+    %br 
+    = t('txt.genre')
+    = alert_genre(weekly_alert.genre_id)
+    %br
+    = t('sort.rating')
+    = weekly_alert.rating 
+    %br
+    .alert_edit
+      = link_to(t('user.edit'), edit_user_weekly_alert_path(@user, weekly_alert))
+    .alert_delete
+      = link_to(t('user.alert_del'), user_weekly_alert_path(@user, weekly_alert))

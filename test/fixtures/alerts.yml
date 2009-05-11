@@ -2,8 +2,9 @@
 
 first:
   rating: 6.0
+  genre_id: 3
+  type: WeeklyAlert
+two:
   user_id: 1
-
-#
-# two:
-#   column: value
+  movie_id: 88
+  type: DesirableAlert 

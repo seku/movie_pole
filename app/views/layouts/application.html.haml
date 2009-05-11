@@ -3,6 +3,7 @@
 %html{html_attrs("en-US")}
   %head
     %title Movie Pole
+    %link{:rel => "search", :type => "application/opensearchdescription+xml", :title => "Search Movie", :href => "movie_pole.xml"}
     = stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" 
     = stylesheet_link_tag "application"
     = javascript_include_tag :defaults, "movie_pole", "jquery_cookie", "jquery.autocomplete", "jquery.tmpl", "jquery.blockUI"
@@ -21,10 +22,12 @@
         
                 
       #bd
-        = flash[:notice]
-        = flash[:error]
+        #flash
+          = flash[:notice]
+          = flash[:error]
         = yield
-
       #ft 
         #copyright
           Copyright Trix.pl
+      #response
+      #backgroundPopup

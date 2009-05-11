@@ -1,7 +1,12 @@
-%h2 
+.link_comunication
+  = link_to t('txt.main'), genres_path
+  >>
+  = link_to(@user.login, user_path(@user))
+.page_topic
   = t('user.account')
-%br
 -content_tag :div, :class => "user account" do
+  #logout
+    = link_to(t('user.logout'), user_session_path, :method => :delete, :confirm => t('user.confirm'))
   = link_to(t('user.delete'), user_path(@user), :method => :delete, :confirm => t('user.confirm'))
   %br
   = t('user.user')
@@ -14,22 +19,42 @@
   = @user.language
   %br
   = link_to(t('user.edit'), edit_account_path)
--content_tag :div, :class => "user_form" do
-  %h3
+.user_form
+  .alert_information
+    = t('txt.alert_information1')
+    %br
+    = t('txt.alert_information2')
+    %br
+    = t('txt.alert_information3')
+  %br
+  #alerts_topic
     = t('user.form')
-  -content_tag :div, :id => "results" do
-    = render :partial => "alerts/user_alerts"
+  #alerts_results
+    = render :partial => "weekly_alerts/user_alerts"
   %br
-  - unless (!@user.alerts.blank?) && (@user.alerts.first.genre_id == "1")
+  - unless (!@user.weekly_alerts.blank?) && (is_there_genre_all_choosen)
     #alert_add
-      = link_to(t('user.alert_add'), new_user_alert_path(@user))
+      = link_to(t('user.alert_add'), new_user_weekly_alert_path(@user))
   #message
-    = render :partial => "alerts/alert_params"
--content_tag :div, :class => "alert_information" do
-  = t('txt.alert_information1')
+    = render :partial => "weekly_alerts/alert_params"
+.user_movies_list
+  .list_information
+    = t("user.movies_list_info1")
+    %br
+    = t("user.movies_list_info2")
+    %br
+    = t("user.movies_list_info3")
   %br
-  = t('txt.alert_information2')
-  %br
-  = t('txt.alert_information3')
+  = t("user.movies_list")
+  .movie_list_results
+    = render :partial => "users/movie_list"  
+.link_comunication
+  = link_to t('txt.main'), genres_path
+  >>
+  = link_to(@user.login, user_path(@user))
+
+
+
+
 
 

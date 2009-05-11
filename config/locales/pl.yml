@@ -1,6 +1,7 @@
 pl:
   movie_pole: "Pole filmowe"
   txt:
+    category_choice: "Wybierz z pośród kategorii"
     category: "Kategoria: "
     main_title: "Pokaż najnowsze filmy dla wybranej kategorii"
     without: "Bez torrentów"
@@ -15,9 +16,11 @@ pl:
     plot: "Opis: "
     query_title: "Szukaj: "
     result: "Wyniki wyszukiwania: "
+    no_result: "Brak filmów odpowiadających twojemu poszukiwaniu"
     main: "Strona główna"
     language: "Język: "
     more: "więcej"
+    less: "mniej"
     register_urge: "Jeśli się zarejestrujesz, będziesz miał możliwość otrzymywania listy najnowszych filmów na maila co tydzień (Tylko interesujących konkretnie Ciebie)"
     why_register: "Rejestracja, po co"
     alert_information1: "Stwórz swoje powiadomienie !!"
@@ -68,9 +71,15 @@ pl:
     western: Western
   user:
     login: Zaloguj się
+    login_success: "Zostałeś zalogowany"
+    login_failed: "Logowanie nie udane , spróbuj jeszcze raz"
     register: Zarejestruj się
+    cancel: Anuluj
     account: Moje konto
+    account_update: "Konto zostało zaktualizowane"
+    account_register: "Konto zostało utworzone"
     logout: Wyloguj się
+    logout_success: "Zostałeś wylogowany"
     confirm: Jesteś pewien ?
     delete: Usuń konto
     edit: Edytuj
@@ -86,15 +95,25 @@ pl:
     language: "Twój język napisów: "
     params: "Parametry zamówienia: "
     edit_params: "Edytuj pozycje zamówienia: "
-    alert_add: "Dodaj do powiadomienia"
-    alert_all: "W przypadku wyboru \"Wszystkie\" pozostałe powiadomienia zostaną usuniętę"
-    alert_del: "Usuń"
     email_name: "Lista filmów"
     torrents: "Torrenty: "
     trailer: "Zwiastuny (Oficjalna strona): "
+    alert_add: "Dodaj do powiadomienia"
+    alert_all: "W przypadku wyboru \"Wszystkie\" pozostałe powiadomienia zostaną usuniętę"
+    alert_del: "Usuń"
     alert_cancel: "Anuluj"
     alert_exist: "Wybrałeś już tą pozycję"
     alert_aceptation: "Napewno chcesz usunąć powiadomienie ?"
+    alert_flash_genre: "Wybrałeś już tą kategorię filmu"
+    alert_flash_create: "Powiadomienie zostało utworzone"
+    add_movie: "Powiadom gdy będą dostępne"
+    movies_list: "Lista twoich filmów, oczekujących na torrenty"
+    del_from_movie_list: "Usuń z listy"
+    movies_list_info1: "Stwórz własną listę filmów, które nie posiadają jeszcze torrentów" 
+    movies_list_info2: "Otrzymasz informację na maila , jak tylko będzie dostępny torrent interesującego cię filmu" 
+    movies_list_info3: "Nie trać czasu na zbędne grzebanie po sieci, zrobimy to za Ciebie !!"
+    movies_list_add: "film został dodany do twojej listy"
+    movies_list_exist: "Film ten już istnieje w twojej liście"
   number:
     format:
       separator: "."

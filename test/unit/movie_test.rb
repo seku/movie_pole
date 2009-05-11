@@ -27,7 +27,8 @@ class MovieTest < ActiveSupport::TestCase
     setup do
       @movie = movies(:first_movie)
     end
-    should_have_and_belong_to_many :alerts
+    should_have_many :desirable_alerts
+    should_have_many :users, :through => :desirable_alerts
     should_have_many :torrents
     should_have_and_belong_to_many :genres
     should_validate_uniqueness_of :imdb_id
