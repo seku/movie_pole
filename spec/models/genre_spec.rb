@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
-describe Genre do
+describe Genre, "model" do
   
   fixtures :genres, :movies
   
@@ -22,10 +22,12 @@ describe Genre do
   
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
+
   
   it "should return valid array" do
     Genre.available.should == @available
   end
+  
   it "should return object array" do
     Genre.fetch_genres.should == @available
   end
@@ -36,3 +38,4 @@ describe Genre do
   end
   
 end
+

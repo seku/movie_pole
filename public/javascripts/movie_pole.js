@@ -10,7 +10,7 @@ $(document).ready(function() {
   var edit_link_id = {}
   var params = {}
   var register = "/users/new"
-  var not_exist = true //check if register form exist in response div 
+  var not_exist = true //check if login/register form exist in response div 
   var pressed = false // it's needed for cancel button in registration form (if true javascript is enabled)
   var templates = {"alert": "<div id=\"{alert.id}\"><br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}"}
   
@@ -104,9 +104,10 @@ $(document).ready(function() {
     return false
   })
   $("#more").css({"visibility" : "visible"})
+  $("#less").css({"visibility" : "hidden"})
   $("#advanced_search").hide()
   $("#register_urge").hide()
-  $("#why_register").css({"visibility" : "visible"})
+  //$("#why_register").css({"visibility" : "visible"}) just for first production
   
   $("#more").live("click", function() {
     $("#advanced_search").show("slow")
@@ -127,6 +128,19 @@ $(document).ready(function() {
     $("#register_urge").slideToggle(500)
     return false
   })
+  $("#login").live("click", function() {
+    $.get($(this).find("a").attr("href"), null, function(data){
+      if (not_exist) { 
+        not_exist = false
+        $(data).appendTo("#response")
+      }
+      $("#backgroundPopup").fadeIn("slow") 
+      $("#response").fadeIn("slow")
+      pressed = true
+    },"html")
+    return false
+  })
+  
   
   $("#register, #redirect_login").live("click", function() {
     $.get(register, null, function(data){
@@ -170,7 +184,6 @@ $(document).ready(function() {
     return false
   })
 })
- 
  
  
  

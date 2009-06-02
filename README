@@ -1,14 +1,18 @@
-10 PRINT "Go to http://imdb.com or similar site."
-20 PRINT "Search for some good movies to watch."
-30 PRINT "Go to http://mininova.org or other p2p site."
-40 PRINT "Find a movie."
-50 PRINT "Download a movie using a p2p software of your choice."
-60 PRINT "Watch a movie."
-70 GOTO 10
+Suppose you want to watch a movie, so you do steps:
+
+1. "Go to http://imdb.com or similar site."
+2. "Search for some good movies to watch."
+3. "Go to http://mininova.org or other p2p site."
+4. "Find a movie."
+5. "Download a movie using a p2p software of your choice."
+6. "Go to opensubtitles.com or similiar" - optional
+7. "Dowload subtitles" - optional
+8. "Watch a movie."
+
 
 Sounds familiar?
 
-This project aims to save you some time by facilitating first 4 points.
+This project aims to save you some time by facilitating 1-4 and 6 points 
 
 *** 
 
@@ -17,7 +21,15 @@ Lighthouse: http://trix.lighthouseapp.com/projects/20503-movie-pole
 License: MIT
 
 ***
+For Maciek Developer:
 
-Movie Pole belongs to Silesian Ruby User Group, Poland
-and is a kind of guinea pig that helps members of this group
-explore Ruby.
+in script/console:
+
+- Sort.fetch_sorts
+- Genre.fetch_genres
+- Movie.fetch_movies
+- Torrent.fetch_torrents
+
+=> Continue develop stuff
+
+

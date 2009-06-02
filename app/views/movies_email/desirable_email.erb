@@ -1,0 +1,18 @@
+<%= t('user.desirable_email_name') %>
+<% @movies.each do |movie| %> 
+<%= t('title') %><%= movie.title %>
+<%= t('sort.rating') %> <%= movie.rating %>
+<%= t('txt.plot') %><%= movie.plot %> 
+<%= movie_url(movie) %> 
+<%= t('user.torrents') %>
+<% movie.torrents.each do |torrent| %>
+<%= torrent_url(torrent) %><% end %>
+<% unless @cookies != "en" %>
+<%= t('subtitles.foreign') %> <%= subtitles_url(@cookies, "#{movie.imdb_id}") %>
+<% end %>
+<%= t('subtitles.sub') %><%= subtitles_url("#{@user.language}", "#{movie.imdb_id}") %>
+<%= t('user.trailer') %><%= movie.official_site if movie.official_site %>
+<% end %>
+
+
+ 

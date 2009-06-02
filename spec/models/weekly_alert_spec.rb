@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
-describe WeeklyAlert do
+describe WeeklyAlert, "with existing fixtures" do
 
   fixtures :users, :alerts, :genres #just if fixtures approach
   before(:each) do 
@@ -60,5 +60,16 @@ describe WeeklyAlert do
     @user.weekly_alerts.first.update_attributes(:genre_id => 1, :rating => 3.0)
     @user.weekly_alerts.all.count.should eql(1)  
   end
-
 end
+
+describe WeeklyAlert, "which don't exist" do
+  
+  it "should not be valid " do
+    alert = WeeklyAlert.new(:rating => 4.0, :genre_id => 5, :type => nil)
+    alert.should_not be_valid
+    alert.should have(1).errors_on(:type)
+  end
+end
+
+
+

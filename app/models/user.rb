@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
+
+  #attr_accessor :antispam_security_token
   is_gravtastic
-  acts_as_authentic
   acts_as_authentic do |c|
     c.perishable_token_valid_for = 10.minutes
+    c.validate_password_field = false
+    #c.require_password_confirmation = false
   end
   validates_presence_of :login, :email
 	validates_uniqueness_of :login, :email
@@ -16,7 +19,12 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     LoginLink.deliver_login_link(self)
   end
-
-
-
+  
+  #validate :must_be_human
+  
+  #def must_be_human
+  #  return unless antispam_security_token
+  #  errors.add(:antispam_security_token, "you are fuckin spammer!!")
+  #end
+  
 end

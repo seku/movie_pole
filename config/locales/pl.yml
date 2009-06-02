@@ -24,7 +24,7 @@ pl:
     register_urge: "Jeśli się zarejestrujesz, będziesz miał możliwość otrzymywania listy najnowszych filmów na maila co tydzień (Tylko interesujących konkretnie Ciebie)"
     why_register: "Rejestracja, po co"
     alert_information1: "Stwórz swoje powiadomienie !!"
-    alert_information2: "Otrzymuj co tydzień listę z najnowszymi filmami dla których istnieją torrenty i napisy !!"
+    alert_information2: "Otrzymuj co tydzień listę z najnowszymi filmami !!"
     alert_information3: "Otrzymasz tylko te filimy, które będą spełniać twoje wymagania" 
   sort: 
     sort: "Sortuj wyniki za pomocą: "
@@ -42,37 +42,39 @@ pl:
   title: "Tytuł: "
   genres:
     all: ..Wszystkie..
-    action: Akcja 
-    adventure: Przygodowy
-    animation: Animacja
-    biography: Biograficzny
-    comedy: Komedia
-    crime: Kriminał
-    documentary: Dokumentalny
-    drama: Dramat
-    family: Rodzinny
-    fantasy: Fantasytka
-    film_noir: Biało-czarny
-    game_show: Game-show
-    history: Historyczny
-    horror: Horror
-    music: Muzyczny
-    musical: Musical
-    mystery: Tajemniczy
-    news: Wiadomości
-    reality_tv: Reality_tv
-    romance: Romans
-    sci_fi: Sci-Fi
-    short: Krótkometrażowy
-    sport: Sport
-    talk_show: Talk-show
-    thriller: Thriller
-    war: Wojenny
-    western: Western
+    action: "Akcja " 
+    adventure: "Przygodowy "
+    animation: "Animacja "
+    biography: "Biograficzny "
+    comedy: "Komedia "
+    crime: "Kriminał "
+    documentary: "Dokumentalny "
+    drama: "Dramat "
+    family: "Rodzinny "
+    fantasy: "Fantasytka "
+    film_noir: "Biało-czarny "
+    game_show: "Game-show "
+    history: "Historyczny "
+    horror: "Horror "
+    music: "Muzyczny "
+    musical: "Musical "
+    mystery: "Tajemniczy "
+    news: "Wiadomości "
+    reality_tv: "Reality_tv "
+    romance: "Romans "
+    sci_fi: "Sci-Fi "
+    short: "Krótkometrażowy "
+    sport: "Sport "
+    talk_show: "Talk-show "
+    thriller: "Thriller "
+    war: "Wojenny "
+    western: "Western "
   user:
     login: Zaloguj się
     login_success: "Zostałeś zalogowany"
     login_failed: "Logowanie nie udane , spróbuj jeszcze raz"
+    login_link: "Link do zalogowania został wysłany na {{email}}. Proszę sprawdzić swojego emaila"
+    no_user: "Użytkownik o danym emailu nie istnieje. Proszę się wpierw zarejestrować"
     register: Zarejestruj się
     cancel: Anuluj
     account: Moje konto
@@ -95,7 +97,8 @@ pl:
     language: "Twój język napisów: "
     params: "Parametry zamówienia: "
     edit_params: "Edytuj pozycje zamówienia: "
-    email_name: "Lista filmów"
+    email_name: "Lista najnowszych filmów"
+    desirable_email_name: "Oczekiwane przez Ciebie filmy, które doczekały się już torrentów"
     torrents: "Torrenty: "
     trailer: "Zwiastuny (Oficjalna strona): "
     alert_add: "Dodaj do powiadomienia"

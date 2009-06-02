@@ -12,12 +12,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
-    :login => params[:user][:login],
-    :password => params[:user][:email],
-    :password_confirmation => params[:user][:email],
-    :email => params[:user][:email],
-    :language => "en")
+    @user = User.new(params[:user])
+    #:login => params[:user][:login],
+    #:password => params[:user][:email],
+    #:password_confirmation => params[:user][:email],
+    #:email => params[:user][:email],
+    #:language => "en")
     if @user.save
       flash[:notice] = t('user.account_register')
       redirect_back_or_default user_path(@user)

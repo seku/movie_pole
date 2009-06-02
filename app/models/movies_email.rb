@@ -1,12 +1,23 @@
 class MoviesEmail < ActionMailer::Base
-    
-  def movies_email(user)
+  include ActionController::UrlWriter
+  default_url_options[:host] = "localhost:3000" #needed for test
+   
+  def movies_email(user, movies)
     subject       "Send list of movies"
     from          "movie_pole"
     recipients    user.email
     sent_on       Time.now
-    body          :user => user
+    body          :user => user, :movies => movies
   end
+
+  def desirable_email(user, movies)
+    subject       "Send list of movies"
+    from          "movie_pole"
+    recipients    user.email
+    sent_on       Time.now
+    body          :user => user, :movies => movies
+  end
+  
   
   helper_method :torrent_url, :subtitles_url, :genre
   

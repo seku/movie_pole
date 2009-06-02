@@ -27,7 +27,7 @@ en:
     register_urge: "If you register you can get weekly the newest movies with torrent on mail (just those you are interested in)"
     why_register: "Register, what for"
     alert_information1: "Create your alert !!"
-    alert_information2: "Get weekly the newest movies list with links to existing torrents and subtitles."
+    alert_information2: "Get weekly the newest movies list"
     alert_information3: "Only movies which will fit your alerts will be sent !!" 
   sort:
     sort: "Sort results by: "
@@ -44,38 +44,40 @@ en:
   title: "Title: "
   
   genres:
-    all: ..All..
-    action: Action 
-    adventure: Adventure
-    animation: Animation
-    biography: Biography
-    comedy: Comedy
-    crime: Crime
-    documentary: Documentary
-    drama: Drama
-    family: Family
-    fantasy: Fantasy
-    film_noir: Film_noir
-    game_show: Game_show
-    history: History
-    horror: Horror
-    music: Music
-    musical: Musical
-    mystery: Mystery
-    news: News
-    reality_tv: Reality_tv
-    romance: Romance
-    sci_fi: Sci_fi
-    short: Short
-    sport: Sport
-    talk_show: Talk_show
-    thriller: Thriller
-    war: War
-    western: Western
+    all: "..All.. "
+    action: "Action "
+    adventure: "Adventure "
+    animation: "Animation "
+    biography: "Biography "
+    comedy: "Comedy "
+    crime: "Crime "
+    documentary: "Documentary "
+    drama: "Drama "
+    family: "Family "
+    fantasy: "Fantasy "
+    film_noir: "Film_noir "
+    game_show: "Game_show "
+    history: "History "
+    horror: "Horror "
+    music: "Music "
+    musical: "Musical "
+    mystery: "Mystery "
+    news: "News "
+    reality_tv: "Reality_tv "
+    romance: "Romance "
+    sci_fi: "Sci_fi "
+    short: "Short "
+    sport: "Sport "
+    talk_show: "Talk_show "
+    thriller: "Thriller "
+    war: "War "
+    western: "Western "
   user:
     login: Login
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"
+    login_link: "Link to login has been send to {{email}}. Please check your email"
+    no_user: "No user was found with that email address. Please register first"
     register: Register
     cancel: Cancel
     account: My_account
@@ -98,7 +100,8 @@ en:
     language: "Yours subtitles language: "
     params: "Order parameters: "
     edit_params: "Edit order parameters: "
-    email_name: "List of movies"
+    email_name: "List of newest movies"
+    desirable_email_name: "List of expected movies, which have now torrents"
     torrents: "Torrents: "
     trailer: "Trailers (Official site): "
     alert_add: "Add alert"

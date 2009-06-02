@@ -20,6 +20,8 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.action_mailer.delivery_method = :smtp
   config.gem 'gravtastic'
+  config.gem "rspec", :lib => false, :version => ">= 1.2.6"
+  config.gem "rspec-rails", :lib => false, :version => ">= 1.2.6"
 
   config.time_zone = 'UTC'
 

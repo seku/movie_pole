@@ -5,4 +5,7 @@ first:
   login: robert
   email: sseku@o2.pl
   language: en
-  
+second:
+  login: rob
+  email: sekupyna@yahoo.com
+  language: pl

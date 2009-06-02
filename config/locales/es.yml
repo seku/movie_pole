@@ -74,6 +74,8 @@ es:
     login: Zaloguj się ######
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"
+    login_link: "Link to login has been send to {{email}}. Please check your email"
+    no_user: "No user was found with that email address"
     register: Zarejestruj się ###########
     cancel: Anuluj
     account: konto #########
@@ -97,6 +99,7 @@ es:
     params: "Order parameters: " ###########
     edit_params: "Edytuj pozycje zamówienia: " #######
     email_name: "Lista filmów" #######
+    desirable_email_name: "Oczekiwane przez Ciebie filmy, które doczekały się już torrentów"
     torrents: "Torrenty: " #######
     trailer: "Trailers (Official site): "
     alert_add: "Add alert" ###
