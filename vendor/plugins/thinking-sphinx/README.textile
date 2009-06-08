@@ -113,3 +113,22 @@ Since I first released this library, there's been quite a few people who have su
 * Jeff Talbot
 * Dana Contreras
 * Menno van der Sman
+* Bill Harding
+* Isaac Feliu
+* Andrei Bocan
+* László Bácsi
+* Peter Wagenet
+* Max Lapshin
+* Martin Emde
+* David Wennergren
+* Mark Lane
+* Eric Lindvall
+* Lawrence Pit
+* Mike Bailey
+* Bill Leeper
+* Michael Reinsch
+* Anderson Dias
+* Jerome Riga
+* Tien Dung
+* Johannes Kaefer
+* Paul Campbell
