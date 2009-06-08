@@ -4,19 +4,31 @@ set :scm, :git
 set :user, "trix"
 #set :password, "trix"
 set :use_sudo, false
+set :domain, "trix.megiteam.pl"
 
-
-
-# If you aren't deploying to /u/apps/#{application} on the target
-# servers (which is the default), you can specify the actual location
-# via the :deploy_to variable:
 set :deploy_to, "~/trix"
 
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-# set :scm, :subversion
-#ssh_options[:keys] = %w(~/.ssh/id_rsa)
+set :use_sudo, false
+
 
 role :app, "trix.megiteam.pl"
 role :web, "trix.megiteam.pl"
 role :db,  "trix.megiteam.pl", :primary => true
+
+namespace :deploy do
+  desc "Restart app"
+    task :restart, :role => :app do
+    run "restart-app #{application}"
+  end
+end
+
+namespace :db do
+  desc "Make symlink for database yaml" 
+  task :symlink do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml" 
+  end
+end
+
+after :deploy, "deploy:restart"
+after "deploy:update_code", "db:symlink"
+

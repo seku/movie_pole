@@ -7,7 +7,7 @@ class Movie < ActiveRecord::Base
   named_scope :limited, lambda { |num| { :limit => num } }
 
   before_validation :sanitize_title
-
+  
   has_many :torrents
   has_and_belongs_to_many :genres
   has_many :desirable_alerts
@@ -19,6 +19,7 @@ class Movie < ActiveRecord::Base
   validates_numericality_of [:votes, :rating, :year], :allow_nil => true
   @full_info = IMDB::FullInformation.new
   @now_playing = IMDB::NowPlaying.new
+  xss_terminate :except => [:directors, :writers]
   
   #sphinx search 
   define_index do
