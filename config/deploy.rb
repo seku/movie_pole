@@ -1,4 +1,4 @@
-load ‘vendor/plugins/thinking-sphinx/lib/thinking_sphinx/deploy/capistrano’
+require 'thinking_sphinx/deploy/capistrano' 
 
 set :application, "trix"
 set :repository,  "git://github.com/seku/movie_pole.git"
