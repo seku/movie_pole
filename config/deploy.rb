@@ -1,4 +1,4 @@
-#require 'thinking_sphinx/deploy/capistrano' 
+require 'thinking_sphinx/deploy/capistrano'
 
 set :application, "trix"
 set :repository,  "git://github.com/seku/movie_pole.git"
@@ -7,8 +7,8 @@ set :user, "trix"
 #set :password, "trix"
 set :use_sudo, false
 set :deploy_to, "~/trix"
-
 set :use_sudo, false
+
 
 
 server "trix.megiteam.pl", :app, :web, :db, :primary => true 
@@ -30,5 +30,5 @@ end
 after :deploy, "deploy:restart"
 after "deploy:update_code", "db:symlink"
 
-#after "deploy:setup", "thinking_sphinx:shared_sphinx_folder"
+after "deploy:setup", "thinking_sphinx:shared_sphinx_folder"
 
