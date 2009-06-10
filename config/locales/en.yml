@@ -20,6 +20,7 @@ en:
     query_title: "Search: "
     result: "Searching results: "
     no_result: "There are no movies match your request"
+    no_torrent: "there's no torrent avaliable yet"
     main: "Main page"
     language: "Language: "
     more: "more"

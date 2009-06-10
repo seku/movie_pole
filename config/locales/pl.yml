@@ -17,6 +17,7 @@ pl:
     query_title: "Szukaj: "
     result: "Wyniki wyszukiwania: "
     no_result: "Brak filmów odpowiadających twojemu poszukiwaniu"
+    no_torrent: "Nie ma jeszcze torrentów"
     main: "Strona główna"
     language: "Język: "
     more: "więcej"
