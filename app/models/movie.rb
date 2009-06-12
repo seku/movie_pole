@@ -88,7 +88,7 @@ class Movie < ActiveRecord::Base
   
   # date must be the newest from database or if database is empty date =(2002,8,2)
   def self.search_start_date 
-  	@start_date = Movie.last.nil? ? Date.new(2008,10,24) : Movie.last.release_date + 7
+  	@start_date = Movie.last.nil? ? Date.new(2002,8,2) : Movie.last.release_date + 7
   end
   
 	def self.today_date
