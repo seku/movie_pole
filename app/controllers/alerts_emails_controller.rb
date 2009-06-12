@@ -1,6 +1,6 @@
 class AlertsEmailsController < ApplicationController
   
-  def index 
+  def self.send_alerts 
     send_email_with_desirable_movies
     send_weekly_alerts
     redirect_to user_path(current_user)  #this line should be removed 

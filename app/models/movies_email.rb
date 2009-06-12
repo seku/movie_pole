@@ -1,6 +1,6 @@
 class MoviesEmail < ActionMailer::Base
-  include ActionController::UrlWriter
-  default_url_options[:host] = "localhost:3000" #needed for test
+  #include ActionController::UrlWriter
+  #default_url_options[:host] = "localhost:3000" #needed for test
    
   def movies_email(user, movies)
     subject       "Send list of movies"

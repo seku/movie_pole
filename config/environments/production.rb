@@ -21,4 +21,18 @@ config.action_controller.perform_caching             = true
 # config.action_controller.asset_host                  = "http://assets.example.com"
 
 # Disable delivery errors, bad email addresses will be ignored
-# config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smpt
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_charset = 'utf-8' 
+  config.action_mailer.default_url_options = { :host => "trix.megiteam.pl" } 
+  config.action_mailer.smtp_settings = {  
+    :address => 'trix.megiteam.pl',  
+    :port => 25,  
+    :user_name => 'trix@trix.megiteam.pl',  
+    :password => 'trix', 
+    :domain => 'trix.megiteam.pl',
+    :authentication => :login  
+  }
+
+  
+  
