@@ -1,3 +1,5 @@
+config/development.sphinx.conf
+db/sphinx/*
 config/database.yml
 coverage
 db/*.sqlite3
