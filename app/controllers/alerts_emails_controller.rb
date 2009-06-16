@@ -16,7 +16,7 @@ class AlertsEmailsController < ApplicationController
           alert.destroy
         end
       end
-      send_desirable_email(user, @movies) if @movies.count > 0
+      send_desirable_email(user, @movies) if @movies.size > 0
     end
   end
   
@@ -26,7 +26,7 @@ class AlertsEmailsController < ApplicationController
       user.weekly_alerts.each do |alert|
         @movies << alert_movies(alert)
       end
-      send_email(user, @movies) if @movies.count > 0
+      send_email(user, @movies) if @movies.size > 0
     end
   end
 
