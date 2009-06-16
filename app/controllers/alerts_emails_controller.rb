@@ -1,9 +1,9 @@
 class AlertsEmailsController < ApplicationController
   
-  def self.send_alerts 
+  def send_alerts 
     send_email_with_desirable_movies
     send_weekly_alerts
-    #redirect_to user_path(current_user)  #this line should be removed 
+    #redirect_to genres_path  #this line should be removed 
   end
   
   def self.send_email_with_desirable_movies
