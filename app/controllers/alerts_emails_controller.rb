@@ -16,6 +16,7 @@ class AlertsEmailsController < ApplicationController
           alert.destroy
         end
       end
+      puts "#{user.login} desirable movies size : #{@movies.size} "
       send_desirable_email(user, @movies) if @movies.size > 0
     end
   end
