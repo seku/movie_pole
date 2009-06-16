@@ -130,13 +130,9 @@ $(document).ready(function() {
   })
   $("#login").live("click", function() {
     $.get($(this).find("a").attr("href"), null, function(data){
-      if (not_exist) { 
-        not_exist = false
-        $(data).appendTo("#response")
-      }
+      $(data).appendTo("#response")
       $("#backgroundPopup").fadeIn("slow") 
       $("#response").fadeIn("slow")
-      pressed = true
     },"html")
     return false
   })
@@ -144,23 +140,18 @@ $(document).ready(function() {
   
   $("#register, #redirect_login").live("click", function() {
     $.get(register, null, function(data){
-      if (not_exist) { 
-        not_exist = false
-        $(data).appendTo("#response")
-      }
+      $(data).appendTo("#response")
       $("#backgroundPopup").fadeIn("slow") 
       $("#response").fadeIn("slow")
-      pressed = true
     },"html")
     return false
   })
 
   $("#cancel").live("click", function() {
-    if (pressed) {
-      $("#backgroundPopup").fadeOut("slow") 
-      $("#response").fadeOut("fast")
-      return false
-    }
+    $("#backgroundPopup").fadeOut("slow") 
+    $("#response").fadeOut("fast")
+    $("#response").empty()
+    return false
   })
 
   $("#add_movie").live("click", function() {

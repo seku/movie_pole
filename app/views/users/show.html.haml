@@ -4,7 +4,7 @@
   = link_to(@user.login, user_path(@user))
 .page_topic
   = t('user.account')
--content_tag :div, :class => "user account" do
+-content_tag :div, :class => "user_account" do
   #logout
     = link_to(t('user.logout'), user_session_path, :method => :delete, :confirm => t('user.confirm'))
   = link_to(t('user.delete'), user_path(@user), :method => :delete, :confirm => t('user.confirm'))
