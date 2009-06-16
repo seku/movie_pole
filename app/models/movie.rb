@@ -72,7 +72,7 @@ class Movie < ActiveRecord::Base
       	:directors => m[:directors],
       	:tagline => m[:tagline],
       	:plot => m[:plot],
-      	:poster => m[:poster],
+      	#:poster => m[:poster],
       	:official_site => m[:official_site],
       	:release_date => date)
       genres = Genre.all.map(&:name)

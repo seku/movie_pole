@@ -43,7 +43,7 @@ namespace :db do
   
 end
 
-task :symlink_sphinx_yml do
+task :symlink_sphinx_files do
   run "ln -nfs #{shared_path}/config/sphinx.yml #{release_path}/config/sphinx.yml" 
 end
 =begin
@@ -67,7 +67,7 @@ namespace :thinking_sphinx do
 end
 =end
 
-after "deploy:update_code", "symlink_sphinx_yml"
+after "deploy:update_code", "symlink_sphinx_files"
 after :deploy, "deploy:restart"
 after "deploy:update_code", "db:symlink"
 
