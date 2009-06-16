@@ -1,6 +1,6 @@
 class AlertsEmailsController < ApplicationController
   
-  def send_alerts 
+  def self.send_alerts 
     send_email_with_desirable_movies
     send_weekly_alerts
     #redirect_to genres_path  #this line should be removed 
