@@ -33,7 +33,7 @@ class AlertsEmailsController < ApplicationController
   def self.alert_movies(alert) #should be changed to finding only movies from this week 
     @genre = Genre.find(alert.genre_id) 
     @movies = @genre.movies.rated_with(alert.rating)
-    @movies = @movies.only_torrents.limited(3)
+    @movies = @movies.limited(3)
     @movies = @movies.sorted_by("release_date", "desc")  
   end
 
