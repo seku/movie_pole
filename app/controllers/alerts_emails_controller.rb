@@ -39,12 +39,12 @@ class AlertsEmailsController < ApplicationController
 
   def self.send_email(user, movies)
     MoviesEmail.deliver_movies_email(user, movies)
-    flash[:notice] = "email sended" #should be removed
+    #flash[:notice] = "email sended" #should be removed
   end
   
   def self.send_desirable_email(user, movies)
     MoviesEmail.deliver_desirable_email(user, movies)
-    flash[:notice] = "#{user.email} email sended"  #should be removed
+    #flash[:notice] = "#{user.email} email sended"  #should be removed
   end 
   
 
