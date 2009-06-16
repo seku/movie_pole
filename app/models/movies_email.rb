@@ -4,7 +4,7 @@ class MoviesEmail < ActionMailer::Base
    
   def movies_email(user, movies)
     subject       "Send list of movies"
-    from          "movie_pole"
+    from          "trix@trix.megiteam.pl"
     recipients    user.email
     sent_on       Time.now
     body          :user => user, :movies => movies
@@ -12,7 +12,7 @@ class MoviesEmail < ActionMailer::Base
 
   def desirable_email(user, movies)
     subject       "Send list of movies"
-    from          "movie_pole"
+    from          "trix@trix.megiteam.pl"
     recipients    user.email
     sent_on       Time.now
     body          :user => user, :movies => movies
