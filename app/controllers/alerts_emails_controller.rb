@@ -11,7 +11,7 @@ class AlertsEmailsController < ApplicationController
       @movies = []
       user.desirable_alerts.each do |alert|
         movie = Movie.find(alert.movie_id)
-        if movie.torrents.count > 0
+        if movie.torrents.size > 0
           @movies << movie
           alert.destroy
         end
