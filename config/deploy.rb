@@ -42,11 +42,11 @@ namespace :db do
   end
   
 end
-=begin
-task :symlink_sphinx_yml do
-  run "ln -nfs #{shared_path}/config/sphinx.yml #{release_path}/config/database.yml" 
-end
 
+task :symlink_sphinx_yml do
+  run "ln -nfs #{shared_path}/config/sphinx.yml #{release_path}/config/sphinx.yml" 
+end
+=begin
 namespace :thinking_sphinx do
 
   task :configure, :roles => [:app] do
@@ -65,8 +65,9 @@ namespace :thinking_sphinx do
     run "cd #{current_path}; rake thinking_sphinx:restart RAILS_ENV=#{rails_env}"
   end
 end
-after "deploy:update_code", "symlink_sphinx_yml"
 =end
+
+after "deploy:update_code", "symlink_sphinx_yml"
 after :deploy, "deploy:restart"
 after "deploy:update_code", "db:symlink"
 
