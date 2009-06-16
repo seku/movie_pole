@@ -11,7 +11,7 @@ module IMDB
       info[:title] = parse_title(main_div)
       puts info[:title]
       poster_path = extract_poster_path(doc)
-      info[:poster] = poster_url(poster_path)
+      #info[:poster] = poster_url(poster_path)
       info[:official_site] = official_site(imdb_id)
       info[:year] = parse_year(main_div)
       info[:rating] = parse_rating(main_div)
