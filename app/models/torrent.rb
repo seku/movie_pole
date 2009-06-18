@@ -5,7 +5,8 @@ class Torrent < ActiveRecord::Base
 	def self.fetch_torrents
     puts "..update_all_torrents.."
     torrents = Movie.all.map do |m| 
-    	unless m.torrents.size > 3   #0 or 3 ??
+    	unless m.torrents.size > 2   #0 or 3 ??
+    	  puts m.title
     	  results =	@torrent.from_imdb(m.imdb_id)
     	  results.each do |t|
           if t[:size] > Torrent_limit_size
