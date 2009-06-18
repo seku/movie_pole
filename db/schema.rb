@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090504081743) do
+ActiveRecord::Schema.define(:version => 20090618093814) do
 
   create_table "alerts", :force => true do |t|
     t.integer  "rating"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20090504081743) do
     t.integer  "year"
     t.float    "rating"
     t.integer  "votes"
-    t.integer  "imdb_id"
+    t.string   "imdb_id"
     t.string   "genre"
     t.date     "release_date"
     t.string   "directors"
