@@ -92,8 +92,8 @@ class Movie < ActiveRecord::Base
   end
   
 	def self.today_date
-		(Date.today > (@start_date + 28)) ? (@start_date + 28) : Date.today #just for contab test
-		#Date.today
+		#(Date.today > (@start_date + 28)) ? (@start_date + 28) : Date.today 
+		Date.today
 	end
 	
 end
