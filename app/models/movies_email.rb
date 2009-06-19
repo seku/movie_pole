@@ -18,6 +18,13 @@ class MoviesEmail < ActionMailer::Base
     body          :user => user, :movies => movies
   end
   
+  def invitation_email(user)
+    subject       "Welkomme in Movie Pole"
+    from          "trix@trix.megiteam.pl"
+    recipients    user.email
+    sent_on       Time.now
+    body          :user => user    
+  end
   
   helper_method :torrent_url, :subtitles_url, :genre
   

@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
-    @user.alerts.destroy_all #you can achive it by seting ",:dependent => :destroy" to has_many :alerts in User model, than automaticaly alerts will be destroyed when user will.
+    #@user.alerts.destroy_all # achived by seting ",:dependent => :destroy" to has_many :alerts in User model, this automatically destroy user's alerts when user is deleted.
     @user.destroy
     redirect_to genres_path
   end  

@@ -26,5 +26,5 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
   #config.gem('freelancing-god-thinking-sphinx', :lib => 'thinking_sphinx', :version => '1.1.20')
 
-
+  config.active_record.observers = :user_observer
 end

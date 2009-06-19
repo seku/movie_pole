@@ -16,10 +16,10 @@ namespace :deploy do
     run "restart-app #{application}"
   end
   
-  #task :before_update do
+  task :before_update do
   #  # Stop Thinking Sphinx before the update so it finds its configuration file.
-  #  thinking_sphinx.stop
-  #end
+    thinking_sphinx.stop
+  end
 
   task :after_update do
     #symlink_sphinx_indexes
