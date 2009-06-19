@@ -3,7 +3,7 @@
     .yui-g
       .page_topic
         = t('txt.category_choice')
-      -@genres.in_groups_of(14, false) do |group| 
+      -@genres.in_groups_of(12, false) do |group| 
         -content_tag :div, :class => "genre #{group.first.name}" do
           -group.each do |genre| 
             -content_tag :div, :class => "movie_genre", :id => genre.id do
