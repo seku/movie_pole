@@ -7,9 +7,10 @@
         -content_tag :div, :class => "genre #{group.first.name}" do
           -group.each do |genre| 
             -content_tag :div, :class => "movie_genre", :id => genre.id do
-              = link_to(t("genres.#{genre.name}"), genre_movies_path(genre))
-              = link_to "(#{genre_movies_torrents(genre)} /", genre_movies_path(genre)  
-              = link_to "#{genre.movies.size})", genre_movies_path(genre, :without => 1) 
+              = link_to(t("genres.#{genre.name}"), genre_movies_path(genre, :without => 1))
+              /
+                = link_to "(#{genre_movies_torrents(genre)} /", genre_movies_path(genre)  
+                = link_to "#{genre.movies.size}", genre_movies_path(genre, :without => 1) 
         %br
 
 .yui-b#side_panel

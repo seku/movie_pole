@@ -15,10 +15,12 @@
   %body
     #doc2.yui-t4
       #hd
-        = t('txt.language')
-        = select_tag(:locale, options_for_select(languages, cookies[:locale]))
-        %h1
-          = link_to(t('movie_pole'), genres_path) 
+        #language
+          = t('txt.language')
+          = select_tag(:locale, options_for_select(languages, cookies[:locale]))
+        %a{:href => "/genres"}   
+          %h1
+            %span= t('movie_pole')
         
                 
       #bd

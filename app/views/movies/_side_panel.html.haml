@@ -1,15 +1,11 @@
 #search_block 
-  = t('txt.query_title')
   -form_tag(searches_path, :method => :get) do 
-    = text_field_tag :query, params[:query], :id => "search_query"
+    = text_field_tag :query, params[:query], :id => "search_query", :size => 14
+    = submit_tag t('buttons.query'), :id => "submit"
     %ul.autocomplete_results
     #more
       = link_to(t('txt.more'))
-    #less
-      = link_to(t('txt.less'))
-    = submit_tag t('buttons.query') 
     #advanced_search
-      %br
       = select_tag :genre_id, options_for_select(Genre.options_for_select)
       %br
       = t('sort.rating') 
@@ -17,8 +13,9 @@
       %br
       = check_box_tag :without, 1, params[:without] == "1" ? true : false  
       = t('txt.without')
-      %br
-    
+    %br
+    #less
+      = link_to(t('txt.less'))
     
 
 #account

@@ -1,31 +1,236 @@
-h1
-  :font-size 20px
-  
+// ####################################### background #############################
+
+#doc2
+  :background url(/images/tasma3.jpg) no-repeat scroll 0 0
+
+// #######################################header #######################################
+#hd
+  h1
+    :background transparent url(/images/klisza.jpg) no-repeat scroll 0 0
+    :height 175px
+    :margin 0 
+    span
+      :visibility hidden
+  #language
+    :float right
+    #locale 
+      :background-color #D6D6D6
+      :border 1px solid #999999
+      :color #666666
+      :font-size 10px
+      :font-weight bold
+// ########################################## body ##################################
 h2
   :font-size 18px
+.page_topic
+  :font-size 22px
+  :text-align left
+  :margin-bottom 20px
+  :margin-top 20px
+  :padding-left 100px
 .genre 
-  :border 1px solid gray
-  :background green
+  :font-size 14px
+  :opacity 0.9
 .genre.all
   :float left 
-  :width 50%
-  :background red
+  :width 70%
 .genre.horror 
   :float left
-  :width 49%
-  :background yellow
+  :width 29%
+.genre.all div, .genre.horror div
+  :height 20px
+  :width 150px
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :margin 5px
+  :border 1px solid #333333
+  :background-color #f5f5f5 
+  :padding-top 5px
+  :padding-left 30px
+  a
+    :color #2f2b2b  
+    :font-weight bold
 #torrent 
   :float left
   :overflow hidden
-#search_block 
-  :background gray
+.sort
+  :float right
+.sort_result
+  :margin 15px
+  :font-size 18px
+  :font-weight bold
+.link_comunication a
+  :opacity 0.9
+  :-moz-border-radius 3px
+  :-webkit-border-radius 3px
+  :background-color #F8F8F8
+  :border 1px solid #CCCCCC
+  :color #666666
+  :padding 2px
+  :text-decoration underline
+.link_comunication span  
+  :opacity 0.9
+  :-moz-border-radius 3px
+  :-webkit-border-radius 3px
+  :background-color #EEEEEE
+  :border 1px solid #666666
+  :color #444444
+  :padding 2px
+// ######## styling of movie list -> for example if you use searching or choose genre ########
+.movie_list
+  li
+    :opacity 0.9
+    :clear both
+    :width 710px
+    :-moz-border-radius 10px
+    :-webkit-border-radius 10px
+    :margin 5px
+    :border 1px solid #333333
+    :background-color #f5f5f5 
+    :padding-top 5px
+    :padding-left 10px
+    :padding-right 10px
+    a  
+      :color #2f2b2b  
+      :font-weight bold
+    .title
+      :float left
+      :width 90%
+      :font-size 16px
+      :padding-bottom 5px
+    .rating
+      :float left
+      :width 9%
+    .torrents
+      :clear both
+      :float left 
+      :width 60%
+    .subtitles
+      :width 40%
+      :float left
+      :text-align right
+    .plot
+      :padding-top 5px
+      :clear both
+      :width 100%
+// ################################### styling of concrete movie -> more info than in list ###
+.movie_details
+  :opacity 0.9
+  :width 710px
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :margin 5px
+  :border 1px solid #333333
+  :background-color #f5f5f5 
+  :padding-top 5px
+  :padding-left 10px
+  :padding-right 10px
+  a
+    :color #2f2b2b  
+    :font-weight bold
+  .title
+    :float left
+    :width 90%
+    :font-size 16px
+    :padding-bottom 5px
+  .rating
+    :float left
+    :width 9%
+  .torrents
+    :clear both
+    :float left 
+    :width 60%
+  .subtitles
+    :width 40%
+    :float left
+    :text-align right
+  .year
+    :padding-top 5px
+    :clear both
+    :width 100%
+  .directors
+    :width 50%
+    :float left 
+  .imdb
+    :width 50%
+    :float left
+  .writers
+    :clear both
+    :width 80%
+    :float left
+  .trailers
+    :width 20%
+    :float left
+  .release_date
+    :clear both
+    :width 100%
+  .plot
+    :padding-top 5px   
+// ####################################side panel -> searching #############################
+#advanced_search
+  :text-align center
+.autocomplete_results
+  li
+    :width 155px
+    :-moz-border-radius 5px
+    :-webkit-border-radius 5px
+    :border 1px solid #333333
+    :background-color #f5f5f5 
+    :padding-top 5px
+    :padding-left 10px
+    a
+      :color #2f2b2b  
+      :font-weight bold
+// ###################################### footpront ##################################
+#copyright
+  :opacity 0.9
+  :margin-top 40px
+  :-moz-border-radius-topleft 10px
+  :-webkit-border-top-left-radius 10px
+  :text-align center
+  :background-color #e2e2e2
+  :background-color #e2e2e2
+  :border 2px solid #333333
+  
+// ####################################### pagination ###############################  
+.paginate
+
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :height 16px
+  :background #F8F8F8
+  :border 1px solid #E5E5E5
+  :text-align center
+  :padding 1em
+  a, span
+    :padding .2em .3em
+  span.disabled
+    :color #AAA
+  span.current
+    :color black
+    :font-size 16px
+    :font-weight bold
+    :background transparent url(images/apple-circle.gif) no-repeat 50% 50%
+  a
+    :text-decoration none
+    :color #454343
+    &:hover, &:focus
+      :text-decoration underline
+      
+// #################### below css for extra features - not firts deploy !!  #############################
+#search_block
+  :font-size 12px
+  #search_query 
+    :float left
+  #submit 
+    :font-size 11px
+    :float left
+  .autocomplete_results
+    :clear both
+    :width 100%
 #main 
   :clear both
   :width 100%
-#copyright
-  :text-align center
-  :background brown
-#poster
 
 #movie_features
 .user_account
@@ -43,7 +248,7 @@ h2
 #response
   :z-index 5
   :position absolute
-  :left 500px
+  :left 100px
   :top 100px
   :border 1px solid #cecece  
 #backgroundPopup
@@ -63,5 +268,4 @@ h2
   :visibility hidden  
 #account, #redirect_login
   :visibility hidden 
-
 

@@ -1,28 +1,27 @@
 #yui-main
   .yui-b
-    .yui-gd{:style => "border: 1px solid red"}
+    .yui-gd
       .link_comunication
         = link_to t('txt.main'), genres_path
         >>
-        = link_to(t("genres.#{@genre.name}"), genre_movies_path(@genre))
+        %span= t("genres.#{@genre.name}")
       .page_topic
         = t('txt.category')
         = t("genres.#{@genre.name}") 
-      .sort_title
-        = t('sort.sort') 
-      .sort_choice
-        -form_tag(movies_path, :method => :get) do 
-          = hidden_field_tag :genre_id, params[:genre_id]
-          = hidden_field_tag :rating, params[:rating]
-          = select_tag :sort_by, options_for_select(@sort_by, params[:sort_by]) 
-          = submit_tag t('buttons.show') 
-          = check_box_tag :without, 1, params[:without] == "1" ? true : false
-          = t('txt.without')
-      .sort_result
-        = t('txt.result') 
+      .sort
+        .sort_title
+          = t('sort.sort') 
+        .sort_choice
+          -form_tag(movies_path, :method => :get) do 
+            = hidden_field_tag :genre_id, params[:genre_id]
+            = hidden_field_tag :rating, params[:rating]
+            = select_tag :sort_by, options_for_select(@sort_by, params[:sort_by]) 
+            = submit_tag t('buttons.show') 
+            = check_box_tag :without, 1, params[:without] == "1" ? true : false
+            = t('txt.without')
       .paginate
         = will_paginate @movies 
-      %ul
+      %ul{:class => "movie_list"}
         -@movies.each do |movie| 
           = render :partial => movie
       %br
@@ -32,7 +31,7 @@
       .link_comunication
         = link_to t('txt.main'), genres_path
         >>
-        = link_to(t("genres.#{@genre.name}"), genre_movies_path(@genre))
+        %span= t("genres.#{@genre.name}")
 
 
 .yui-b#side_panel

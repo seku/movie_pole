@@ -2,29 +2,28 @@
   #poster
     /= link_to(image_tag(movie.poster, :width => 100, :alt => movie.title), movie_path(movie))
   #movie_features
-    = link_to(movie.title, movie_path(movie)) 
-    = t('sort.rating')
-    = movie.rating 
-    %br
-    -if movie.torrents.any? 
-      torrents: 
-      -movie.torrents.each do |torrent| 
-        = link_to("torrent (#{number_to_human_size(torrent.size)})", torrent_url(torrent), :title => torrent.title)
-    -else 
-      = t("txt.no_torrent")
-      |
-    = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{movie.imdb_id}")) if cookies[:locale] != "en"
-    |
-    = link_to(t('subtitles.english'), subtitles_url("eng", "#{movie.imdb_id}")) 
-    |
-    %br
-    = t('txt.plot')
-    = movie.plot 
-    %br
-    -if movie.torrents.blank?
-      -if !current_user
-        #redirect_login
-          = link_to(t("user.add_movie"), new_user_session_path)
-      -else
-        #add_movie
-          = link_to(t("user.add_movie"), edit_desirable_alert_path(movie))
+    = link_to(movie.title, movie_path(movie), :class => "title") 
+    .rating
+      = t('sort.rating')
+      = movie.rating 
+    .torrents
+      -if movie.torrents.any? 
+        torrents: 
+        -movie.torrents.each do |torrent| 
+          = link_to("torrent (#{number_to_human_size(torrent.size)})", torrent_url(torrent), :title => torrent.title)
+      -else 
+        = t("txt.no_torrent")
+    .subtitles
+      = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{movie.imdb_id}")) if cookies[:locale] != "en"
+      = link_to(t('subtitles.english'), subtitles_url("eng", "#{movie.imdb_id}"))
+    .plot
+      = t('txt.plot')
+      = movie.plot 
+    .add_to_your_list
+      -if movie.torrents.blank?
+        -if !current_user
+          #redirect_login
+            = link_to(t("user.add_movie"), new_user_session_path)
+        -else
+          #add_movie
+            = link_to(t("user.add_movie"), edit_desirable_alert_path(movie))

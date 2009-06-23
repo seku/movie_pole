@@ -15,7 +15,7 @@ es:
     tagline: "Palabra: "
     plot: "Breviario: "
     query_title: "Busca: "
-    result: "Searching results: " #############
+    result: "Searching results" #############
     no_result: "There are no movies match your request" ############
     no_torrent: "No una torrenta"
     main: "Capital página"

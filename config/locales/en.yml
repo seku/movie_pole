@@ -18,7 +18,7 @@ en:
     tagline: "Tagline: "
     plot: "Plot: "
     query_title: "Search: "
-    result: "Searching results: "
+    result: "Searching results"
     no_result: "There are no movies match your request"
     no_torrent: "there's no torrent avaliable yet"
     main: "Main page"

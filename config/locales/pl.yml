@@ -15,7 +15,7 @@ pl:
     tagline: "Słówkiem: "
     plot: "Opis: "
     query_title: "Szukaj: "
-    result: "Wyniki wyszukiwania: "
+    result: "Wyniki wyszukiwania"
     no_result: "Brak filmów odpowiadających twojemu poszukiwaniu"
     no_torrent: "Nie ma jeszcze torrentów"
     main: "Strona główna"
