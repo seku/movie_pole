@@ -1,7 +1,7 @@
 pl:
   movie_pole: "Pole filmowe"
   txt:
-    category_choice: "Wybierz z pośród kategorii"
+    category_choice: "Wybierz spośród kategorii"
     category: "Kategoria: "
     main_title: "Pokaż najnowsze filmy dla wybranej kategorii"
     without: "Bez torrentów"
