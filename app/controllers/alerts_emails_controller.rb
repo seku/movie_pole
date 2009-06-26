@@ -7,7 +7,7 @@ class AlertsEmailsController < ApplicationController
   end
   
   def self.send_email_with_desirable_movies
-    User.all.each do |user|
+    User.find_each do |user|
       @movies = []
       user.desirable_alerts.each do |alert|
         movie = Movie.find(alert.movie_id)
@@ -21,7 +21,7 @@ class AlertsEmailsController < ApplicationController
   end
   
   def self.send_weekly_alerts
-    User.all.each do |user|
+    User.find_each do |user|
       @movies = []
       user.weekly_alerts.each do |alert|
         @movies << alert_movies(alert)

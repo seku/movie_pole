@@ -33,6 +33,8 @@
                 = t('txt.register_urge')
           -else
             #there_is_user
+              #comment.style
+                = link_to(t("user.comment"), comments_path)
               #account.style
                 = link_to(t('user.account'), user_path(current_user))
               #logout.style

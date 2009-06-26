@@ -75,6 +75,7 @@ en:
     war: "War "
     western: "Western "
   user:
+    comment: "Comment"
     login: Login
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"

@@ -1,0 +1,17 @@
+.link_comunication
+  = link_to t('txt.main'), genres_path
+  >>
+  %span= t("user.comment")
+
+.comment_site
+  -form_tag do
+    .topic  
+      = label_tag t("user.comment")
+    = text_area_tag("comment", "What do you think about our site ??", :size => "80x15")
+    %br
+    = submit_tag "zatwierdz"
+  
+.link_comunication
+  = link_to t('txt.main'), genres_path
+  >>
+  %span= t("user.comment")
