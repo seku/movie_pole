@@ -1,57 +1,65 @@
 .link_comunication
   = link_to t('txt.main'), genres_path
   >>
-  = link_to(@user.login, user_path(@user))
+  %span= @user.login
 .page_topic
   = t('user.account')
 -content_tag :div, :class => "user_account" do
-  #logout
-    = link_to(t('user.logout'), user_session_path, :method => :delete, :confirm => t('user.confirm'))
-  = link_to(t('user.delete'), user_path(@user), :method => :delete, :confirm => t('user.confirm'))
-  %br
-  = t('user.user')
-  =h @user.login 
-  %br
-  = t('user.photo')
-  = image_tag @user.gravatar_url(:default => "wavatar", :size => 50) 
-  %br
-  = t('user.language')
-  = @user.language
-  %br
-  = link_to(t('user.edit'), edit_account_path)
+  .edit_account
+    = link_to(t('user.edit'), edit_account_path)
+  .delete_account
+    = link_to(t('user.delete'), user_path(@user), :method => :delete, :confirm => t('user.confirm'))
+  .user
+    = t('user.user')
+    .photo
+      = image_tag @user.gravatar_url(:default => "wavatar", :size => 50) 
+    .login
+      =h @user.login 
+  .subtitle_language
+    .user_language
+      = t('user.language')
+    .user_language_form
+      -form_for @current_user do |f|
+        = f.select :language, languages
+    #what_for
+      = link_to(image_tag("/images/query2.png"))
+    .language_information
+      = t('txt.language_information')
 .user_form
+  #what_for
+    = link_to(image_tag("/images/query2.png"))
+  #alerts_topic
+    = t('user.form')
+  #alerts_results
+    = render :partial => "weekly_alerts/user_alerts"
+  - unless (!@user.weekly_alerts.blank?) && (is_there_genre_all_choosen)
+    #alert_add
+      = link_to(t('user.alert_add'), new_user_weekly_alert_path(@user))
+  #message
+    = render :partial => "weekly_alerts/alert_params"
   .alert_information
     = t('txt.alert_information1')
     %br
     = t('txt.alert_information2')
     %br
     = t('txt.alert_information3')
-  %br
-  #alerts_topic
-    = t('user.form')
-  #alerts_results
-    = render :partial => "weekly_alerts/user_alerts"
-  %br
-  - unless (!@user.weekly_alerts.blank?) && (is_there_genre_all_choosen)
-    #alert_add
-      = link_to(t('user.alert_add'), new_user_weekly_alert_path(@user))
-  #message
-    = render :partial => "weekly_alerts/alert_params"
 .user_movies_list
+  #what_for
+    = link_to(image_tag("/images/query2.png"))
+  .alerts_topic  
+    = t("user.movies_list")
+  .movie_list_results
+    = render :partial => "users/movie_list"  
   .list_information
     = t("user.movies_list_info1")
     %br
     = t("user.movies_list_info2")
     %br
     = t("user.movies_list_info3")
-  %br
-  = t("user.movies_list")
-  .movie_list_results
-    = render :partial => "users/movie_list"  
 .link_comunication
   = link_to t('txt.main'), genres_path
   >>
-  = link_to(@user.login, user_path(@user))
+  %span= @user.login
 
 
 

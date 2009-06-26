@@ -18,17 +18,17 @@
               = link_to("torrent (#{number_to_human_size(torrent.size)})", torrent_url(torrent), :title => torrent.title)
           -else 
             = t("txt.no_torrent")
+            .add_to_your_list
+              -if @movie.torrents.blank?
+                -if !current_user
+                  #redirect_login
+                    = link_to(t("user.add_movie"), new_user_session_path)
+                -else
+                  #add_movie
+                    = link_to(t("user.add_movie"), edit_desirable_alert_path(@movie))
         .subtitles 
           = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{@movie.imdb_id}")) if cookies[:locale] != "en"
           = link_to(t('subtitles.english'), subtitles_url("eng", "#{@movie.imdb_id}")) 
-        .add_to_your_list
-          -if @movie.torrents.blank?
-            -if !current_user
-              #redirect_login
-                = link_to(t("user.add_movie"), new_user_session_path)
-            -else
-              #add_movie
-                = link_to(t("user.add_movie"), edit_desirable_alert_path(@movie))
         .year
           = t('txt.year') 
           = @movie.year 

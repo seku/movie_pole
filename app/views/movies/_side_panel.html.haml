@@ -18,24 +18,7 @@
       = link_to(t('txt.less'))
     
 
-#account
-  -if !current_user
-    #no_user
-      #login
-        = link_to(t('user.login'), new_login_email_path)
-      #register
-        = link_to(t('user.register'), new_user_path)
-      #why_register
-        = link_to(t('txt.why_register'))
-        = link_to(image_tag("http://darmowegrafiki.5m.pl/pytajniki/gify_ikony/scr_symQuestion.gif"))
-      #register_urge
-        = t('txt.register_urge')
-  -else
-    #there_is_user
-      #account
-        = link_to(t('user.account'), user_path(current_user))
-      #logout
-        = link_to(t('user.logout'), user_session_path, :method => :delete, :confirm => t('user.confirm'))
+
 
 
 

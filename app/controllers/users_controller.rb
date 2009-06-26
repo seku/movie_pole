@@ -12,17 +12,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-    #:login => params[:user][:login],
+    @user = User.new(
+    :login => params[:user][:login],
     #:password => params[:user][:email],
     #:password_confirmation => params[:user][:email],
-    #:email => params[:user][:email],
-    #:language => "en")
+    :email => params[:user][:email],
+    :language => "en")
     if @user.save
       flash[:notice] = t('user.account_register')
       redirect_back_or_default user_path(@user)
     else
-      render :action => :new
+      render :new
     end
   end
 
@@ -52,6 +52,12 @@ class UsersController < ApplicationController
     #@user.alerts.destroy_all # achived by seting ",:dependent => :destroy" to has_many :alerts in User model, this automatically destroy user's alerts when user is deleted.
     @user.destroy
     redirect_to genres_path
-  end  
+  end 
+  
+  def set_subtitles_language
+    current_user.update_attributes(:language => params[:language])
+    current_user.save
+    render :nothing => true 
+  end 
 
 end

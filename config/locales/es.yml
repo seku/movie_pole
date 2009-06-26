@@ -24,6 +24,7 @@ es:
     less: "mniej"
     register_urge: "If you register you can get weekly the newest movies with torrent on mail (just those you are interested in)"
     why_register: "Rejestracja, po co"
+    language_information: "If you have movies alerts you can choose the subtitles wich will be send to you"
     alert_information1: "Stwórz swoje powiadomienie !!"
     alert_information2: "Otrzymuj co tydzień listę z najnowszymi filmami dla których istnieją torrenty i napisy !!"
     alert_information3: "Otrzymasz tylko te filimy, które będą spełniać twoje wymagania" 

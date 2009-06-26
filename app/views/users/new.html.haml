@@ -1,18 +1,19 @@
-%br
-%h1
-  = t('user.register')
-%br
-= error_messages_for :user
--form_for @user, :html => { :multipart => true }, :url => account_path do |f|
-  = f.label t('user.user') 
-  %br
-  = f.text_field :login 
-  %br
-  = f.label :Email
-  %br
-  = f.text_field :email
-  %br 
-  = f.submit t('user.register')
+.registration_site
+  .register
+    = t('user.register')
+  .register_errors
+    = error_messages_for :user
+  -form_for @user, :html => { :multipart => true }, :url => account_path do |f|
+    = f.label t('user.user') 
+    %br
+    = f.text_field :login 
+    %br
+    = f.label :Email
+    %br
+    = f.text_field :email
+    %br
+    %br 
+    = f.submit t('user.register')
 
-#cancel
-  = link_to(t("user.cancel"), genres_path)
+  #cancel
+    = link_to(t("user.cancel"), genres_path)

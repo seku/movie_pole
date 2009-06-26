@@ -5,6 +5,11 @@ $(document).ajaxSend(function(event, request, settings) {
 });
 
 $(document).ready(function() {
+  var is_information_alert = false
+  var is_information_list = false
+  var is_information_language = false
+  var is_information_register = false
+  var alert_css = {"background-color" : "#F8F8F8", "border" : "1px solid #cecece", "-moz-border-radius" : "5px", "-webkit-border-radius" : "5px", "margin-top" : "5px"}
   var all = {}
   var edit_link = {}
   var edit_link_id = {}
@@ -12,38 +17,33 @@ $(document).ready(function() {
   var register = "/users/new"
   var not_exist = true //check if login/register form exist in response div 
   var pressed = false // it's needed for cancel button in registration form (if true javascript is enabled)
-  var templates = {"alert": "<div id=\"{alert.id}\"><br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}"}
+  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}"}
   
-  //set the language of the site
+  //set the language of the site  #####################################
   $('#locale').change(function() {
     $.cookie("locale", $('#locale').attr('value')) // set cookie
     window.location.reload()
   })
-  
-  // autocomplete the search block 
-  $("#search_query").autocomplete({
-    url: "/searches/autocomplete.json",
-    result_callback: function(result) {
-      return $.tmpl("<li><a href=\"/movies/{movie.id}\">{movie.title}</a></li>", result)
-    }
-  })
 
+  
+  // weekly_alerts on user site ###################################
+  
   $("#create_alert, #alert_add").live("click", function() {
     $("#message").removeClass().addClass("new_alert")
-    $("#message").css({"visibility" : "visible"})
+    $("#message").css({"display" : "block"})
     return false
   })
 
   $(".alert_cancel").live("click", function() {
     $("#message").removeClass()
-    $("#message").css({"visibility" : "hidden"}) 
+    $("#message").css({"display" : "none"}) 
     return false
   })
   $(".alert_edit").live("click", function() {
     edit_link_id = $(this).parent().attr("id")
     edit_link = $(this).find("a").attr("href").replace(/\/edit/,"")
     $("#message").removeClass().addClass("edit_alert")
-    $("#message").css({"visibility" : "visible"})
+    $("#message").css({"display" : "block"})
     return false
   })
 
@@ -75,7 +75,7 @@ $(document).ready(function() {
           $("#alert_add").show()
           $("#" + edit_link_id + "").empty().append($.tmpl(templates.alert_edit, data))
         }
-        $("#message").css({"visibility" : "hidden"})
+        $("#message").css({"display" : "block"})
       }, 
       error: function (data) { alert(translations.alert_exist) }   
     })
@@ -93,20 +93,33 @@ $(document).ready(function() {
         data.translations = translations
         if (data.alert.genre_name == "all") {
           $("#alerts_results").empty()
-          $("#alert_add").hide()
+          $("#alert_add").hide$("#register_urge").hide()()
           all = 1
         }
         $("#alerts_results").append($.tmpl(templates.alert, data))
-        $("#message").css({"visibility" : "hidden"})
+        $("#" + data.alert.id + "").css(alert_css)
+        $("#message").css({"display" : "none"})
       },
       error: function (data) { alert(translations.alert_exist) }
     })
     return false
   })
+  
+  // side panel (searching block) #####################################
+  
+  
+  // autocomplete 
+  
+  $("#search_query").autocomplete({
+    url: "/searches/autocomplete.json",
+    result_callback: function(result) {
+      return $.tmpl("<li><a href=\"/movies/{movie.id}\">{movie.title}</a></li>", result)
+    }
+  })
+  
   $("#more").css({"visibility" : "visible"})
   $("#less").css({"visibility" : "hidden"})
   $("#advanced_search").hide()
-  $("#register_urge").hide()
   //$("#why_register").css({"visibility" : "visible"}) just for first production
   
   $("#more").live("click", function() {
@@ -123,16 +136,14 @@ $(document).ready(function() {
     return false
   })
 
-  
-  $("#why_register").live("click", function() { 
-    $("#register_urge").slideToggle(500)
-    return false
-  })
+  // login/registration popUps ################################################
+
   $("#login").live("click", function() {
     $.get($(this).find("a").attr("href"), null, function(data){
       $(data).appendTo("#response")
       $("#backgroundPopup").fadeIn("slow") 
-      $("#response").fadeIn("slow")
+      $("#response").css({"visibility" : "visible"}).fadeIn("slow")
+      $("#response > #cancel").addClass("popUp")
     },"html")
     return false
   })
@@ -142,31 +153,50 @@ $(document).ready(function() {
     $.get(register, null, function(data){
       $(data).appendTo("#response")
       $("#backgroundPopup").fadeIn("slow") 
-      $("#response").fadeIn("slow")
+      $("#response").css({"visibility" : "visible"}).fadeIn("slow")
+      $(".registration_site > #cancel").addClass("popUp")
     },"html")
     return false
   })
 
-  $("#cancel").live("click", function() {
+  $(".popUp").live("click", function() {
     $("#backgroundPopup").fadeOut("slow") 
     $("#response").fadeOut("fast")
-    $("#response").empty()
+    $("#response").empty().css({"visibility" : "hidden"})
+    //$(".response > #cancel").removeClass("popUp")
     return false
-  })
+  })  
 
+  // registration explanation 
+    
+  $("#register_urge").hide()
+  $("#register > img").live("click", function() {
+    if (is_information_register == false) {
+      $("#register_urge").show()
+      is_information_register = true
+    } else {
+      $("#register_urge").hide()
+      is_information_register = false
+    }
+  return false
+  })
+ 
+  // desirable alerts  #####################################################
+  
+  
   $("#add_movie").live("click", function() {
     $.ajax({
       type: "GET",
       url: $(this).find("a").attr("href"),
       dataType: "json",
       success: function(data) {
-        $("#flash").empty().append($.tmpl(templates.flash, data)) },
+        $("#flash_for_js").css({"visibility" : "visible"}).empty().append($.tmpl(templates.flash, data)) },
       error: function (data) { 
-        $("#flash").empty().append($.tmpl(templates.flash, data)) }
+        $("#flash_for_js").css({"visibility" : "visible"}).empty().append($.tmpl(templates.flash, data)) }
     })
     return false
   })
-  $(".del_from_movie_list").live("click", function() {
+  $("#del_from_movie_list").live("click", function() {
     var deleteLink = $(this).find("a").attr("href")
     var deleteId = $(this).parent().attr("id")
     $.post(deleteLink, "_method=delete", function(data) {
@@ -174,6 +204,60 @@ $(document).ready(function() {
     })
     return false
   })
+  
+  // features on user site ##########################################
+  
+  //subtitle_language
+  $('#user_language').change(function() {
+    $.get("/users/set_subtitles_language", {language: "" + $(this).find("option:selected").attr("value") + ""}) 
+  })
+  
+  $(".subtitle_language > #what_for").live("click", function() {
+    if (is_information_language == false) {
+      $(".user_form > .alert_information").css({"display" : "none"})
+      $(".user_movies_list > .list_information").css({"display" : "none"})
+      $(".subtitle_language > .language_information").css({"display" : "block"})
+      is_information_language = true
+      is_information_list = false
+      is_information_alert = false
+    } else {
+      is_information_language = false
+      $(".subtitle_language > .language_information").css({"display" : "none"})
+    }
+    return false
+  })
+  
+  
+  $(".user_form > #what_for").live("click", function() {
+    if (is_information_alert == false) {
+      $(".subtitle_language > .language_information").css({"display" : "none"})
+      $(".user_movies_list > .list_information").css({"display" : "none"})
+      $(".user_form > .alert_information").css({"display" : "block"})
+      is_information_list = false
+      is_information_alert = true
+      is_information_language = false
+    } else {
+      is_information_alert = false
+      $(".user_form > .alert_information").css({"display" : "none"})
+    }
+  return false
+  })
+  
+  $(".user_movies_list > #what_for").live("click", function() {
+    if (is_information_list == false) {
+      $(".subtitle_language > .language_information").css({"display" : "none"})
+      $(".user_form > .alert_information").css({"display" : "none"})
+      $(".user_movies_list > .list_information").css({"display" : "block"})
+      is_information_list = true
+      is_information_alert = false
+      is_information_language = false
+    } else {
+      is_information_list = false
+      $(".user_movies_list > .list_information").css({"display" : "none"})
+    }
+  return false
+  })
+ 
 })
  
  

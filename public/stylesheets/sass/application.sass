@@ -6,19 +6,70 @@
 // #######################################header #######################################
 #hd
   h1
+    :float left
+    :width 80%
     :background transparent url(/images/klisza.jpg) no-repeat scroll 0 0
     :height 175px
     :margin 0 
     span
       :visibility hidden
   #language
-    :float right
+    :float left 
+    :width 20%
+    :text-align right
     #locale 
       :background-color #D6D6D6
       :border 1px solid #999999
       :color #666666
       :font-size 10px
       :font-weight bold
+  #account
+    :text-align right
+    :padding-top 70px
+    .style
+      :padding 5px
+      a
+        :-moz-border-radius-topleft 5px
+        :-webkit-border-top-left-radius 5px
+        :-moz-border-radius-bottomleft 5px
+        :-webkit-border-bottom-left-radius 5px
+        :margin-top 5px
+        :border 1px solid #333333
+        :background-color #f5f5f5 
+        :padding-left 10px
+        :padding-right 10px
+    #register_urge
+      :-moz-border-radius 10px
+      :-webkit-border-radius 10px
+      :background-color #F5F5F5
+      :border 1px solid red
+      :padding 10px
+      :font-weight bold
+      :text-align center
+      :width 600px
+      :position absolute
+      :left 640px
+      :top 128px
+// ########################################## flash ##################################
+#flash
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :background-color #F5F5F5
+  :border 1px solid red
+  :padding 10px
+  :font-weight bold
+  :margin-bottom 5px
+  :text-align center
+#flash_for_js
+  :visibility hidden
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :background-color #F5F5F5
+  :border 1px solid red
+  :padding 10px
+  :font-weight bold
+  :margin-bottom 5px
+  :text-align center
 // ########################################## body ##################################
 h2
   :font-size 18px
@@ -105,6 +156,8 @@ h2
       :clear both
       :float left 
       :width 60%
+      .add_to_your_list a
+        :color red
     .subtitles
       :width 40%
       :float left
@@ -140,6 +193,8 @@ h2
     :clear both
     :float left 
     :width 60%
+    .add_to_your_list a
+      :color red
   .subtitles
     :width 40%
     :float left
@@ -181,6 +236,250 @@ h2
     a
       :color #2f2b2b  
       :font-weight bold
+// ####################################### user account ###############################
+.user_account
+  :float left 
+  :width 30%
+  div
+    :padding 5px
+  .user
+    :font-size 14px
+    :font-weight bold
+    .photo
+      :float left
+      :width 50px
+    .login
+      :float left
+      :width 100px
+      :padding-top 20px
+      
+  .subtitle_language
+    :clear both
+    :-moz-border-radius-topright 5px
+    :-webkit-border-top-right-radius 5px
+    :-moz-border-radius-bottomright 5px
+    :-webkit-border-bottom-right-radius 5px
+    :padding-top 5px
+    :border 1px solid #333333
+    :background-color #f5f5f5 
+    :padding-left 10px
+    :padding-right 10px
+    :height 30px
+    :width 240px
+    .user_language
+      :float left
+    .user_language_form
+      :float left
+      #user_language  
+        
+        :background-color #D6D6D6
+        :border 1px solid #999999
+        :color #666666
+        :font-size 10px
+        :font-weight bold
+    #what_for
+      :float left  
+      :margin-left 5px
+    .language_information
+      :display none
+      :position absolute
+      :opacity 0.9
+      :background #DEDEDE
+      :padding 5px
+      :-moz-border-radius 10px 
+      :-webkit-border-radius 10px
+      :left 650px
+      :top 200px 
+      :border 2px solid red
+      :font-weight bold
+      :width 500px
+  .delete_account, .edit_account
+    :text-align left
+    a
+      :-moz-border-radius-topright 5px
+      :-webkit-border-top-right-radius 5px
+      :-moz-border-radius-bottomright 5px
+      :-webkit-border-bottom-right-radius 5px
+      :margin-top 5px
+      :border 1px solid #333333
+      :background-color #f5f5f5 
+      :padding-left 10px
+      :padding-right 10px
+.user_form 
+  :opacity 0.9
+  :float left
+  :width 30%
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :margin-top 5px
+  :border 1px solid #333333
+  :background-color #dedede 
+  :padding 10px
+  :margin-left 5px
+  :margin-right 5px
+  :color #2f2b2b  
+  :text-align center
+  #alert_add
+    :padding-top 5px
+  #what_for
+    :float left
+    :width 10% 
+    :text-align left
+  #alerts_topic  
+    :float left
+    :width 90%
+    :font-weight bold
+    :margin-bottom 5px
+  #alerts_results
+    :clear both
+    :width 100%
+    .one_movie_alert
+      :background-color #F8F8F8
+      :border 1px solid #cecece
+      :-moz-border-radius 5px
+      :-webkit-border-radius 5px  
+      :margin-top 5px
+  #message 
+    :margin-top 5px
+    :display none
+    //:visibility hidden    
+    :font-size 12px
+    #title
+      :font-weight bold
+      :padding 5px
+  .alert_information
+    :display none
+    :position absolute
+    :opacity 0.9
+    :background #DEDEDE
+    :padding 5px
+    :-moz-border-radius 10px 
+    :-webkit-border-radius 10px
+    :left 650px
+    :top 200px 
+    :border 2px solid red
+    :font-weight bold
+    :width 500px
+  .add_alert
+    :padding-top 5px
+
+.user_movies_list
+  :opacity 0.9
+  :float left
+  :width 30%
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :margin-left 5px
+  :margin-top 5px
+  :border 1px solid #333333
+  :background-color #dedede 
+  :padding 10px
+  #what_for
+    :float left
+    :width 10% 
+    :text-align left
+  .alerts_topic
+    :float left
+    :width 90%    
+    :font-weight bold  
+    :text-align center  
+    :margin-bottom 5px    
+  .movie_list_results
+    :clear both
+    :width 100%
+    .one_movie_alert
+      :padding 3px
+      :margin-top 5px
+      :-moz-border-radius 5px
+      :-webkit-border-radius 5px        
+      :background-color #F8F8F8
+      :border 1px solid #cecece
+      #poster 
+        :display none
+      #title
+        :font-size 14px
+        :color #2f2b2b  
+        :font-weight bold
+      #del_from_movie_list
+        :text-align right
+  .list_information
+    :display none
+    :position absolute
+    :opacity 0.9
+    :background #DEDEDE
+    :padding 5px
+    :-moz-border-radius 10px 
+    :-webkit-border-radius 10px
+    :left 650px
+    :top 200px 
+    :border 2px solid red
+    :font-weight bold
+    :width 500px
+.link_comunication
+  :clear both
+  :width 100%
+  :padding-top 10px
+// ###############################registration & login #######################################
+.registration_site
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :padding-top 5px
+  :border 1px solid #cecece
+  :background-color #999999 
+  :padding-left 10px
+  :padding-right 10px
+  :text-align center
+  .register
+    :font-weight bold
+    :font-size 14px
+    :padding-bottom 5px
+  #errorExplanation
+    :-moz-border-radius 10px
+    :-webkit-border-radius 10px
+    :padding-top 5px
+    :border 1px solid red
+    :background-color #f5f5f5 
+    :padding 5px
+    :text-align center
+    //:width 500px
+    p 
+      :font-size 14px
+      :padding-top 5px
+      :padding-bottom 5px
+      :font-weight bold
+  .new_user
+    :padding 5px
+#response
+  :visibility hidden
+  :opacity 1
+  :background #999999
+  :padding 5px
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :z-index 5
+  :position absolute
+  :left 600px
+  :top 200px
+  :border 2px solid #cecece  
+  :text-align center
+  h1
+    :font-size 16px
+    :text-align center
+    :font-weight bold
+    :padding-bottom 5px
+   
+#backgroundPopup
+  :display none  
+  :position fixed  
+  :_position absolute  
+  :height 100%  
+  :width 100%  
+  :top 0  
+  :left 0  
+  :background #999999
+  :opacity 0.7  
+  :border 1px solid #cecece  
+  :z-index 1 
 // ###################################### footpront ##################################
 #copyright
   :opacity 0.9
@@ -232,40 +531,12 @@ h2
   :clear both
   :width 100%
 
-#movie_features
-.user_account
-  :float left 
-  :width 30%
-.user_form 
-  :float left
-  :width 35%
-.user_movies_list
-  :float left
-  :width 30%
-.link_comunication
-  :clear both
-  :width 100%
-#response
-  :z-index 5
-  :position absolute
-  :left 100px
-  :top 100px
-  :border 1px solid #cecece  
-#backgroundPopup
-  :display none  
-  :position fixed  
-  :_position absolute  
-  :height 100%  
-  :width 100%  
-  :top 0  
-  :left 0  
-  :background #999999
-  :opacity 0.7  
-  :border 1px solid #cecece  
-  :z-index 1   
 
-#message 
-  :visibility hidden  
-#account, #redirect_login
-  :visibility hidden 
+
+  
+
+  
+/ 
+  #account, #redirect_login
+    :visibility hidden 
 

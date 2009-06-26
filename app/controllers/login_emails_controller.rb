@@ -13,7 +13,7 @@ class LoginEmailsController < ApplicationController
       redirect_to genres_path
     else
       flash[:notice] = t('user.no_user')
-      render :action => :new
+      redirect_to genres_path
     end
   end
 end

@@ -15,18 +15,36 @@
   %body
     #doc2.yui-t4
       #hd
-        #language
-          = t('txt.language')
-          = select_tag(:locale, options_for_select(languages, cookies[:locale]))
         %a{:href => "/genres"}   
           %h1
             %span= t('movie_pole')
-        
+        #language
+          = t('txt.language')
+          = select_tag(:locale, options_for_select(languages, cookies[:locale]))
+        #account
+          -if !current_user
+            #no_user
+              #login.style
+                = link_to(t('user.login'), new_login_email_path)
+              #register.style
+                = link_to(t('user.register'), new_user_path)
+                = image_tag("/images/query2.png")
+              #register_urge
+                = t('txt.register_urge')
+          -else
+            #there_is_user
+              #account.style
+                = link_to(t('user.account'), user_path(current_user))
+              #logout.style
+                = link_to(t('user.logout'), user_session_path, :method => :delete, :confirm => t('user.confirm'))
                 
       #bd
-        #flash
-          = flash[:notice]
-          = flash[:error]
+        -if flash[:notice] or flash[:error] 
+          #flash
+            = flash[:notice]
+            = flash[:error]
+        -else
+          #flash_for_js
         = yield
       #ft 
         #copyright

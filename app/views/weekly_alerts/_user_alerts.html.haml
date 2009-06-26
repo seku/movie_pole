@@ -1,6 +1,5 @@
 -@user.weekly_alerts.each do |weekly_alert|
-  -content_tag :div, :id => weekly_alert.id do
-    %br 
+  -content_tag :div, :class => "one_movie_alert", :id => weekly_alert.id do
     = t('txt.genre')
     = alert_genre(weekly_alert.genre_id)
     %br
