@@ -12,5 +12,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :alerts_emails
   map.resources :desirable_alerts
   map.resources :weekly_alerts
-  map.resources :comments
+  map.resources :comments, :collection => { :sending => :get }
 end

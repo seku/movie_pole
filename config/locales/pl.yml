@@ -72,8 +72,11 @@ pl:
     war: "Wojenny "
     western: "Western "
   user:
-    comment: "Skomentuj"
-    login: Zaloguj się
+    comments:
+      topic: "Skomentuj"
+      confirm: "Zatwierdz"
+      subject: "Co sądzisz o tej stronie, co proponowałbyś(aś) zmienić, dodać ?? Napisz !! "
+    login: "Zaloguj się"
     login_success: "Zostałeś zalogowany"
     login_failed: "Logowanie nie udane , spróbuj jeszcze raz"
     login_link: "Link do zalogowania został wysłany na {{email}}. Proszę sprawdzić swojego emaila"

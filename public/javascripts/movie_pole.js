@@ -257,7 +257,11 @@ $(document).ready(function() {
     }
   return false
   })
- 
+// ####################### comment #########################
+
+  $(".comment_form").click(function() {
+    $(this).empty()
+  }) 
 })
  
  

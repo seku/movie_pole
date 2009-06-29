@@ -75,7 +75,10 @@ en:
     war: "War "
     western: "Western "
   user:
-    comment: "Comment"
+    comments: 
+      topic: "Comment"
+      confirm: "Confirm"
+      subject: "What do you think about our site, what should we add , what's your need ?? Write to us !"      
     login: Login
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"

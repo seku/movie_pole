@@ -73,8 +73,11 @@ es:
     war: Bélico
     western: Western
   user:
-    comment: "Skomentuj"
-    login: Zaloguj się ######
+    comments: 
+      topic: "Skomentuj"
+      confirm: "Zatwierdz"
+      subject: "Co sądzisz o tej stronie, co proponowałbyś(aś) zmienić, dodać ?? Napisz !! "
+    login: "Zaloguj się" ######
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"
     login_link: "Link to login has been send to {{email}}. Please check your email"
