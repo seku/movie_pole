@@ -12,9 +12,9 @@ class DesirableAlertsController < ApplicationController
     )    
     if request.xhr?
       if @desirable_alert.save
-        render :json => { :flash => "#{@movie} #{t("user.movies_list_add")}" }.to_json
+        render :json => { :flash => "#{@movie} #{t("user.movies_list_add")}" }
       else
-        render :json => { :flash => t("user.movies_list_exist") }.to_json
+        render :json => { :flash => t("user.movies_list_exist") }
       end
     else
       if @desirable_alert.save

@@ -1,17 +1,17 @@
 .link_comunication
   = link_to t('txt.main'), genres_path
   >>
-  %span= t("user.comments.topic")
+  %span= t("user.comment.topic")
 
 .comment_site
   -form_tag(sending_comments_path, :method => :get) do
     .topic  
-      = label_tag t("user.comments.topic")
-    = text_area_tag("comments", t("user.comments.subject"), :size => "80x15", :class => "comment_form")
+      = label_tag t("user.comment.topic")
+    = text_area_tag("comment", t("user.comment.subject"), :size => "80x15", :class => "comment_form")
     %br
-    = submit_tag t("user.comments.confirm")
+    = submit_tag t("user.comment.confirm")
   
 .link_comunication
   = link_to t('txt.main'), genres_path
   >>
-  %span= t("user.comments.topic")
+  %span= t("user.comment.topic")

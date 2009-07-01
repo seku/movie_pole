@@ -75,7 +75,7 @@ en:
     war: "War "
     western: "Western "
   user:
-    comments: 
+    comment: 
       topic: "Comment"
       confirm: "Confirm"
       subject: "What do you think about our site, what should we add , what's your need ?? Write to us !"      

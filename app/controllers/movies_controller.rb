@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+	before_filter :set_locale
 	def index
     @genre = Genre.find(params[:genre_id], :include => { :movies => :torrents})
     @movies = @genre.movies.rated_with(params[:rating] || 1)
@@ -10,4 +11,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id], :include => :torrents) 
   end
   
+  def set_locale
+    I18n.locale = cookies[:locale] || :en
+  end 
 end

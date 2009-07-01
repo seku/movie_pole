@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   end
   
   def sending
-    CommentMailer.deliver_comment_email(current_user, params[:comments])
+    CommentMailer.deliver_comment_email(current_user, params[:comment])
     flash[:notice] = "Thank you for your comment"
     redirect_to account_path
   

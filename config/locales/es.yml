@@ -73,7 +73,7 @@ es:
     war: Bélico
     western: Western
   user:
-    comments: 
+    comment: 
       topic: "Skomentuj"
       confirm: "Zatwierdz"
       subject: "Co sądzisz o tej stronie, co proponowałbyś(aś) zmienić, dodać ?? Napisz !! "

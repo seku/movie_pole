@@ -77,7 +77,7 @@ class WeeklyAlertsController < ApplicationController
         :genre_name => Genre.find(@weekly_alert.genre_id).name, 
         :id => @weekly_alert.id },
       :user => @user.id
-      }.to_json
+      }
   end
 end
 

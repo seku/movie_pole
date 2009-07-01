@@ -20,7 +20,7 @@ class SearchesController < ApplicationController
   def suggest
     @movies = Movie.search(params[:query])
     @respond = @movies.map{ |movie| movie.title }  
-    render  :json => [params[:query], @respond].to_json
+    render  :json => [params[:query], @respond]
   end
 
 end
