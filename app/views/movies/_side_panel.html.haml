@@ -1,7 +1,7 @@
 #search_block 
   -form_tag(searches_path, :method => :get) do 
     = text_field_tag :query, params[:query], :id => "search_query", :size => 14
-    = submit_tag t('buttons.query'), :id => "submit"
+    = submit_tag t('buttons.query'), :id => "submit", :name => nil
     %ul.autocomplete_results
     #more
       = link_to(t('txt.more'))

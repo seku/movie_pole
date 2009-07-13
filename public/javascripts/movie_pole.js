@@ -5,6 +5,7 @@ $(document).ajaxSend(function(event, request, settings) {
 });
 
 $(document).ready(function() {
+  var register_login_exist = false
   var is_information_alert = false
   var is_information_list = false
   var is_information_language = false
@@ -138,28 +139,41 @@ $(document).ready(function() {
 
   // login/registration popUps ################################################
 
-  $("#login").live("click", function() {
-    $.get($(this).find("a").attr("href"), null, function(data){
-      $(data).appendTo("#response")
-      $("#backgroundPopup").fadeIn("slow") 
-      $("#response").css({"visibility" : "visible"}).fadeIn("slow")
-      $("#response > #cancel").addClass("popUp")
-    },"html")
+  $("#login").click(function() {
+    if (register_login_exist == false) {
+      register_login_exist = true
+      $.ajax({
+      url: $(this).find("a").attr("href"),
+      dataType: "html",
+      success: function(data) {
+        $(data).appendTo("#response")
+        $("#backgroundPopup").fadeIn("slow") 
+        $("#response").css({"visibility" : "visible"}).fadeIn("slow")
+        $("#response > #cancel").addClass("popUp")      
+      },
+      error: function() {
+        window.location.reload()
+      }
+      })
+    }   
     return false
-  })
-  
+  })  
   
   $("#register, #redirect_login").live("click", function() {
-    $.get(register, null, function(data){
-      $(data).appendTo("#response")
-      $("#backgroundPopup").fadeIn("slow") 
-      $("#response").css({"visibility" : "visible"}).fadeIn("slow")
-      $(".registration_site > #cancel").addClass("popUp")
-    },"html")
+    if (register_login_exist == false) { 
+      register_login_exist = true
+      $.get(register, null, function(data){
+        $(data).appendTo("#response")
+        $("#backgroundPopup").fadeIn("slow") 
+        $("#response").css({"visibility" : "visible"}).fadeIn("slow")
+        $(".registration_site > #cancel").addClass("popUp")
+      },"html")
+    }
     return false
   })
 
   $(".popUp").live("click", function() {
+    register_login_exist = false
     $("#backgroundPopup").fadeOut("slow") 
     $("#response").fadeOut("fast")
     $("#response").empty().css({"visibility" : "hidden"})

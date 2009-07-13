@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     :language => "en")
     if @user.save
       flash[:notice] = t('user.account_register')
-      redirect_back_or_default user_path(@user)
+      redirect_to user_path(@user)
     else
       render :new
     end

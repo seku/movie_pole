@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
   def new
     @user_session = UserSession.create!(@user, true)
     flash[:notice] = t("user.login_success")
-    redirect_back_or_default genres_path
+    redirect_to genres_path
   end
   
   def show
@@ -18,7 +18,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = t("user.logout_success")
-    redirect_back_or_default genres_path
+    redirect_to genres_path
   end
   protected
   

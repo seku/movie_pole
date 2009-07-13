@@ -1,8 +1,12 @@
 class LoginEmailsController < ApplicationController
-  before_filter :require_no_user
+  #before_filter :check_user 
   
   def new
-    render :layout => false if request.xhr?
+    if current_user
+      head :unprocessable_entity
+    else
+      render :layout => false if request.xhr?
+    end
   end
   
   def create
@@ -16,4 +20,13 @@ class LoginEmailsController < ApplicationController
       redirect_to genres_path
     end
   end
+  
+  private 
+  
+  def check_user
+    if current_user
+      redirect_to user_path(current_user)
+    end
+  end
+    
 end
