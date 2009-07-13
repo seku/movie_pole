@@ -162,12 +162,30 @@ $(document).ready(function() {
   $("#register, #redirect_login").live("click", function() {
     if (register_login_exist == false) { 
       register_login_exist = true
+      $.ajax({
+      url: register,
+      dataType: "html",
+      success: function(data) {
+        $(data).appendTo("#response")
+        $("#backgroundPopup").fadeIn("slow") 
+        $("#response").css({"visibility" : "visible"}).fadeIn("slow")
+        $(".registration_site > #cancel").addClass("popUp")      
+      },
+      error: function() {
+        window.location.reload()
+      }
+      })
+      
+      /*
+      
       $.get(register, null, function(data){
         $(data).appendTo("#response")
         $("#backgroundPopup").fadeIn("slow") 
         $("#response").css({"visibility" : "visible"}).fadeIn("slow")
         $(".registration_site > #cancel").addClass("popUp")
       },"html")
+      */
+    
     }
     return false
   })

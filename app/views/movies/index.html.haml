@@ -19,7 +19,6 @@
             = submit_tag t('buttons.show') 
             = check_box_tag :without, 1, params[:without] == "1" ? true : false
             = t('txt.without')
-      = cookies[:locale]
       .paginate
         = will_paginate @movies 
       %ul{:class => "movie_list"}

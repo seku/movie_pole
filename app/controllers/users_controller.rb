@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_no_user, :only => [:new, :create]
+  before_filter :require_no_user, :only => [:create]
   before_filter :require_user, :only => [:show, :edit, :update]
   
   def index
@@ -7,8 +7,12 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
-    render :layout => false if request.xhr? 
+    if current_user 
+      head :unprocessible_entity
+    else
+      @user = User.new
+      render :layout => false if request.xhr? 
+    end
   end
 
   def create
