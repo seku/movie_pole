@@ -22,7 +22,7 @@
               #add_movie
                 = link_to(t("user.add_movie"), edit_desirable_alert_path(movie))
     .subtitles
-      = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{movie.imdb_id}")) if cookies[:locale] != "en"
+      = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{movie.imdb_id}")) if @locale != "en"
       = link_to(t('subtitles.english'), subtitles_url("eng", "#{movie.imdb_id}"))
     .plot
       = t('txt.plot')
