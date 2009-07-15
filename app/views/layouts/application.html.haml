@@ -6,7 +6,7 @@
     %link{:rel => "search", :type => "application/opensearchdescription+xml", :title => "Search Movie", :href => "movie_pole.xml"}
     = stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" 
     = stylesheet_link_tag "application"
-    = javascript_include_tag :defaults, "movie_pole", "jquery_cookie", "jquery.autocomplete", "jquery.tmpl", "jquery.blockUI"
+    = javascript_include_tag :defaults, "jquery_cookie", "jquery.autocomplete", "jquery.tmpl", "jquery.blockUI", "jquery.events", "movie_pole"
     = auto_discovery_link_tag(:rss, movies_path(:format => :rss))
     - document_ready do
       = render_authenticity_token

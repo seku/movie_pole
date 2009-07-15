@@ -257,6 +257,19 @@ h2
       :color #2f2b2b  
       :font-weight bold
 // ####################################### user account ###############################
+.tip_block
+  :display none
+  :position absolute
+  :opacity 0.9
+  :background #DEDEDE
+  :padding 5px
+  :-moz-border-radius 10px 
+  :-webkit-border-radius 10px
+  :left 650px
+  :top 200px 
+  :border 2px solid red
+  :font-weight bold
+  :width 500px
 .user_account
   :float left 
   :width 30%
@@ -284,35 +297,23 @@ h2
     :background-color #f5f5f5 
     :padding-left 10px
     :padding-right 10px
-    :height 30px
-    :width 240px
+    :height 35px
+    :width 250px
     .user_language
       :float left
+      :margin-top 5px
     .user_language_form
       :float left
+      :margin-top 5px
       #user_language  
-        
         :background-color #D6D6D6
         :border 1px solid #999999
         :color #666666
         :font-size 10px
         :font-weight bold
-    #what_for
+    .tip
       :float left  
       :margin-left 5px
-    .language_information
-      :display none
-      :position absolute
-      :opacity 0.9
-      :background #DEDEDE
-      :padding 5px
-      :-moz-border-radius 10px 
-      :-webkit-border-radius 10px
-      :left 650px
-      :top 200px 
-      :border 2px solid red
-      :font-weight bold
-      :width 500px
   .delete_account, .edit_account
     :text-align left
     a
@@ -341,7 +342,7 @@ h2
   :text-align center
   #alert_add
     :padding-top 5px
-  #what_for
+  .tip
     :float left
     :width 10% 
     :text-align left
@@ -367,19 +368,6 @@ h2
     #title
       :font-weight bold
       :padding 5px
-  .alert_information
-    :display none
-    :position absolute
-    :opacity 0.9
-    :background #DEDEDE
-    :padding 5px
-    :-moz-border-radius 10px 
-    :-webkit-border-radius 10px
-    :left 650px
-    :top 200px 
-    :border 2px solid red
-    :font-weight bold
-    :width 500px
   .add_alert
     :padding-top 5px
 
@@ -394,7 +382,7 @@ h2
   :border 1px solid #333333
   :background-color #dedede 
   :padding 10px
-  #what_for
+  .tip
     :float left
     :width 10% 
     :text-align left
@@ -422,19 +410,6 @@ h2
         :font-weight bold
       #del_from_movie_list
         :text-align right
-  .list_information
-    :display none
-    :position absolute
-    :opacity 0.9
-    :background #DEDEDE
-    :padding 5px
-    :-moz-border-radius 10px 
-    :-webkit-border-radius 10px
-    :left 650px
-    :top 200px 
-    :border 2px solid red
-    :font-weight bold
-    :width 500px
 .link_comunication
   :clear both
   :width 100%

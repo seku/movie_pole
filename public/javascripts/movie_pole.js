@@ -244,51 +244,13 @@ $(document).ready(function() {
     $.get("/users/set_subtitles_language", {language: "" + $(this).find("option:selected").attr("value") + ""}) 
   })
   
-  $(".subtitle_language > #what_for").live("click", function() {
-    if (is_information_language == false) {
-      $(".user_form > .alert_information").css({"display" : "none"})
-      $(".user_movies_list > .list_information").css({"display" : "none"})
-      $(".subtitle_language > .language_information").css({"display" : "block"})
-      is_information_language = true
-      is_information_list = false
-      is_information_alert = false
-    } else {
-      is_information_language = false
-      $(".subtitle_language > .language_information").css({"display" : "none"})
-    }
-    return false
+  $(".tip").toggle_button().exclusive().bind("on", function(){
+    $(".tip_block").css({"display" : "block"}).append($(this).find("img").attr("rel"))
+  }).bind("off", function(){
+    $(".tip_block").empty().css({"display" : "none"})
   })
+
   
-  
-  $(".user_form > #what_for").live("click", function() {
-    if (is_information_alert == false) {
-      $(".subtitle_language > .language_information").css({"display" : "none"})
-      $(".user_movies_list > .list_information").css({"display" : "none"})
-      $(".user_form > .alert_information").css({"display" : "block"})
-      is_information_list = false
-      is_information_alert = true
-      is_information_language = false
-    } else {
-      is_information_alert = false
-      $(".user_form > .alert_information").css({"display" : "none"})
-    }
-  return false
-  })
-  
-  $(".user_movies_list > #what_for").live("click", function() {
-    if (is_information_list == false) {
-      $(".subtitle_language > .language_information").css({"display" : "none"})
-      $(".user_form > .alert_information").css({"display" : "none"})
-      $(".user_movies_list > .list_information").css({"display" : "block"})
-      is_information_list = true
-      is_information_alert = false
-      is_information_language = false
-    } else {
-      is_information_list = false
-      $(".user_movies_list > .list_information").css({"display" : "none"})
-    }
-  return false
-  })
 // ####################### comment #########################
 
   $(".comment_form").click(function() {

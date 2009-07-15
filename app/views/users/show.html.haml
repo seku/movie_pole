@@ -21,13 +21,11 @@
     .user_language_form
       -form_for @current_user do |f|
         = f.select :language, languages
-    #what_for
-      = link_to(image_tag("/images/query2.png"))
-    .language_information
-      = t('txt.language_information')
+    .tip
+      %button= image_tag(("/images/query2.png"), :rel => t('txt.language_information'))
 .user_form
-  #what_for
-    = link_to(image_tag("/images/query2.png"))
+  .tip
+    %button= image_tag(("/images/query2.png"), :rel => "#{t('txt.alert_information1')} \n #{t('txt.alert_information2')} \n #{t('txt.alert_information3')}" )
   #alerts_topic
     = t('user.form')
   #alerts_results
@@ -37,30 +35,18 @@
       = link_to(t('user.alert_add'), new_user_weekly_alert_path(@user))
   #message
     = render :partial => "weekly_alerts/alert_params"
-  .alert_information
-    = t('txt.alert_information1')
-    %br
-    = t('txt.alert_information2')
-    %br
-    = t('txt.alert_information3')
 .user_movies_list
-  #what_for
-    = link_to(image_tag("/images/query2.png"))
+  .tip
+    %button=image_tag(("/images/query2.png"), :rel => "#{t('user.movies_list_info1')} \n #{t('user.movies_list_info2')} \n #{t('user.movies_list_info3')}")
   .alerts_topic  
     = t("user.movies_list")
   .movie_list_results
     = render :partial => "users/movie_list"  
-  .list_information
-    = t("user.movies_list_info1")
-    %br
-    = t("user.movies_list_info2")
-    %br
-    = t("user.movies_list_info3")
 .link_comunication
   = link_to t('txt.main'), genres_path
   >>
   %span= @user.login
-
+.tip_block
 
 
 
