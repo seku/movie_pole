@@ -1,3 +1,37 @@
+/*
+Just for learning purpose , just temporay, please do not remove
+
+(function(jQuery) {
+  $.fn.seku = function(options) {
+    var defaults = { 
+      
+      method_type: "PUT"
+    }
+    var options = $.extend(defaults, options)
+    return this.each(function(){
+      var movie_id = $(this).parent(".movie_details").find("a").attr("href").replace("/movies/","")
+      var url_path = "/votes/" + movie_id + ""
+      var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}"}
+      $(this).submit(function () {
+        $.ajax({
+          url: url_path,
+          type: options.method_type,
+          data: {id: movie_id, user_rating: $(this).find("option:selected").attr("value")},
+          dataType: "json",
+          success: function(data) {
+            $("#flash_for_js").css({"visibility" : "visible"}).empty().append($.tmpl(templates.flash, data)) },
+          error: function(data) {
+            $("#flash_for_js").css({"visibility" : "visible"}).empty().append($.tmpl(templates.flash, data)) 
+          }
+        })
+      return false
+      })
+    })
+  }
+})(jQuery); 
+
+usage: $(".user_rating").seku() 
+*/
 $(document).ajaxSend(function(event, request, settings) {
   if (typeof(window._authenticity_token) == "undefined") return;
   settings.data = settings.data || "";
@@ -18,7 +52,7 @@ $(document).ready(function() {
   var register = "/users/new"
   var not_exist = true //check if login/register form exist in response div 
   var pressed = false // it's needed for cancel button in registration form (if true javascript is enabled)
-  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}"}
+  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}" }
   
   //set the language of the site  #####################################
   $('#locale').change(function() {
@@ -236,7 +270,61 @@ $(document).ready(function() {
     })
     return false
   })
-  
+  // votes ##########################################################
+
+  $(".star-rating-control > div > a").click(function() {
+    $(this).parent("div").rating('select') //jquery.rating.js functionality 
+    var user_rating = $(this).html() 
+    var movie_id = $(this).parents(".movie_details").find("a").attr("href").replace("/movies/","")
+    if ($(this).parents("#stars").attr("rel") == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/votes/",
+        data: {id: movie_id, user_rating: user_rating},
+        dataType: "json",
+        success: function(data) {
+          $(".imdb_rating").find("span").empty().append($.tmpl(templates.average_rating, data))
+          $("#stars").attr("rel", $.tmpl(templates.user_rating, data))
+          $("#flash_for_js").css({"visibility" : "visible"}).show().empty().append($.tmpl(templates.flash, data)) 
+          setTimeout("clear_flash()", 3000)
+        }
+      })
+    } else {
+      if (user_rating == 0) {
+        $.ajax({
+          type: "POST",
+          url: "/votes/" + movie_id + "",
+          data: "_method=delete",
+          dataType: "json",
+          success: function(data) {
+            $(".imdb_rating").find("span").empty().append($.tmpl(templates.average_rating, data))
+            $("#stars").attr("rel", $.tmpl(templates.user_rating, data))
+            $("#flash_for_js").css({"visibility" : "visible"}).show().empty().append($.tmpl(templates.flash, data)) 
+            setTimeout("clear_flash()", 3000)
+          }
+        })
+      } else {
+        $.ajax({
+          type: "PUT",
+          url: "/votes/" + movie_id + "",
+          data: {id: movie_id, user_rating: user_rating},
+          dataType: "json",
+          success: function(data) {
+            $(".imdb_rating").find("span").empty().append($.tmpl(templates.average_rating, data))
+            $("#stars").attr("rel", $.tmpl(templates.user_rating, data))
+            $("#flash_for_js").css({"visibility" : "visible"}).show().empty().append($.tmpl(templates.flash, data)) 
+            setTimeout("clear_flash()", 3000)
+          }
+        })
+      }
+    }
+    
+    return false
+  })
+  clear_flash = function () {
+    $("#flash_for_js").hide(700).empty().css({"visibility" : "hidden"})
+  }  
+
   // features on user site ##########################################
   
   //subtitle_language

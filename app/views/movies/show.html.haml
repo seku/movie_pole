@@ -8,9 +8,18 @@
     .yui-g
       .movie_details
         = link_to(@movie.title, movie_path(@movie), :class => "title") 
-        .rating
-          = t('sort.rating')
-          = @movie.rating 
+        .imdb_rating
+          = "#{t('sort.rating')} <b>#{@movie.rating}</b>" 
+          %br
+          = t('user.rating') 
+          %span= @movie.average_rating
+        .user_rating
+          #user_rating
+            = t('user.vote')
+          -form_tag (user_path(@user), :method => :get, :rel => @pole_rating, :id => "stars") do
+            - for i in (1..10)
+              = radio_button_tag ("star", i, false, :class => "star {split:2}" ,  :checked => (@pole_rating >= i) ? "checked" : false)
+
         .torrents
           -if @movie.torrents.any? 
             torrents: 
@@ -27,7 +36,7 @@
                   #add_movie
                     = link_to(t("user.add_movie"), edit_desirable_alert_path(@movie))
         .subtitles 
-          = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{@movie.imdb_id}")) if cookies[:locale] != "en"
+          = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{@movie.imdb_id}")) if @locale != "en"
           = link_to(t('subtitles.english'), subtitles_url("eng", "#{@movie.imdb_id}")) 
         .year
           = t('txt.year') 

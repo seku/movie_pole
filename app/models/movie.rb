@@ -12,6 +12,8 @@ class Movie < ActiveRecord::Base
   has_and_belongs_to_many :genres
   has_many :desirable_alerts
   has_many :users, :through => :desirable_alerts
+  has_many :votes
+  has_many :users, :through => :votes
   serialize :directors, Array
   serialize :writers, Array 
   validates_presence_of :title, :imdb_id
@@ -46,7 +48,23 @@ class Movie < ActiveRecord::Base
   	end
   end
   
+  def rated_by?(user)
+    votes.find_by_user_id(user.id)
+  end
+   
+  def average_rating
+    sum = 0
+    i = 0
+    votes.each do |vote| 
+      sum += vote.user_rating
+      i += 1 
+    end
+    (i == 0) ? "not ranked" : sum.to_f / i
+  end
+  
   private
+  
+
   
   def self.current_week_movies(date)
     ids = current_week_imdb_ids(date).reject{|id| Movie.find_by_id(id)}

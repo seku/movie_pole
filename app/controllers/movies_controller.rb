@@ -9,7 +9,9 @@ class MoviesController < ApplicationController
   end
   
   def show
+    @user = current_user
     @movie = Movie.find(params[:id], :include => :torrents) 
+    @pole_rating = current_user.votes.find_by_movie_id(params[:id]) ? current_user.votes.find_by_movie_id(params[:id]).user_rating : 0 
   end
   
 end

@@ -4,8 +4,8 @@
   #movie_features
     = link_to(movie.title, movie_path(movie), :class => "title") 
     .rating
-      = t('sort.rating')
-      = movie.rating 
+      = "#{t('sort.rating')}: <b>#{movie.rating}</b>" 
+      = "#{t('user.rating')} <b>#{movie.average_rating}</b>"
     .torrents
       -if movie.torrents.any? 
         torrents: 

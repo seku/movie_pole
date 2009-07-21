@@ -1,4 +1,4 @@
--@user.movies.each do |movie|
+-@user.desired_movies.each do |movie|
   -content_tag :div, :class => "one_movie_alert", :id => movie.id do
     #title 
       = link_to(movie.title, movie_path(movie))

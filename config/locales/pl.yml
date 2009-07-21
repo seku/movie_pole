@@ -32,7 +32,7 @@ pl:
     sort: "Sortuj wyniki za pomocą: "
     title: "Tytuł"
     release_date: "Data"
-    rating: "Ocena"
+    rating: "Ocena Imdb"
   buttons:
     show: "Pokaż"
     query: "Szukaj"
@@ -72,6 +72,8 @@ pl:
     war: "Wojenny "
     western: "Western "
   user:
+    vote: "Zagłosuj: "
+    rating: "Ocena użytkowników: "
     comment:
       topic: "Skomentuj"
       confirm: "Zatwierdz"

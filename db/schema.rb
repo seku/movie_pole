@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090618093814) do
+ActiveRecord::Schema.define(:version => 20090716083141) do
 
   create_table "alerts", :force => true do |t|
     t.integer  "rating"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(:version => 20090618093814) do
     t.string   "email"
     t.string   "perishable_token"
     t.string   "language"
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_rating"
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

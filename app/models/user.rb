@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
   has_many :alerts, :dependent => :destroy
   has_many :weekly_alerts
   has_many :desirable_alerts
-  has_many :movies, :through => :desirable_alerts
-  
+  has_many :desired_movies, :through => :desirable_alerts, :source => :movie
+  has_many :votes
+  has_many :voted_movies, :through => :votes, :source => :movie
   def deliver_login_link!
     reset_perishable_token!
     LoginLink.deliver_login_link(self)

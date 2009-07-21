@@ -32,7 +32,7 @@ es:
     sort: "Sort results by: " ############
     title: "Título"
     release_date: "Data"
-    rating: "Apreciación"
+    rating: "Imdb apreciación"
   buttons:
     show: "Apariencia"
     query: "Busca"
@@ -73,6 +73,8 @@ es:
     war: Bélico
     western: Western
   user:
+    vote: "Zagłosuj: "
+    rating: "Ocena użytkowników: "
     comment: 
       topic: "Skomentuj"
       confirm: "Zatwierdz"

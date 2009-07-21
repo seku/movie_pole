@@ -35,7 +35,7 @@ en:
     sort: "Sort results by: "
     title: "Name"
     release_date: "Date"
-    rating: "Rating"
+    rating: "Imdb rating"
   buttons:
     show: "Show"
     query: "Search"
@@ -75,6 +75,8 @@ en:
     war: "War "
     western: "Western "
   user:
+    vote: "Vote: "
+    rating: "Users rating: "
     comment: 
       topic: "Comment"
       confirm: "Confirm"
