@@ -1,6 +1,6 @@
 %li
   #poster
-    = link_to(image_tag(movie.poster, :width => 100), movie_path(movie)) if movie.poster
+    = image_tag(movie.poster, :width => 100) if movie.poster
   #movie_features
     = link_to(movie.title, movie_path(movie, :genre_id => @genre_id), :class => "title") 
     .rating
