@@ -271,7 +271,7 @@ $(document).ready(function() {
     return false
   })
   // votes ##########################################################
-
+  /*
   $(".star-rating-control > div > a").click(function() {
     $(this).parent("div").rating('select') //jquery.rating.js functionality 
     var user_rating = $(this).html() 
@@ -324,7 +324,7 @@ $(document).ready(function() {
   clear_flash = function () {
     $("#flash_for_js").hide(700).empty().css({"visibility" : "hidden"})
   }  
-
+  */
   // features on user site ##########################################
   
   //subtitle_language
