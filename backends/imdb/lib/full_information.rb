@@ -11,11 +11,11 @@ module IMDB
       info[:title] = parse_title(main_div)
       puts info[:title]
       poster_path = extract_poster_path(doc)
-      #info[:poster] = poster_url(poster_path)
+      info[:poster] = poster_url(poster_path)
       info[:official_site] = official_site(imdb_id)
       info[:year] = parse_year(main_div)
       info[:rating] = parse_rating(main_div)
-      info[:votes] = parse_votes(main_div)
+      info[:imdb_votes] = parse_imdb_votes(main_div)
       info[:directors] = parse_directors(main_div)
       info[:writers] = parse_writers(main_div)
       info[:release_date] = parse_release_date(main_div)
@@ -76,7 +76,7 @@ module IMDB
       b.inner_html[/\d{1,2}\.\d/].to_f
     end
 
-    def parse_votes(main_div)
+    def parse_imdb_votes(main_div)
       a = main_div / "div.rating" / "a"
       a.inner_html.gsub(/[^\d]/, "").to_i
     end

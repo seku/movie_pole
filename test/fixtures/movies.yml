@@ -3,7 +3,7 @@ first_movie:
   title: "Quarantine"
   year: 2008
   rating: 6.2
-  votes: 10518
+  imdb_votes: 10518
   release_date: "2008-10-10"
   imdb_id: 1082868
 last_movie:
@@ -11,6 +11,6 @@ last_movie:
   title: "Nights and Weekends"
   year: 2008
   rating: 6.6
-  votes: 107
+  imdb_votes: 107
   release_date: "2008-10-10"
   imdb_id: 1186248

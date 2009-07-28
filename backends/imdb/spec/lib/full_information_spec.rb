@@ -18,7 +18,7 @@ describe IMDB::FullInformation, "with brokenflowers fixture" do
 
     info[:year].should == "2005"
 		info[:rating].should == 7.3
-    info[:votes].should == 30775
+    info[:imdb_votes].should == 30775
     info[:directors].should == ["Jim Jarmusch"]
     info[:writers].should == ["Jim Jarmusch", "Bill Raden"]
     info[:official_site].should == "http://www.bacfilms.com/site/brokenflowers/"
@@ -49,7 +49,7 @@ describe IMDB::FullInformation, "with Madea Goes to Jail fixture" do
 
     info[:year].should == "2009"
 		info[:rating].should == 2.8
-    info[:votes].should == 1562
+    info[:imdb_votes].should == 1562
     info[:directors].should == ["Tyler Perry"]
     info[:writers].should == ["Tyler Perry"]
     info[:release_date].should == Date.new(2009, 2, 20) 

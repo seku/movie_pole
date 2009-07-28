@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base 
-  named_scope :most_voted, :order => "movies.votes desc"
+  named_scope :most_voted, :order => "movies.imdb_votes desc"
   named_scope :rated_with, lambda { |rating| { :conditions => ["rating >= ?", rating] } }
   named_scope :only_torrents, :conditions => ["torrents_count > 0"]
   named_scope :sorted_by, lambda { |sort_by, sort_mode| {:order => "movies.#{sort_by} #{sort_mode}" } }
@@ -18,7 +18,7 @@ class Movie < ActiveRecord::Base
   serialize :writers, Array 
   validates_presence_of :title, :imdb_id
   validates_uniqueness_of :imdb_id
-  validates_numericality_of [:votes, :rating, :year], :allow_nil => true
+  validates_numericality_of [:imdb_votes, :rating, :year], :allow_nil => true
   @full_info = IMDB::FullInformation.new
   @now_playing = IMDB::NowPlaying.new
   xss_terminate :except => [:directors, :writers]
@@ -85,12 +85,12 @@ class Movie < ActiveRecord::Base
         :imdb_id => m[:imdb_id],
         :rating => m[:rating],
         :year => m[:year].to_i,
-        :votes => m[:votes].to_i,
+        :imdb_votes => m[:imdb_votes].to_i,
         :writers => m[:writers],
       	:directors => m[:directors],
       	:tagline => m[:tagline],
       	:plot => m[:plot],
-      	#:poster => m[:poster],
+      	:poster => m[:poster],
       	:official_site => m[:official_site],
       	:release_date => date)
       genres = Genre.all.map(&:name)
