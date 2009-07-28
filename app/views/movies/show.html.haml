@@ -1,6 +1,7 @@
 .link_comunication
   = link_to(t('txt.main'), genres_path) 
-  >> 
+  = " >> #{link_to(genre_name(@genre_id), genre_movies_path(@genre_id, :without => 1))} " if @genre_id
+  >>
   %span= @movie.title
 %br
 #yui-main
@@ -18,7 +19,7 @@
             = t('user.vote')
           -form_tag (user_path(@user), :method => :get, :rel => @pole_rating, :id => "stars") do
             - for i in (1..10)
-              = radio_button_tag ("star", i, false, :class => "star {split:2}" ,  :checked => (@pole_rating >= i) ? "checked" : false)
+              = radio_button_tag ("star", i, false, :class => "star {split:2}", :checked => (@pole_rating >= i) ? "checked" : false)
 
         .torrents
           -if @movie.torrents.any? 
@@ -58,7 +59,7 @@
         .genre
           = t('txt.genre') 
           -@movie.genres.each do |genre|
-            = link_to(t("genres.#{genre.name}"), genre_movies_path(genre)) unless genre.id == 29
+            = link_to(t("genres.#{genre.name}"), genre_movies_path(genre, :without => 1)) unless genre.id == 29
 
         .plot
           = t('txt.plot')

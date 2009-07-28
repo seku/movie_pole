@@ -2,7 +2,7 @@
   #poster
     /= link_to(image_tag(movie.poster, :width => 100, :alt => movie.title), movie_path(movie))
   #movie_features
-    = link_to(movie.title, movie_path(movie), :class => "title") 
+    = link_to(movie.title, movie_path(movie, :genre_id => @genre_id), :class => "title") 
     .rating
       = "#{t('sort.rating')}: <b>#{movie.rating}</b>" 
       = "#{t('user.rating')} <b>#{movie.average_rating}</b>"

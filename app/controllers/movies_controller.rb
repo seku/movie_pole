@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
 	
 	def index
+    @genre_id = params[:genre_id]
     @genre = Genre.find(params[:genre_id], :include => { :movies => :torrents})
     @movies = @genre.movies.rated_with(params[:rating] || 1)
     @movies = @movies.only_torrents unless params[:without]
@@ -9,6 +10,7 @@ class MoviesController < ApplicationController
   end
   
   def show
+    @genre_id = params[:genre_id]
     @user = current_user
     @movie = Movie.find(params[:id], :include => :torrents) 
     @pole_rating = current_user.votes.find_by_movie_id(params[:id]) ? current_user.votes.find_by_movie_id(params[:id]).user_rating : 0 
