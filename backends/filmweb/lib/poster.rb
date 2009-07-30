@@ -12,10 +12,10 @@ module Filmweb
       movie_title = movie_title.gsub(/ /,"+")
       begin
         link_to_movie = search_for_movie(movie_title)
+        get_poster_link(link_to_movie)
       rescue
         puts "Nil Class for #{movie_title}"
       end
-      get_poster_link(link_to_movie)
       #get_polish_plot(link_to_movie) 
     end
 
