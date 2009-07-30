@@ -23,7 +23,14 @@
         = will_paginate @movies 
       %ul{:class => "movie_list"}
         -@movies.each do |movie| 
-          = render :partial => movie
+          -if movie.poster
+            %li.is_poster
+              #poster
+                = image_tag(movie.poster, :width => 100)
+              = render :partial => movie
+          -else
+            %li
+              = render :partial => movie
       %br
       .paginate
         = will_paginate @movies 

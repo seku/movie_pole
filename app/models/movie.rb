@@ -62,9 +62,7 @@ class Movie < ActiveRecord::Base
     (i == 0) ? "not ranked" : sum.to_f / i
   end
   
-  private
-  
-
+  protected
   
   def self.current_week_movies(date)
     ids = current_week_imdb_ids(date).reject{|id| Movie.find_by_id(id)}
@@ -90,7 +88,7 @@ class Movie < ActiveRecord::Base
       	:directors => m[:directors],
       	:tagline => m[:tagline],
       	:plot => m[:plot],
-      	:poster => m[:poster],
+      	#:poster => m[:poster],
       	:official_site => m[:official_site],
       	:release_date => date)
       genres = Genre.all.map(&:name)

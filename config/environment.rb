@@ -10,7 +10,8 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 require File.dirname(__FILE__) + '/../backends/imdb/lib/imdb'
-require File.dirname(__FILE__) +'/../backends/mininova/lib/mininova'
+require File.dirname(__FILE__) + '/../backends/mininova/lib/mininova'
+require File.dirname(__FILE__) + '/../backends/filmweb/lib/poster'
 require "smtp_tls"
 
 Rails::Initializer.run do |config|
