@@ -5,7 +5,7 @@
     = "#{t('user.rating')} <b>#{movie.average_rating}</b>"
   .torrents
     -if movie.torrents.any? 
-      torrents: 
+      torrents:<br/> 
       -movie.torrents.each do |torrent| 
         = link_to("torrent (#{number_to_human_size(torrent.size)})", torrent_url(torrent), :title => torrent.title)
     -else 
