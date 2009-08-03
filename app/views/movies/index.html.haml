@@ -26,7 +26,7 @@
           -if movie.poster
             %li.is_poster
               #poster
-                = link_to(image_tag(movie.poster, :width => 100), movie_path(movie, :genre_id => @genre_id))
+                = link_to(image_tag(movie.poster, :width => 100, :height => 135), movie_path(movie, :genre_id => @genre_id))
               = render :partial => movie
           -else
             %li

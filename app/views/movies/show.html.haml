@@ -22,7 +22,7 @@
               = radio_button_tag ("star", i, false, :class => "star {split:2}", :checked => (@pole_rating >= i) ? "checked" : false)
         -if @movie.poster
           .poster
-            = image_tag(@movie.poster)
+            = image_tag(@movie.poster, :height => 210)
         .the_rest
           .torrents
             -if @movie.torrents.any? 

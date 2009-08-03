@@ -4,7 +4,7 @@ require "hpricot"
 
 module Filmweb
   
-  BASE_URI = "http://www.filmweb.pl/szukaj?q="
+  BASE_URI = "http://www.fandango.com/GlobalSearch.aspx?repos=Movies&tab=Movies+Video&q="
 
   class Poster
     
@@ -22,13 +22,13 @@ module Filmweb
     protected
 
     def self.search_for_movie(movie_title)
-      doc = Hpricot(open("#{BASE_URI}#{movie_title}&c=film"))
-      link_to_movie = (doc / "a.searchResultTitle").first.attributes["href"]
+      doc = Hpricot(open("#{BASE_URI}#{movie_title}"))
+      link_to_movie = (doc / "ul.results" / "li.first" / "h5" / "a").first.attributes["href"]
     end
     
     def self.get_poster_link(link_to_movie)
       doc = Hpricot(open(link_to_movie))
-      link_to_poster = doc / "div.film-poster" / "img"
+      link_to_poster = doc / "div#image" / "a" / "img"
       link_to_poster = link_to_poster.first.attributes["src"]    
     end
     
