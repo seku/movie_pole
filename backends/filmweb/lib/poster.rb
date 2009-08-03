@@ -18,7 +18,12 @@ module Filmweb
       end
       #get_polish_plot(link_to_movie) 
     end
-
+    
+    def self.update(id, link_to_movie)
+      @movie = Movie.find(id)
+      @movie.update_attributes(:poster => get_poster_link(link_to_movie))
+    end
+    
     protected
 
     def self.search_for_movie(movie_title)
