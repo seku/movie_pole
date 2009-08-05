@@ -88,7 +88,7 @@ class Movie < ActiveRecord::Base
       	:directors => m[:directors],
       	:tagline => m[:tagline],
       	:plot => m[:plot],
-      	#:poster => m[:poster],
+      	:poster => Poster.information(m[:title]),
       	:official_site => m[:official_site],
       	:release_date => date)
       genres = Genre.all.map(&:name)
@@ -102,7 +102,7 @@ class Movie < ActiveRecord::Base
   end
   
   
-  # date must be the newest from database or if database is empty date =(2002,8,2)
+  # date must be the newest from database or if database is empty date =(2002,8,2) 
   def self.search_start_date 
   	@start_date = Movie.last.nil? ? Date.new(2008,10,10) : Movie.last.release_date + 7
   end

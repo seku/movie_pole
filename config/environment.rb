@@ -11,7 +11,7 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 require File.dirname(__FILE__) + '/../backends/imdb/lib/imdb'
 require File.dirname(__FILE__) + '/../backends/mininova/lib/mininova'
-require File.dirname(__FILE__) + '/../backends/filmweb/lib/poster'
+require File.dirname(__FILE__) + '/../backends/poster/lib/poster'
 require "smtp_tls"
 
 Rails::Initializer.run do |config|
@@ -28,4 +28,9 @@ Rails::Initializer.run do |config|
   #config.gem('freelancing-god-thinking-sphinx', :lib => 'thinking_sphinx', :version => '1.1.20')
 
   config.active_record.observers = :user_observer
+  
 end
+WillPaginate::ViewHelpers.pagination_options[:prev_label] = ""
+WillPaginate::ViewHelpers.pagination_options[:next_label] = ""
+WillPaginate::ViewHelpers.pagination_options[:inner_window] = 3
+

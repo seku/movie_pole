@@ -1,0 +1,61 @@
+= link_to(@movie.title, movie_path(@movie), :class => "title") 
+.imdb_rating
+  = "#{t('sort.rating')} <b>#{@movie.rating}</b>" 
+  %br
+  = t('user.rating') 
+  %span= @movie.average_rating
+.user_rating
+  #user_rating
+    = t('user.vote')
+  -form_tag (user_path(@user), :method => :get, :rel => @pole_rating, :id => "stars") do
+    - for i in (1..10)
+      = radio_button_tag ("star", i, false, :class => "star {split:2}", :checked => (@pole_rating >= i) ? "checked" : false)
+-if @movie.poster
+  .poster
+    = image_tag(@movie.poster, :height => 210)
+.the_rest
+  .torrents
+    -if @movie.torrents.any? 
+      torrents:<br/> 
+      -@movie.torrents.each do |torrent| 
+        = link_to("torrent (#{number_to_human_size(torrent.size)})", torrent_url(torrent), :title => torrent.title)
+    -else 
+      = t("txt.no_torrent")
+      .add_to_your_list
+        -if @movie.torrents.blank?
+          -if !current_user
+            #redirect_login
+              = link_to(t("user.add_movie"), new_user_session_path)
+          -else
+            #add_movie
+              = link_to(t("user.add_movie"), edit_desirable_alert_path(@movie))
+  .subtitles 
+    = link_to(t('subtitles.foreign'), subtitles_url(cookies[:locale], "#{@movie.imdb_id}")) if @locale != "en"
+    = link_to(t('subtitles.english'), subtitles_url("eng", "#{@movie.imdb_id}")) 
+  .year
+    = t('txt.year') 
+    = @movie.year 
+  .directors
+    = t('txt.directors') 
+    -@movie.directors.each do |director|
+      = "#{director}, "
+  .imdb
+    Imdb:
+    = link_to(@movie.imdb_id, imdb_url(@movie.imdb_id))
+  .writers
+    = t('txt.writers')
+    -@movie.writers.each do |writer| 
+      = "#{writer}, " 
+  .trailers
+    = link_to(t('txt.trailers'), @movie.official_site) if @movie.official_site
+  .release_date
+    = t('txt.release_date') 
+    = @movie.release_date 
+  .genre
+    = t('txt.genre') 
+    -@movie.genres.each do |genre|
+      = link_to(t("genres.#{genre.name}"), genre_movies_path(genre, :without => 1)) unless genre.id == 29
+
+.plot
+  = t('txt.plot')
+  = @movie.plot 
