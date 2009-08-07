@@ -4,12 +4,13 @@
   = link_to(@user.login, user_path(@user))
   >>
   = link_to(t("user.edit"), edit_user_path(@user))
-%h1
-  =t('user.edit_account')
--form_for @user, :html => { :multipart => true }, :url => account_path do |f| 
-  = f.error_messages 
-  = render :partial => "form", :object => f 
-  = f.submit t('user.submit') 
+.user_account
+  .page_topic
+    = t('user.edit_account')
+  -form_for @user, :html => { :multipart => true }, :url => account_path do |f| 
+    = f.error_messages 
+    = render :partial => "form", :object => f 
+    = f.submit t('user.submit') 
 %br 
 .link_comunication
   = link_to(t('user.account'), user_path(current_user))
