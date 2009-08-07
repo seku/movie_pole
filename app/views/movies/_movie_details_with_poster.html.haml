@@ -4,12 +4,13 @@
   %br
   = t('user.rating') 
   %span= @movie.average_rating
-.user_rating
-  #user_rating
-    = t('user.vote')
-  -form_tag (user_path(@user), :method => :get, :rel => @pole_rating, :id => "stars") do
-    - for i in (1..10)
-      = radio_button_tag ("star", i, false, :class => "star {split:2}", :checked => (@pole_rating >= i) ? "checked" : false)
+-if @user
+  .user_rating
+    #user_rating
+      = t('user.vote')
+    -form_tag (user_path(@user), :method => :get, :rel => @pole_rating, :id => "stars") do
+      - for i in (1..10)
+        = radio_button_tag ("star", i, false, :class => "star {split:2}", :checked => (@pole_rating >= i) ? "checked" : false)
 -if @movie.poster
   .poster
     = image_tag(@movie.poster, :height => 210)

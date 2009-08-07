@@ -14,4 +14,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :weekly_alerts
   map.resources :comments, :collection => { :sending => :get }
   map.resources :votes
+  map.resources :compare_tastes
 end
