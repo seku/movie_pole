@@ -1,8 +1,16 @@
 -@user.desired_movies.each do |movie|
-  -content_tag :div, :class => "one_movie_alert", :id => movie.id do
-    #title 
-      = link_to(movie.title, movie_path(movie))
-    #poster
-    / = image_tag(movie.poster, :width => 30)
-    #del_from_movie_list
-      = link_to(t('user.del_from_movie_list'), desirable_alert_path(movie))
+  -if movie.poster
+    -content_tag :div, :class => "one_movie_alert_is_poster", :id => movie.id do
+      #poster
+        = image_tag(movie.poster, :height => 80)
+      .rest
+        #title 
+          = link_to(movie.title, movie_path(movie))
+        #del_from_movie_list
+          = link_to(t('user.del_from_movie_list'), desirable_alert_path(movie))
+  -else
+    -content_tag :div, :class => "one_movie_alert", :id => movie.id do
+      #title 
+        = link_to(movie.title, movie_path(movie))
+      #del_from_movie_list
+        = link_to(t('user.del_from_movie_list'), desirable_alert_path(movie))

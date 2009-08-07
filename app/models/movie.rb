@@ -59,10 +59,14 @@ class Movie < ActiveRecord::Base
       sum += vote.user_rating
       i += 1 
     end
-    (i == 0) ? "not ranked" : sum.to_f / i
+    (i == 0) ? "not ranked" : round_rating(sum.to_f / i)
   end
   
   protected
+  
+  def round_rating(rating)
+    (rating * 100).round.to_f / 100
+  end
   
   def self.current_week_movies(date)
     ids = current_week_imdb_ids(date).reject{|id| Movie.find_by_id(id)}

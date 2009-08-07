@@ -1,2 +1,4 @@
 -@users.each do |user|
-  = link_to (user.login, compare_taste_path(user.id))
+  -unless (user.id == @current_user.id)
+    = link_to (user.login, compare_taste_path(user.id))
+

@@ -409,7 +409,13 @@ h2
       :padding 5px
   .add_alert
     :padding-top 5px
-
+=desired_movies_variable
+  :padding 3px
+  :margin-top 5px
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px        
+  :background-color #F8F8F8
+  :border 1px solid #cecece
 .user_movies_list
   :opacity 0.9
   :float left
@@ -434,15 +440,27 @@ h2
   .movie_list_results
     :clear both
     :width 100%
+    .one_movie_alert_is_poster
+      +desired_movies_variable
+      :height 80px
+      #poster
+        :float left
+        :width 20%
+        :height 80px
+      .rest
+        :float left
+        :width 80%
+        #title
+          :margin-top 20px
+          :text-align center
+          :font-size 14px
+          :color #2f2b2b  
+          :font-weight bold
+        #del_from_movie_list
+          :margin-top 25px
+          :text-align right
     .one_movie_alert
-      :padding 3px
-      :margin-top 5px
-      :-moz-border-radius 5px
-      :-webkit-border-radius 5px        
-      :background-color #F8F8F8
-      :border 1px solid #cecece
-      #poster 
-        :display none
+      +desired_movies_variable
       #title
         :font-size 14px
         :color #2f2b2b  
@@ -567,14 +585,30 @@ h2
 // #########################    taste comparison ###############################
 
 .comparison
+  :font-weight bold
+  :float left
+  :width 30%
+  :opacity 0.9
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :border 1px solid #333333
+  :background-color #dedede 
+  :padding 10px
+  :color #2f2b2b  
+  :text-align center
   :font-size 12px
-  :width 110px
-  :text-align right
+  :height 30px
+  :width 200px
+  :text-align center
   .tastemeter
+    :margin-top 2px
+    :float left
+    :width 80%
+    :margin-left 33px
     :display block
-    :width 100%
+    :width 100px
     :height 10px
-    :background #DEDEDE
+    :background #F5F5F5
     :-moz-border-radius 3px
     :-webkit-border-radius 3px
     span
@@ -583,3 +617,55 @@ h2
       :background #3a8c40
       :-moz-border-radius 3px
       :-webkit-border-radius 3px
+  .percent
+    :padding-left 3px
+    :font-weight normal
+    :float left
+    :width 20%
+=desired_movies_variable
+  :padding 3px
+  :margin-top 5px
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px        
+  :background-color #F8F8F8
+  :border 1px solid #cecece
+  :font-weight bold
+.compared_user_votes
+  :opacity 0.9
+  :float left
+  :width 70%
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :margin-left 5px
+  :margin-top 5px
+  :border 1px solid #333333
+  :background-color #dedede 
+  :padding 10px
+  :width 300px
+  .one_movie_is_poster
+    +desired_movies_variable
+    :height 80px
+    #poster
+      :float left
+      :width 20%
+      :height 80px
+    .rest
+      :float left
+      :width 80%
+      #title
+        :margin-top 5px
+        :text-align right
+        :font-size 14px
+        :color #2f2b2b  
+      #user_rating
+        :margin-top 20px
+        :text-align left
+  .one_movie
+    +desired_movies_variable
+    #title
+      :text-align right
+      :font-size 14px
+      :color #2f2b2b  
+      :font-weight bold
+    #user_rating
+      :text-align left

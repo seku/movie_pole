@@ -1,6 +1,13 @@
 .comparison
+  = "Compability with #{@compared_user.login}: " 
   .tastemeter
     %span{:style => "width: #{@comparison}%"}
-  = "Compability: #{@comparison}%" 
+  .percent
+    =" #{@comparison}%"
+.compared_user_votes
+  -@compared_user.votes.each do |vote|
+    = render :partial => "compare_tastes/movie", :locals => {:movie => find_movie(vote.movie_id), :compared_user_rating => vote.user_rating, :current_user_rating => rated?(vote.movie_id), :rel => voted?(vote.movie.id)}
+
+    
 
 

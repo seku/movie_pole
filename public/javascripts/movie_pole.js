@@ -270,8 +270,23 @@ $(document).ready(function() {
     })
     return false
   })
-  // votes ##########################################################
-  
+  // votes / rating/ stars ##########################################################
+/*
+  $(".star-rating-control > div > a").click(function() {
+    var user_rating = $(this).html() 
+    var movie_id = $(this).parents(".movie_details").find("a").attr("href").replace("/movies/","")
+    $.ajax({
+        type: "get",
+        url: "/compare_tastes/find_closest_users",
+        data: {movie_id: movie_id, rating: user_rating},
+        dataType: "json",
+        success: function(xhr) {
+          console.log(xhr)
+        }
+    })
+  })
+
+*/  
   $(".star-rating-control > div > a").click(function() {
     $(this).parent("div").rating('select') //jquery.rating.js functionality 
     var user_rating = $(this).html() 
@@ -324,7 +339,7 @@ $(document).ready(function() {
   clear_flash = function () {
     $("#flash_for_js").hide(700).empty().css({"visibility" : "hidden"})
   }  
-  
+ 
   // features on user site ##########################################
   
   //subtitle_language
@@ -344,7 +359,12 @@ $(document).ready(function() {
   $(".comment_form").click(function() {
     $(this).empty()
   }) 
+
+ 
+// ######################  compare_tastes ###################
+
+  $(".compared_user_votes > div[rel=\"voted\"]").css({"border" : "solid 1px red"}) 
+  
+  
+  
 })
- 
- 
- 

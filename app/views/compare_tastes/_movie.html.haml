@@ -1,0 +1,20 @@
+-if movie.poster
+  -content_tag :div, :class => "one_movie_is_poster", :id => movie.id, :rel => rel do
+    #poster
+      = link_to(image_tag(movie.poster, :height => 80), movie_path(movie.id))
+    .rest
+      #title 
+        = link_to(movie.title, movie_path(movie))
+      #user_rating
+        = "User rating: #{compared_user_rating}" 
+        <br/>
+        = "Your rating: #{current_user_rating}" if current_user_rating
+-else
+  -content_tag :div, :class => "one_movie", :id => movie.id, :rel => rel do
+    #title 
+      = link_to(movie.title, movie_path(movie))
+    #user_rating
+      = "User rating: #{compared_user_rating}" 
+      <br/>
+      = "Your rating: #{current_user_rating}" if current_user_rating
+
