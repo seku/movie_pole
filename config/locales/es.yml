@@ -73,7 +73,13 @@ es:
     war: Bélico
     western: Western
   user:
-    vote: "Zagłosuj: "
+    vote: 
+      vote: "Vote: "
+      create: "Thank you for your vote with rating"
+      update: "Your vote was updated with rating"
+      delete: "Your vote was deleted"
+      similarly: "Similarly voted:"
+      rated_with: "Ocenił na: "
     rating: "Ocena użytkowników: "
     comment: 
       topic: "Skomentuj"
@@ -126,6 +132,9 @@ es:
     movies_list_info3: "Nie trać czasu na zbędne grzebanie po sieci, zrobimy to za Ciebie !!"
     movies_list_add: "The movie was added to your list"
     movies_list_exist: "You have already this movie in your list"
+    compared_user:
+      compability: "Compability with"
+      rating: "Movies ranked by"
   number:
     format:
       separator: "."

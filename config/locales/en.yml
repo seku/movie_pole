@@ -75,7 +75,13 @@ en:
     war: "War "
     western: "Western "
   user:
-    vote: "Vote: "
+    vote: 
+      vote: "Vote: "
+      create: "Thank you for your vote with rating"
+      update: "Your vote was updated with rating"
+      delete: "Your vote was deleted"
+      similarly: "Similarly voted:"
+      rated_with: "Ranked with: "
     rating: "Users rating: "
     comment: 
       topic: "Comment"
@@ -128,6 +134,9 @@ en:
     movies_list_info3: "Don't wast your time searching throught the net, leave it to us !!"
     movies_list_add: "movie was added to your list"
     movies_list_exist: "You have already this movie in your list"
+    compared_user:
+      compability: "Compability with"
+      rating: "Movies ranked by"
   number:
     format:
       separator: "."

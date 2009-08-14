@@ -23,6 +23,8 @@
         = f.select :language, languages
     .tip
       %button= image_tag(("/images/query2.png"), :rel => t('txt.language_information'))
+  .followings
+    =render :partial => "users/following", :locals => {:followers => @followers, :followed_users => @followed_users}
 .user_form
   .tip
     %button= image_tag(("/images/query2.png"), :rel => "#{t('txt.alert_information1')} \n #{t('txt.alert_information2')} \n #{t('txt.alert_information3')}" )

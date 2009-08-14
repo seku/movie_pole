@@ -1,0 +1,11 @@
+.photo
+  = link_to(image_tag(user.gravatar_url(:default => "wavatar", :size => 30)), compare_taste_path(user.id))
+.login 
+  = link_to(user.login, compare_taste_path(user.id))
+.comparison
+  = "#{t('user.compared_user.compability')} #{user.login}"
+  .tastemeter
+    %span{:style => "width: #{Vote.check_user(user, @current_user)}%"}
+  .percent 
+    =" #{Vote.check_user(user, @current_user)}%"  
+

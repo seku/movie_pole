@@ -12,5 +12,9 @@ module MoviesHelper
 	  lang_maps = {"pl" => "pol", "en" => "eng", "es" => "spa"}
     "http://www.opensubtitles.org/#{lang}/search/sublanguageid-#{lang_maps[lang]}/imdbid-#{imdb_id}"
 	end
+	
+  def not_follwed_user?(user_id)  
+	  !current_user.followed_users.include? User.find(user_id)  
+	end	
 end
 

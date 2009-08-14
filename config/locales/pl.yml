@@ -72,7 +72,13 @@ pl:
     war: "Wojenny "
     western: "Western "
   user:
-    vote: "Zagłosuj: "
+    vote: 
+      vote: "Zagłosuj: "
+      create: "Dziękujemy za oddany głos z oceną "
+      update: "Twoja ocena została zaktualizowana o wartość "
+      delete: "Twój głos został usunięty "
+      similarly: "Podobnie głosowali:"
+      rated_with: "Ocenił na: "
     rating: "Ocena użytkowników: "
     comment:
       topic: "Skomentuj"
@@ -125,6 +131,9 @@ pl:
     movies_list_info3: "Nie trać czasu na zbędne grzebanie po sieci, zrobimy to za Ciebie !!"
     movies_list_add: "film został dodany do twojej listy"
     movies_list_exist: "Film ten już istnieje w twojej liście"
+    compared_user:
+      compability: "Zgodność gustów z"
+      rating: "Filmy oceniane przez"
   number:
     format:
       separator: "."

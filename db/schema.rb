@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090728105650) do
+ActiveRecord::Schema.define(:version => 20090812130442) do
 
   create_table "alerts", :force => true do |t|
     t.integer  "rating"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20090728105650) do
     t.integer  "user_id"
     t.integer  "movie_id"
     t.string   "type"
+  end
+
+  create_table "followings", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "genres", :force => true do |t|

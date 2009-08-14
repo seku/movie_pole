@@ -52,7 +52,7 @@ $(document).ready(function() {
   var register = "/users/new"
   var not_exist = true //check if login/register form exist in response div 
   var pressed = false // it's needed for cancel button in registration form (if true javascript is enabled)
-  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}" }
+  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}", "compared_user" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"add_followed_user\"><button><img height=\"10\" width=\"10\" src=\"/images/add.png\" alt=\"Add\"/></button></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "compared_user_followed" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>"}
   
   //set the language of the site  #####################################
   $('#locale').change(function() {
@@ -110,7 +110,7 @@ $(document).ready(function() {
           $("#alert_add").show()
           $("#" + edit_link_id + "").empty().append($.tmpl(templates.alert_edit, data))
         }
-        $("#message").css({"display" : "block"})
+        $("#message").css({"display" : "none"})
       }, 
       error: function (data) { alert(translations.alert_exist) }   
     })
@@ -128,7 +128,8 @@ $(document).ready(function() {
         data.translations = translations
         if (data.alert.genre_name == "all") {
           $("#alerts_results").empty()
-          $("#alert_add").hide$("#register_urge").hide()()
+          $("#alert_add").hide()
+          $("#register_urge").hide()
           all = 1
         }
         $("#alerts_results").append($.tmpl(templates.alert, data))
@@ -256,37 +257,47 @@ $(document).ready(function() {
       url: $(this).find("a").attr("href"),
       dataType: "json",
       success: function(data) {
-        $("#flash_for_js").css({"visibility" : "visible"}).empty().append($.tmpl(templates.flash, data)) },
+        $.jGrowl($.tmpl(templates.flash, data)) },
       error: function (data) { 
-        $("#flash_for_js").css({"visibility" : "visible"}).empty().append($.tmpl(templates.flash, data)) }
+        $.jGrowl($.tmpl(templates.flash, data))
+      }
     })
     return false
   })
   $("#del_from_movie_list").live("click", function() {
     var deleteLink = $(this).find("a").attr("href")
-    var deleteId = $(this).parent().attr("id")
+    var deleteId = $(this).parent().parent().attr("id")
     $.post(deleteLink, "_method=delete", function(data) {
       $("#" + deleteId + "").remove()
     })
     return false
   })
   // votes / rating/ stars ##########################################################
-/*
-  $(".star-rating-control > div > a").click(function() {
-    var user_rating = $(this).html() 
-    var movie_id = $(this).parents(".movie_details").find("a").attr("href").replace("/movies/","")
+  $.jGrowl.defaults.position = 'center'
+  function compared_users(user_rating, movie_id){
     $.ajax({
         type: "get",
         url: "/compare_tastes/find_closest_users",
         data: {movie_id: movie_id, rating: user_rating},
         dataType: "json",
         success: function(xhr) {
-          console.log(xhr)
+          if (xhr.data != "undefined" && xhr.data.length != 0) {
+            $("#ajax_features").empty().append(translations.similarly)
+            $.each(xhr.data, function(i, xhr) {
+              xhr.translations = translations
+              if (xhr.followed_user) {
+                $("#ajax_features").append($.tmpl(templates.compared_user_followed, xhr))
+              } else {
+                $("#ajax_features").append($.tmpl(templates.compared_user, xhr))
+              }
+            })
+          } else {
+            $("#ajax_features").empty()
+          }
         }
     })
-  })
-
-*/  
+  }
+  
   $(".star-rating-control > div > a").click(function() {
     $(this).parent("div").rating('select') //jquery.rating.js functionality 
     var user_rating = $(this).html() 
@@ -300,10 +311,10 @@ $(document).ready(function() {
         success: function(data) {
           $(".imdb_rating").find("span").empty().append($.tmpl(templates.average_rating, data))
           $("#stars").attr("rel", $.tmpl(templates.user_rating, data))
-          $("#flash_for_js").css({"visibility" : "visible"}).show().empty().append($.tmpl(templates.flash, data)) 
-          setTimeout("clear_flash()", 3000)
+          $.jGrowl($.tmpl(templates.flash, data))
         }
       })
+      compared_users(user_rating, movie_id)
     } else {
       if (user_rating == 0) {
         $.ajax({
@@ -314,10 +325,10 @@ $(document).ready(function() {
           success: function(data) {
             $(".imdb_rating").find("span").empty().append($.tmpl(templates.average_rating, data))
             $("#stars").attr("rel", $.tmpl(templates.user_rating, data))
-            $("#flash_for_js").css({"visibility" : "visible"}).show().empty().append($.tmpl(templates.flash, data)) 
-            setTimeout("clear_flash()", 3000)
+            $.jGrowl($.tmpl(templates.flash, data))
           }
         })
+        compared_users(user_rating, movie_id)
       } else {
         $.ajax({
           type: "PUT",
@@ -327,19 +338,15 @@ $(document).ready(function() {
           success: function(data) {
             $(".imdb_rating").find("span").empty().append($.tmpl(templates.average_rating, data))
             $("#stars").attr("rel", $.tmpl(templates.user_rating, data))
-            $("#flash_for_js").css({"visibility" : "visible"}).show().empty().append($.tmpl(templates.flash, data)) 
-            setTimeout("clear_flash()", 3000)
+            $.jGrowl($.tmpl(templates.flash, data))
           }
         })
+        compared_users(user_rating, movie_id)        
       }
     }
     
     return false
   })
-  clear_flash = function () {
-    $("#flash_for_js").hide(700).empty().css({"visibility" : "hidden"})
-  }  
- 
   // features on user site ##########################################
   
   //subtitle_language
@@ -352,7 +359,27 @@ $(document).ready(function() {
   }).bind("off", function(){
     $(".tip_block").empty().css({"display" : "none"})
   })
-
+  // del_following 
+  $(".del_following").click(function() {
+    var user = $(this).parent().attr('data-user')
+    var id = $(this).parent().attr('data-id')
+    var deleteLink = "/followings/" + id + ""
+    if (id) {
+      $.post(deleteLink,  { _method: 'delete', user: user, id: id }, function(data) {
+        $(".compared_user[data-id= \"" + id + "\"]").remove()
+        $.jGrowl($.tmpl(templates.flash, data))
+      }, "json")
+    } 
+  })
+  // add followed_user
+  
+  $(".add_followed_user").live("click", function() {
+    $(this).hide()
+    $.post("/followings/", { id: $(this).parent().attr("data-id") }, function(data) {
+      $.jGrowl($.tmpl(templates.flash, data))
+    }, "json")
+  })
+  
   
 // ####################### comment #########################
 

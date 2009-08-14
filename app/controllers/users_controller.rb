@@ -34,6 +34,8 @@ class UsersController < ApplicationController
   def show
     @user = @current_user
     @weekly_alert = current_user.weekly_alerts.new
+    @followers = current_user.followers
+    @followed_users = current_user.followed_users
   end
 
   def edit

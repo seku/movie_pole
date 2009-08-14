@@ -7,10 +7,11 @@
         #title 
           = link_to(movie.title, movie_path(movie))
         #del_from_movie_list
-          = link_to(t('user.del_from_movie_list'), desirable_alert_path(movie))
+          %button= link_to(image_tag("/images/3.png", :width => 15, :height => 15), desirable_alert_path(movie))
   -else
     -content_tag :div, :class => "one_movie_alert", :id => movie.id do
       #title 
         = link_to(movie.title, movie_path(movie))
-      #del_from_movie_list
-        = link_to(t('user.del_from_movie_list'), desirable_alert_path(movie))
+      .rest
+        #del_from_movie_list
+          %button= link_to(image_tag("/images/3.png", :width => 15, :height => 15), desirable_alert_path(movie))

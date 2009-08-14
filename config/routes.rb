@@ -15,4 +15,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments, :collection => { :sending => :get }
   map.resources :votes
   map.resources :compare_tastes, :collection => {:find_closest_users => :get }
+  map.resources :followings
 end

@@ -5,12 +5,12 @@
     %title Movie Pole
     %link{:rel => "search", :type => "application/opensearchdescription+xml", :title => "Search Movie", :href => "movie_pole.xml"}
     = stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" 
-    = stylesheet_link_tag "application", "jquery.rating"
-    = javascript_include_tag :defaults, "jquery_cookie", "jquery.autocomplete", "jquery.tmpl", "jquery.blockUI", "jquery.events", "jquery.rating", "jquery.metadata", "movie_pole"
+    = stylesheet_link_tag "application", "jquery.rating", "jquery.jgrowl"
+    = javascript_include_tag :defaults, "jquery_cookie", "jquery.autocomplete", "jquery.tmpl", "jquery.blockUI", "jquery.events", "jquery.rating", "jquery.metadata", "jquery.jgrowl", "movie_pole"
     /= auto_discovery_link_tag(:rss, movies_path(:format => :rss))
     - document_ready do
       = render_authenticity_token
-      == translations = {"edit": "#{t("user.edit")}", "del": "#{t("user.alert_del")}", "rating": "#{t("sort.rating")}", "genre": "#{t("txt.genre")}", "alert_exist" : "#{t("user.alert_exist")}" }
+      == translations = {"edit": "#{t("user.edit")}", "del": "#{t("user.alert_del")}", "rating": "#{t("sort.rating")}", "genre": "#{t("txt.genre")}", "alert_exist" : "#{t("user.alert_exist")}", "similarly" : "#{t('user.vote.similarly')}", "compability" : "#{t('user.compared_user.compability')}", "rated_with" : "#{t('user.vote.rated_with')}"}
 
   %body
     #doc2.yui-t4

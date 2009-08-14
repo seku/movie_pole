@@ -8,7 +8,8 @@
       #user_rating
         = "User rating: #{compared_user_rating}" 
         <br/>
-        = "Your rating: #{current_user_rating}" if current_user_rating
+        %span
+          = "Your rating: #{current_user_rating}" if current_user_rating
 -else
   -content_tag :div, :class => "one_movie", :id => movie.id, :rel => rel do
     #title 
@@ -16,5 +17,6 @@
     #user_rating
       = "User rating: #{compared_user_rating}" 
       <br/>
-      = "Your rating: #{current_user_rating}" if current_user_rating
+      %span
+        = "Your rating: #{current_user_rating}" if current_user_rating
 

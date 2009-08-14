@@ -16,7 +16,9 @@
     %br
     #less
       = link_to(t('txt.less'))
-    
+#ajax_features
+  -if @pole_rating
+    = render :partial => "/compare_tastes/find_closest_users", :locals => {:users_array => @users_array}
 
 
 

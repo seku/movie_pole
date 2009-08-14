@@ -1,0 +1,12 @@
+-if (followers.length != 0)
+  Followers:
+  -followers.each do |f|
+    .compared_user
+      = render :partial => "users/compared_user", :locals => {:user => f}
+-if (followed_users.length != 0) 
+  Followed users:
+  -followed_users.each do |f|
+    .compared_user{ "data-id" => f.id }
+      = render :partial => "users/compared_user", :locals => {:user => f}
+      .del_following
+        %button= image_tag("/images/3.png", :width => 15, :height => 15)

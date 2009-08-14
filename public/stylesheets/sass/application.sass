@@ -1,3 +1,58 @@
+button
+  :cursor pointer
+// ##################### variables ###############
+=desired_movies_variable
+  :padding 3px
+  :margin-top 5px
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px        
+  :background-color #F8F8F8
+  :border 1px solid #cecece
+  :font-weight bold
+
+=movie_list_variable
+  :opacity 0.9
+  :clear both
+  :width 710px
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :margin 5px
+  :border 1px solid #333333
+  :background-color #f5f5f5 
+  :padding-top 5px
+  :padding-left 10px
+  :padding-right 10px
+  a  
+    :color #2f2b2b  
+    :font-weight bold
+  .title
+    :float left
+    :width 50%
+    :font-size 16px
+    :padding-bottom 5px
+  .rating
+    :float left
+    :width 50%
+    :text-align right
+  .torrents
+    :clear both
+    :float left 
+    :width 60%
+    .add_to_your_list a
+      :color red
+  .subtitles
+    :width 40%
+    :float left
+    :text-align right
+  .plot
+    :padding-top 5px
+    :clear both
+    :width 100%
+    
+
+
+
+
 // ####################################### background #############################
 
 #doc2
@@ -149,44 +204,7 @@ h2
 
 
 // ######## styling of movie list -> for example if you use searching or choose genre ########
-=movie_list_variable
-  :opacity 0.9
-  :clear both
-  :width 710px
-  :-moz-border-radius 10px
-  :-webkit-border-radius 10px
-  :margin 5px
-  :border 1px solid #333333
-  :background-color #f5f5f5 
-  :padding-top 5px
-  :padding-left 10px
-  :padding-right 10px
-  a  
-    :color #2f2b2b  
-    :font-weight bold
-  .title
-    :float left
-    :width 50%
-    :font-size 16px
-    :padding-bottom 5px
-  .rating
-    :float left
-    :width 50%
-    :text-align right
-  .torrents
-    :clear both
-    :float left 
-    :width 60%
-    .add_to_your_list a
-      :color red
-  .subtitles
-    :width 40%
-    :float left
-    :text-align right
-  .plot
-    :padding-top 5px
-    :clear both
-    :width 100%
+
 
 .movie_list
   li
@@ -280,21 +298,78 @@ h2
     :clear both
     :width 100%
     :padding-top 5px   
-// ####################################side panel -> searching #############################
+// ####################################side panel  #############################
 #advanced_search
   :text-align center
-.autocomplete_results
-  li
-    :width 155px
-    :-moz-border-radius 5px
-    :-webkit-border-radius 5px
+#search_block
+  .autocomplete_results
+    li
+      :width 155px
+      :-moz-border-radius 5px
+      :-webkit-border-radius 5px
+      :border 1px solid #333333
+      :background-color #f5f5f5 
+      :padding-top 5px
+      :padding-left 10px
+      a
+        :color #2f2b2b  
+        :font-weight bold
+#ajax_features
+  :font-weight bold
+  .compared_user
+    :font-weight normal
+    :height 60px
+    :opacity 0.9
+    :-moz-border-radius 10px
+    :-webkit-border-radius 10px
+    :margin 5px
     :border 1px solid #333333
-    :background-color #f5f5f5 
+    :background-color #dedede 
     :padding-top 5px
     :padding-left 10px
-    a
-      :color #2f2b2b  
+    :padding-right 10px
+    .photo
+      :float left
+      :width 25%
+    .login
+      :float left
+      :width 60%
+      span
+        :color red 
+    .add_followed_user
+      :float right
+      :width 15%
+    .comparison
+      :clear both
       :font-weight bold
+      //:float left
+      :width 30%
+      :color #2f2b2b  
+      :font-size 10px
+      :height 20px
+      :width 140px
+      .tastemeter
+        :margin-top 2px
+        :float left
+        :width 60%
+        :margin-left 3px
+        :display block
+        :height 8px
+        :background #F5F5F5
+        :-moz-border-radius 3px
+        :-webkit-border-radius 3px
+        span
+          :height 8px
+          :display block
+          :background #3a8c40
+          :-moz-border-radius 3px
+          :-webkit-border-radius 3px
+      .percent
+        :text-align center
+        :padding-left 3px
+        :font-weight normal
+        :float left
+        :width 30%
 // ####################################### user account ###############################
 .tip_block
   :display none
@@ -365,6 +440,75 @@ h2
       :background-color #f5f5f5 
       :padding-left 10px
       :padding-right 10px
+  .followings
+    :width 240px
+    :font-weight bold
+    :opacity 0.9
+    :-moz-border-radius 5px
+    :-webkit-border-radius 5px
+    :margin-top 5px
+    :border 1px solid #CECECE
+    :background-color #F8F8F8 
+    :padding 10px
+    :margin-left 5px
+    :margin-right 5px
+    :color #2f2b2b  
+    :text-align center
+    div 
+      :padding 0px
+    :clear both
+    .compared_user
+      :width 160px
+      :font-weight normal
+      :height 70px
+      :opacity 0.9
+      :-moz-border-radius 10px
+      :-webkit-border-radius 10px
+      :margin 5px
+      :margin-left 20px
+      :border 1px solid #333333
+      :background-color #dedede 
+      :padding-top 5px
+      :padding-left 20px
+      :padding-right 10px
+      .photo
+        :float left
+        :width 20%      
+      .login
+        :float left
+        :width 60%
+      .comparison
+        :clear both
+        :font-weight bold
+        :float left
+        :width 30%
+        :color #2f2b2b  
+        :font-size 10px
+        :height 20px
+        :width 150px
+        :margin-top 3px
+        .tastemeter
+          :margin-top 5px
+          :float left
+          :width 50%
+          :margin-left 3px
+          :display block
+          :height 8px
+          :background #F5F5F5
+          :-moz-border-radius 3px
+          :-webkit-border-radius 3px
+          span
+            :height 8px
+            :display block
+            :background #3a8c40
+            :-moz-border-radius 3px
+            :-webkit-border-radius 3px
+        .percent
+          :text-align center
+          :padding-left 4px
+          :font-weight normal
+          :float left
+          :width 30%
 .user_form 
   :opacity 0.9
   :float left
@@ -409,13 +553,7 @@ h2
       :padding 5px
   .add_alert
     :padding-top 5px
-=desired_movies_variable
-  :padding 3px
-  :margin-top 5px
-  :-moz-border-radius 5px
-  :-webkit-border-radius 5px        
-  :background-color #F8F8F8
-  :border 1px solid #cecece
+
 .user_movies_list
   :opacity 0.9
   :float left
@@ -457,7 +595,7 @@ h2
           :color #2f2b2b  
           :font-weight bold
         #del_from_movie_list
-          :margin-top 25px
+          :margin-top 20px
           :text-align right
     .one_movie_alert
       +desired_movies_variable
@@ -584,7 +722,7 @@ h2
   :width 100%
 // #########################    taste comparison ###############################
 
-.comparison
+#comparison
   :font-weight bold
   :float left
   :width 30%
@@ -622,14 +760,7 @@ h2
     :font-weight normal
     :float left
     :width 20%
-=desired_movies_variable
-  :padding 3px
-  :margin-top 5px
-  :-moz-border-radius 5px
-  :-webkit-border-radius 5px        
-  :background-color #F8F8F8
-  :border 1px solid #cecece
-  :font-weight bold
+
 .compared_user_votes
   :opacity 0.9
   :float left
@@ -642,6 +773,7 @@ h2
   :background-color #dedede 
   :padding 10px
   :width 300px
+  :font-weight bold
   .one_movie_is_poster
     +desired_movies_variable
     :height 80px
@@ -660,12 +792,15 @@ h2
       #user_rating
         :margin-top 20px
         :text-align left
+        span
+          :color red
   .one_movie
     +desired_movies_variable
     #title
       :text-align right
       :font-size 14px
       :color #2f2b2b  
-      :font-weight bold
     #user_rating
       :text-align left
+      span
+        :color red
