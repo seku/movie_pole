@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     end
     if @pole_rating
       @users_array = Vote.analize_votes(params[:id], @pole_rating, current_user)
-      unless @users_array.empty? 
+      unless @users_array.nil? 
         @users_array.sort_by{ |item| - item[:comparison_value] }[1..3]
       end
     end
