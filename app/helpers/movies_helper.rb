@@ -16,5 +16,7 @@ module MoviesHelper
   def not_follwed_user?(user_id)  
 	  !current_user.followed_users.include? User.find(user_id)  
 	end	
+	
+
 end
 

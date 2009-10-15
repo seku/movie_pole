@@ -10,7 +10,7 @@
     /= auto_discovery_link_tag(:rss, movies_path(:format => :rss))
     - document_ready do
       = render_authenticity_token
-      == translations = {"edit": "#{t("user.edit")}", "del": "#{t("user.alert_del")}", "rating": "#{t("sort.rating")}", "genre": "#{t("txt.genre")}", "alert_exist" : "#{t("user.alert_exist")}", "similarly" : "#{t('user.vote.similarly')}", "compability" : "#{t('user.compared_user.compability')}", "rated_with" : "#{t('user.vote.rated_with')}"}
+      == translations = {"edit": "#{t("user.edit")}", "del": "#{t("user.alert_del")}", "rating": "#{t("sort.rating")}", "genre": "#{t("txt.genre")}", "alert_exist" : "#{t("user.alert_exist")}", "similarly" : "#{t('user.vote.similarly')}", "compability" : "#{t('user.compared_user.compability')}", "rated_with" : "#{t('user.vote.rated_with')}", "by": "#{t('user.vote.by')}", "rated_with" : "#{t("user.vote.rated_with")}" }
 
   %body
     #doc2.yui-t4

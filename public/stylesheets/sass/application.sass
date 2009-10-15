@@ -370,6 +370,41 @@ h2
         :font-weight normal
         :float left
         :width 30%
+  .last_vote
+    :font-weight normal
+    :height 60px
+    :opacity 0.9
+    :-moz-border-radius 10px
+    :-webkit-border-radius 10px
+    :margin 5px
+    :border 1px solid #333333
+    :background-color #dedede 
+    :padding-top 5px
+    :padding-left 10px
+    :padding-right 10px
+    .movie
+      :float left
+      :width 68%
+    .date
+
+      :font-size 10px
+      :float left
+      :width 30%
+    .rating
+      :padding-top 3px
+      :clear both
+      :color red
+      :font-size 12px
+    .login
+      :padding-top 3px
+      :float left
+      :width 80%
+    .photo
+      :position relative
+      :left 120px
+      :top -30px
+  .fuser_votes_paginate
+    :text-align center
 // ####################################### user account ###############################
 .tip_block
   :display none
@@ -440,7 +475,7 @@ h2
       :background-color #f5f5f5 
       :padding-left 10px
       :padding-right 10px
-  .followings
+  .followers, .followed_users
     :width 240px
     :font-weight bold
     :opacity 0.9
@@ -742,7 +777,7 @@ h2
     :margin-top 2px
     :float left
     :width 80%
-    :margin-left 33px
+    :margin-left 30px
     :display block
     :width 100px
     :height 10px
@@ -760,7 +795,10 @@ h2
     :font-weight normal
     :float left
     :width 20%
-
+  .add_followed_user
+    :position relative
+    :left -180px
+    :top -20px
 .compared_user_votes
   :opacity 0.9
   :float left
@@ -776,11 +814,11 @@ h2
   :font-weight bold
   .one_movie_is_poster
     +desired_movies_variable
-    :height 80px
+    :height 85px
     #poster
       :float left
       :width 20%
-      :height 80px
+      :height 85px
     .rest
       :float left
       :width 80%
@@ -794,6 +832,10 @@ h2
         :text-align left
         span
           :color red
+      .date
+        :font-size 10px
+        :text-align right
+        :margin-bottom 5px
   .one_movie
     +desired_movies_variable
     #title
@@ -804,3 +846,7 @@ h2
       :text-align left
       span
         :color red
+    .date
+      :font-size 10px
+      :text-align right
+      :padding-bottom -5px 

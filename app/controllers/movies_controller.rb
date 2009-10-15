@@ -7,6 +7,22 @@ class MoviesController < ApplicationController
     @movies = @movies.only_torrents unless params[:without]
     @movies = @movies.sorted_by((params[:sort_by] || "release_date"), (@sort_mode[params[:sort_by]] || "desc"))
     @movies = @movies.paginate :page => params[:page], :per_page => per_page
+    @fuser_votes = fusers_votes if current_user
+  end
+  
+  def fusers_votes
+    @fuser_votes = []
+    current_user.followed_users.each do |fu|
+      fu.votes.each do |v|
+        @fuser_votes << {:date => v.updated_at.strftime("%d.%m.%Y"), :fuser => fu, :fuser_rating => v.user_rating, :fuser_photo => fu.gravatar_url(:default => "wavatar", :size => 30), :movie_id => Movie.find(v.movie_id).id, :movie_title => resize_title(Movie.find(v.movie_id).title) }
+      end
+    end  
+    @fuser_votes = @fuser_votes.sort_by {|v| v[:date]}.reverse().paginate :page => params[:page], :per_page => 5
+    if request.xhr?
+      render :json => @fuser_votes
+    else
+      @fuser_votes
+    end    
   end
   
   def show
@@ -22,4 +38,13 @@ class MoviesController < ApplicationController
     end
   end
   
+  protected
+  
+  def resize_title(title)
+    if title.length > 14
+      title[0..12] + ".."
+    else
+      title
+    end
+  end
 end

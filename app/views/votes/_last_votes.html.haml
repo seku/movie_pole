@@ -1,0 +1,22 @@
+- unless fuser_votes.empty?
+  = t('user.vote.last_voting')
+  .last_voting
+    - fuser_votes.each do |fu|
+      .last_vote
+        .movie
+          = link_to(fu[:movie_title], movie_path(fu[:movie_id]))
+        .date
+          = fu[:date]
+        .rating
+          = t("user.vote.rated_with") 
+          = fu[:fuser_rating]
+        .login
+          = t('user.vote.by')
+          = link_to(fu[:fuser].login, compare_taste_path(fu[:fuser].id))
+        .photo
+          = link_to(image_tag(fu[:fuser].gravatar_url(:default => "wavatar", :size => 30)), compare_taste_path(fu[:fuser].id))
+  .fuser_votes_paginate{"data-page" => 1}
+    %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
+    %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
+
+

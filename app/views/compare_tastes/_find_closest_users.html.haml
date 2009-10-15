@@ -11,7 +11,7 @@
         = user[:rating]
     .add_followed_user
       -if not_follwed_user?(user[:user_id])
-        %button=image_tag("/images/add.png", :height => 10, :width => 10) 
+        %button{:title => "Add to followed users list"}=image_tag("/images/add.png", :height => 10, :width => 10) 
     .comparison
       = "#{t('user.compared_user.compability')} #{user[:user]}"
       .tastemeter

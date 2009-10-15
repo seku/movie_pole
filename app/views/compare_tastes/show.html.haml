@@ -1,13 +1,16 @@
-#comparison
+#comparison{"data-id" => @compared_user.id}
   = "#{t('user.compared_user.compability')} #{@compared_user.login}: " 
   .tastemeter
     %span{:style => "width: #{@comparison}%"}
   .percent
     =" #{@comparison}%"
+  -if not_follwed_user?(@compared_user.id)
+    .add_followed_user
+      %button{:title => "Add #{@compared_user.login} to your list"}=image_tag("/images/add.png", :height => 10, :width => 10) 
 .compared_user_votes
   = "#{t('user.compared_user.rating')} #{@compared_user.login}" 
-  -@compared_user.votes.each do |vote|
-    = render :partial => "compare_tastes/movie", :locals => {:movie => find_movie(vote.movie_id), :compared_user_rating => vote.user_rating, :current_user_rating => rated?(vote.movie_id), :rel => voted?(vote.movie.id)}
+  -@compared_user.votes.sort_by{|v| v.updated_at}.reverse.each do |vote|
+    = render :partial => "compare_tastes/movie", :locals => {:date => vote.updated_at, :movie => find_movie(vote.movie_id), :compared_user_rating => vote.user_rating, :current_user_rating => rated?(vote.movie_id), :rel => voted?(vote.movie.id)}
 
     
 

@@ -74,6 +74,8 @@ en:
     thriller: "Thriller "
     war: "War "
     western: "Western "
+  followers: "Followers:"
+  followed_users: "Followed users:"
   user:
     vote: 
       vote: "Vote: "
@@ -82,11 +84,16 @@ en:
       delete: "Your vote was deleted"
       similarly: "Similarly voted:"
       rated_with: "Ranked with: "
+      by: "By:"
+      last_voting: "Last freinds votings: "
     rating: "Users rating: "
     comment: 
       topic: "Comment"
       confirm: "Confirm"
       subject: "What do you think about our site, what should we add , what's your need ?? Write to us !"      
+    your_rating: "Your rating:"
+    follower_rating: "User rating:"
+    voted_at: "voted at: "
     login: Login
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"

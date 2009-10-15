@@ -71,6 +71,8 @@ pl:
     thriller: "Thriller "
     war: "Wojenny "
     western: "Western "
+  followers: "Obserwują cię:"
+  followed_users: "Obserwujesz:"  
   user:
     vote: 
       vote: "Zagłosuj: "
@@ -79,11 +81,16 @@ pl:
       delete: "Twój głos został usunięty "
       similarly: "Podobnie głosowali:"
       rated_with: "Ocenił na: "
+      by: "Przez: "
+      last_voting: "Najnowsze głosy znajomcyh: "
     rating: "Ocena użytkowników: "
     comment:
       topic: "Skomentuj"
       confirm: "Zatwierdz"
       subject: "Co sądzisz o tej stronie, co proponowałbyś(aś) zmienić, dodać ?? Napisz !! "
+    your_rating: "Twoja ocena:"
+    follower_rating: "Ocena użytkownika:"
+    voted_at: "głosował: "
     login: "Zaloguj się"
     login_success: "Zostałeś zalogowany"
     login_failed: "Logowanie nie udane , spróbuj jeszcze raz"

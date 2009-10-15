@@ -52,7 +52,7 @@ $(document).ready(function() {
   var register = "/users/new"
   var not_exist = true //check if login/register form exist in response div 
   var pressed = false // it's needed for cancel button in registration form (if true javascript is enabled)
-  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}", "compared_user" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"add_followed_user\"><button><img height=\"10\" width=\"10\" src=\"/images/add.png\" alt=\"Add\"/></button></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "compared_user_followed" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>"}
+  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}", "compared_user" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"add_followed_user\"><button><img height=\"10\" width=\"10\" src=\"/images/add.png\" alt=\"Add\"/></button></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "compared_user_followed" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "last_vote" : "<div class=\"last_vote\"><div class=\"movie\"><a href=\"/movies/{movie_id}\">{movie_title}</a></div><div class=\"date\">{date}</div><div class=\"rating\">{translations.rated_with}{fuser_rating}</div><div class=\"login\">{translations.by}<a href=\"/compare_tastes/{fuser.user.id}\">{fuser.user.login}</a></div><div class=\"photo\"><a href=\"/compare_tastes/{fuser.user.id}\"><img src={fuser_photo}/></a></div></div>"}
   
   //set the language of the site  #####################################
   $('#locale').change(function() {
@@ -171,7 +171,46 @@ $(document).ready(function() {
     $("#less").css({"visibility" : "hidden"})
     return false
   })
-
+  
+  // last votes of friends 
+  if ($(".fuser_votes_paginate").attr("data-page") == 1) {
+    $(".fuser_votes_paginate > .prev").hide()
+  }
+  
+  $(".fuser_votes_paginate > .next").click(function() {
+    var page = parseInt($(this).parents().find(".fuser_votes_paginate").attr("data-page")) + 1 
+    $.get("/movies/fusers_votes/", {page: page} , function(xhr) {
+      if (xhr.length < 5) {
+        $(".fuser_votes_paginate > .next").hide()
+      }
+      $(".last_voting").empty()
+      $(".fuser_votes_paginate").attr("data-page" , page)
+      $(".fuser_votes_paginate > .prev").show()
+      $.each(xhr, function(i, xhr){
+        xhr.translations = translations
+        $(".last_voting").append($.tmpl(templates.last_vote, xhr))
+      })  
+    }, "json") 
+    return false
+  })  
+  
+   
+  $(".fuser_votes_paginate > .prev").click(function() {
+    var page = parseInt($(this).parents().find(".fuser_votes_paginate").attr("data-page")) - 1 
+    $.get("/movies/fusers_votes/", {page: page} , function(xhr) {
+      if ($(".fuser_votes_paginate").attr("data-page") == 2) {
+        $(".fuser_votes_paginate > .prev").hide()
+      }
+      $(".fuser_votes_paginate > .next").show()
+      $(".last_voting").empty()
+      $(".fuser_votes_paginate").attr("data-page" , page)
+      $.each(xhr, function(i, xhr){
+        xhr.translations = translations
+        $(".last_voting").append($.tmpl(templates.last_vote, xhr))
+      })  
+    }, "json") 
+    return false
+  })
   // login/registration popUps ################################################
 
   $("#login").click(function() {
@@ -361,12 +400,18 @@ $(document).ready(function() {
   })
   // del_following 
   $(".del_following").click(function() {
-    var user = $(this).parent().attr('data-user')
+    //var user = $(this).parent().attr('data-user')
+    var users_size = $(this).parents().find(".followed_users").attr("data-users")
     var id = $(this).parent().attr('data-id')
     var deleteLink = "/followings/" + id + ""
     if (id) {
-      $.post(deleteLink,  { _method: 'delete', user: user, id: id }, function(data) {
+      $.post(deleteLink,  { _method: 'delete', id: id }, function(data) {
         $(".compared_user[data-id= \"" + id + "\"]").remove()
+        if (users_size == 1) {
+          $(".followed_users").remove()
+        } else {
+          $(".followed_users").attr("data-users", users_size - 1)
+        }
         $.jGrowl($.tmpl(templates.flash, data))
       }, "json")
     } 
@@ -391,7 +436,6 @@ $(document).ready(function() {
 // ######################  compare_tastes ###################
 
   $(".compared_user_votes > div[rel=\"voted\"]").css({"border" : "solid 1px red"}) 
-  
   
   
 })

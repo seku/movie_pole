@@ -9,7 +9,7 @@ class VotesController < ApplicationController
     )    
     if request.xhr?
       if @vote.save
-        render :json => { :flash => "#{t('user.vote.create')}#{@vote.user_rating}", :user_rating => params[:user_rating], :average_rating => @movie.average_rating }
+        render :json => { :flash => "#{t('user.vote.create')} #{@vote.user_rating}", :user_rating => params[:user_rating], :average_rating => @movie.average_rating }
       else
         redirect_to genres_path
       end
@@ -22,13 +22,13 @@ class VotesController < ApplicationController
     @vote.update_attributes(:user_rating => params[:user_rating].to_i)    
     if request.xhr?
       if @vote.save
-        render :json => { :flash => "#{t('user.vote.update')}#{@vote.user_rating}", :user_rating => params[:user_rating], :average_rating => @movie.average_rating }
+        render :json => { :flash => "#{t('user.vote.update')} #{@vote.user_rating}", :user_rating => params[:user_rating], :average_rating => @movie.average_rating }
       else
         render :json => { :flash => "Inpredictible error" }
       end
     else
       if @vote.save
-        flash[:notice] = { :flash => "#{t('user.vote.update')}#{@vote.user_rating}", :user_rating => params[:user_rating] }
+        flash[:notice] = { :flash => "#{t('user.vote.update')} #{@vote.user_rating}", :user_rating => params[:user_rating] }
         redirect_to genres_path
       else
         flash[:notice] = "Inpredictible error"

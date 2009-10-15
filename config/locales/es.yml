@@ -72,6 +72,8 @@ es:
     thriller: Thriller
     war: Bélico
     western: Western
+  followers: "Followers:"
+  followed_users: "Followed users:"
   user:
     vote: 
       vote: "Vote: "
@@ -80,11 +82,16 @@ es:
       delete: "Your vote was deleted"
       similarly: "Similarly voted:"
       rated_with: "Ocenił na: "
+      by: "By: "
+      last_voting: "Last votings: "
     rating: "Ocena użytkowników: "
     comment: 
       topic: "Skomentuj"
       confirm: "Zatwierdz"
       subject: "Co sądzisz o tej stronie, co proponowałbyś(aś) zmienić, dodać ?? Napisz !! "
+    your_rating: "Your rating:"
+    follower_rating: "User rating:"
+    voted_at: "voted at: "
     login: "Zaloguj się" ######
     login_success: "Login successful!"
     login_failed: "Login unsuccessful, please try again"

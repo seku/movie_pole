@@ -6,17 +6,22 @@
       #title 
         = link_to(movie.title, movie_path(movie))
       #user_rating
-        = "User rating: #{compared_user_rating}" 
-        <br/>
         %span
-          = "Your rating: #{current_user_rating}" if current_user_rating
+          = "#{t('user.your_rating')} #{current_user_rating}" if current_user_rating
+        <br/>
+        = "#{t('user.follower_rating')} #{compared_user_rating}"    
+      .date
+        = "#{t('user.voted_at')} #{date.strftime("%d.%m.%Y")}" 
+        
+
 -else
   -content_tag :div, :class => "one_movie", :id => movie.id, :rel => rel do
     #title 
       = link_to(movie.title, movie_path(movie))
     #user_rating
-      = "User rating: #{compared_user_rating}" 
-      <br/>
       %span
-        = "Your rating: #{current_user_rating}" if current_user_rating
-
+        = "#{t('user.your_rating')} #{current_user_rating}" if current_user_rating      
+      <br/>
+      = "#{t('user.follower_rating')} #{compared_user_rating}" 
+    .date
+      = "#{t('user.voted_at')} #{date.strftime("%d.%m.%Y")}"

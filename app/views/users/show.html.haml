@@ -23,8 +23,21 @@
         = f.select :language, languages
     .tip
       %button= image_tag(("/images/query2.png"), :rel => t('txt.language_information'))
-  .followings
-    =render :partial => "users/following", :locals => {:followers => @followers, :followed_users => @followed_users}
+  -if (@followers.length != 0)
+    .followers
+      = t('followers')
+      -@followers.each do |f|
+        .compared_user
+          = render :partial => "users/compared_user", :locals => {:user => f}
+  -if (@followed_users.length != 0) 
+    .followed_users{ "data-users" => @followed_users.length}
+      = t('followed_users')
+      -@followed_users.each do |f|
+        .compared_user{ "data-id" => f.id }
+          = render :partial => "users/compared_user", :locals => {:user => f}
+          .del_following
+            %button= image_tag("/images/3.png", :width => 15, :height => 15)
+
 .user_form
   .tip
     %button= image_tag(("/images/query2.png"), :rel => "#{t('txt.alert_information1')} \n #{t('txt.alert_information2')} \n #{t('txt.alert_information3')}" )
@@ -49,6 +62,7 @@
   >>
   %span= @user.login
 .tip_block
+
 
 
 
