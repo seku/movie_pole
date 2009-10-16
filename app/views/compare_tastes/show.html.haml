@@ -1,17 +1,39 @@
-#comparison{"data-id" => @compared_user.id}
-  = "#{t('user.compared_user.compability')} #{@compared_user.login}: " 
-  .tastemeter
-    %span{:style => "width: #{@comparison}%"}
-  .percent
-    =" #{@comparison}%"
+.link_comunication
+  = link_to(t('txt.main'), genres_path) 
+  >>
+  %span= t('user.comparison')
+%br
+.main_of_compared_user{"data-id" => @compared_user.id}
+  #comparison
+    = image_tag(@compared_user.gravatar_url(:default => "wavatar", :size => 40))
+    = "#{t('user.compared_user.compability')} #{@compared_user.login}: " 
+    .tastemeter
+      %span{:style => "width: #{@comparison}%"}
+    .percent
+      =" #{@comparison}%"
+
   -if not_follwed_user?(@compared_user.id)
     .add_followed_user
-      %button{:title => "Add #{@compared_user.login} to your list"}=image_tag("/images/add.png", :height => 10, :width => 10) 
+      %button=image_tag("/images/add.png", :height => 10, :width => 10) 
+      = "#{t('user.add_follower1')} #{@compared_user.login} #{t('user.add_follower2')}"
 .compared_user_votes
   = "#{t('user.compared_user.rating')} #{@compared_user.login}" 
   -@compared_user.votes.sort_by{|v| v.updated_at}.reverse.each do |vote|
     = render :partial => "compare_tastes/movie", :locals => {:date => vote.updated_at, :movie => find_movie(vote.movie_id), :compared_user_rating => vote.user_rating, :current_user_rating => rated?(vote.movie_id), :rel => voted?(vote.movie.id)}
-
+%br
+.contacts
+  = t('user.contacts.contacts')
+  - if @compared_user.followed_users.empty?
+    .no_contacts
+      = t('user.contacts.no_contacts')
+  - @compared_user.followed_users.each do |fu|
+    .follower
+      = link_to(image_tag(fu.gravatar_url(:default => "wavatar", :size => 30)), compare_taste_path(fu))
+      = link_to(fu.login, compare_taste_path(fu.id))
+.link_comunication
+  = link_to(t('txt.main'), genres_path) 
+  >>
+  %span= t('user.comparison')
     
 
 

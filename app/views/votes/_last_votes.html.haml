@@ -16,7 +16,8 @@
         .photo
           = link_to(image_tag(fu[:fuser].gravatar_url(:default => "wavatar", :size => 30)), compare_taste_path(fu[:fuser].id))
   .fuser_votes_paginate{"data-page" => 1}
-    %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
-    %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
+    - unless fuser_votes_size < 11
+      %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
+      %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
 
 

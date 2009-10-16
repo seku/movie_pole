@@ -20,7 +20,7 @@
   -if @users_array
     = render :partial => "/compare_tastes/find_closest_users", :locals => {:users_array => @users_array}
   -if @fuser_votes
-    = render :partial => "/votes/last_votes", :locals => {:fuser_votes => @fuser_votes}
+    = render :partial => "/votes/last_votes", :locals => {:fuser_votes => @fuser_votes[0], :fuser_votes_size => @fuser_votes[1]}
           
 
 

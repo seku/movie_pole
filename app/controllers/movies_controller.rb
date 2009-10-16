@@ -17,11 +17,12 @@ class MoviesController < ApplicationController
         @fuser_votes << {:date => v.updated_at.strftime("%d.%m.%Y"), :fuser => fu, :fuser_rating => v.user_rating, :fuser_photo => fu.gravatar_url(:default => "wavatar", :size => 30), :movie_id => Movie.find(v.movie_id).id, :movie_title => resize_title(Movie.find(v.movie_id).title) }
       end
     end  
-    @fuser_votes = @fuser_votes.sort_by {|v| v[:date]}.reverse().paginate :page => params[:page], :per_page => 5
+    @fuser_votes_size = @fuser_votes.size
+    @fuser_votes = @fuser_votes.sort_by {|v| v[:date]}.reverse().paginate :page => params[:page], :per_page => 10
     if request.xhr?
       render :json => @fuser_votes
     else
-      @fuser_votes
+      [@fuser_votes, @fuser_votes_size]
     end    
   end
   

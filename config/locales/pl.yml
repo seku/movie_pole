@@ -82,7 +82,7 @@ pl:
       similarly: "Podobnie głosowali:"
       rated_with: "Ocenił na: "
       by: "Przez: "
-      last_voting: "Najnowsze głosy znajomcyh: "
+      last_voting: "Najnowsze głosy znajomych: "
     rating: "Ocena użytkowników: "
     comment:
       topic: "Skomentuj"
@@ -90,6 +90,9 @@ pl:
       subject: "Co sądzisz o tej stronie, co proponowałbyś(aś) zmienić, dodać ?? Napisz !! "
     your_rating: "Twoja ocena:"
     follower_rating: "Ocena użytkownika:"
+    add_follower: "Dodaj do listy kontaktów"
+    add_follower1: "Dodaj"
+    add_follower2: "do listy kontaktów"
     voted_at: "głosował: "
     login: "Zaloguj się"
     login_success: "Zostałeś zalogowany"
@@ -138,9 +141,13 @@ pl:
     movies_list_info3: "Nie trać czasu na zbędne grzebanie po sieci, zrobimy to za Ciebie !!"
     movies_list_add: "film został dodany do twojej listy"
     movies_list_exist: "Film ten już istnieje w twojej liście"
+    comparison: "Porównanie"
     compared_user:
-      compability: "Zgodność gustów z"
+      compability: "Zgodność gustów:"
       rating: "Filmy oceniane przez"
+    contacts: 
+      contacts: "Kontakty:"
+      no_contacts: "Brak kontaktów tego użytkownika"
   number:
     format:
       separator: "."

@@ -222,7 +222,7 @@ h2
 
 // ################################### styling of concrete movie -> more info than in list ###
 .movie_details
-  :height 250px
+  :height 262px
   :opacity 0.9
   :width 710px
   :-moz-border-radius 10px
@@ -757,52 +757,58 @@ h2
   :width 100%
 // #########################    taste comparison ###############################
 
-#comparison
+.main_of_compared_user
   :font-weight bold
-  :float left
-  :width 30%
-  :opacity 0.9
-  :-moz-border-radius 5px
-  :-webkit-border-radius 5px
-  :border 1px solid #333333
-  :background-color #dedede 
-  :padding 10px
-  :color #2f2b2b  
-  :text-align center
-  :font-size 12px
-  :height 30px
-  :width 200px
-  :text-align center
-  .tastemeter
-    :margin-top 2px
-    :float left
-    :width 80%
-    :margin-left 30px
-    :display block
-    :width 100px
-    :height 10px
-    :background #F5F5F5
-    :-moz-border-radius 3px
-    :-webkit-border-radius 3px
-    span
-      :height 10px
+  :float left  
+  #comparison
+    :opacity 0.9
+    :-moz-border-radius 5px
+    :-webkit-border-radius 5px
+    :border 1px solid #333333
+    :background-color #dedede 
+    :padding 10px
+    :color #2f2b2b  
+    :text-align center
+    :font-size 12px
+    :height 40px
+    :width 260px
+    :text-align center
+    img
+      :float left
+    .tastemeter
+      :margin-top 2px
+      :float left
+      :width 80%
+      :margin-left 40px
       :display block
-      :background #3a8c40
+      :width 100px
+      :height 10px
+      :background #F5F5F5
       :-moz-border-radius 3px
       :-webkit-border-radius 3px
-  .percent
-    :padding-left 3px
-    :font-weight normal
-    :float left
-    :width 20%
+      span
+        :height 10px
+        :display block
+        :background #3a8c40
+        :-moz-border-radius 3px
+        :-webkit-border-radius 3px
+    .percent
+      :padding-left 3px
+      :font-weight normal
+      :float left
+      :width 20%
   .add_followed_user
-    :position relative
-    :left -180px
-    :top -20px
+    :-moz-border-radius 5px
+    :background-color #F5F5F5
+    :border 1px solid #333333
+    :height 20px
+    :margin 5px
+    :padding 7px
+    :width 260px
+    :text-align center
 .compared_user_votes
   :opacity 0.9
   :float left
-  :width 70%
   :-moz-border-radius 5px
   :-webkit-border-radius 5px
   :margin-left 5px
@@ -849,4 +855,25 @@ h2
     .date
       :font-size 10px
       :text-align right
-      :padding-bottom -5px 
+      :padding-bottom -5px
+.contacts
+  :opacity 0.9
+  :float left
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :margin-left 5px
+  :margin-top 5px
+  :border 1px solid #333333
+  :background-color #dedede 
+  :padding 10px
+  :width 180px
+  :font-weight bold
+  :text-align center
+  .follower
+    +desired_movies_variable
+    :text-align left
+    :padding-left 20px
+  .no_contacts
+    :padding-top 5px
+    :font-weight normal
+ 

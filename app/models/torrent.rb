@@ -7,7 +7,7 @@ class Torrent < ActiveRecord::Base
 	def self.fetch_torrents
     puts "..update_all_torrents.."
     torrents = Movie.all.map do |movie| 
-      if (movie.release_date > (Date.today - 1.year))
+      if (movie.release_date > (Date.today - 18.month))
         movie.torrents.destroy_all
       end
       get_torrents_for_movie(movie)

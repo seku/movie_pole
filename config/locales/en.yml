@@ -93,6 +93,9 @@ en:
       subject: "What do you think about our site, what should we add , what's your need ?? Write to us !"      
     your_rating: "Your rating:"
     follower_rating: "User rating:"
+    add_follower: "Add to followed users list"
+    add_follower1: "Add"
+    add_follower2: "to your contact list"
     voted_at: "voted at: "
     login: Login
     login_success: "Login successful!"
@@ -141,9 +144,13 @@ en:
     movies_list_info3: "Don't wast your time searching throught the net, leave it to us !!"
     movies_list_add: "movie was added to your list"
     movies_list_exist: "You have already this movie in your list"
+    comparison: "Comparison"
     compared_user:
-      compability: "Compability with"
+      compability: "Compability:"
       rating: "Movies ranked by"
+    contacts: 
+      contacts: "Contacts:"
+      no_contacts: "This user has no contacts yet"
   number:
     format:
       separator: "."
