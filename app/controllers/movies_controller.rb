@@ -39,6 +39,8 @@ class MoviesController < ApplicationController
     end
   end
   
+
+  
   protected
   
   def resize_title(title)

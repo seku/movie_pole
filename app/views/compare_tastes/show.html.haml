@@ -18,8 +18,17 @@
       = "#{t('user.add_follower1')} #{@compared_user.login} #{t('user.add_follower2')}"
 .compared_user_votes
   = "#{t('user.compared_user.rating')} #{@compared_user.login}" 
-  -@compared_user.votes.sort_by{|v| v.updated_at}.reverse.each do |vote|
-    = render :partial => "compare_tastes/movie", :locals => {:date => vote.updated_at, :movie => find_movie(vote.movie_id), :compared_user_rating => vote.user_rating, :current_user_rating => rated?(vote.movie_id), :rel => voted?(vote.movie.id)}
+  .compared_user_votes_paginate{"data-page" => 1, "data-user" => @compared_user.id}
+    - unless @compared_user_votes[1] < 11
+      %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
+      %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
+  .compared_user_movies
+    - @compared_user_votes[0].each do |v|
+      = render :partial => "compare_tastes/movie", :locals => {:movie_id => v[:movie_id], :date => v[:date], :movie_poster => v[:movie_poster], :movie_title => v[:movie_title], :compared_user_rating => v[:compared_user_rating], :current_user_rating => v[:current_user_rating], :rel => v[:rel]}
+  .compared_user_votes_paginate{"data-page" => 1, "data-user" => @compared_user.id}
+    - unless @compared_user_votes[1] < 11
+      %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
+      %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
 %br
 .contacts
   = t('user.contacts.contacts')

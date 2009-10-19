@@ -52,7 +52,7 @@ $(document).ready(function() {
   var register = "/users/new"
   var not_exist = true //check if login/register form exist in response div 
   var pressed = false // it's needed for cancel button in registration form (if true javascript is enabled)
-  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}", "compared_user" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"add_followed_user\"><button><img height=\"10\" width=\"10\" src=\"/images/add.png\" alt=\"Add\"/></button></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "compared_user_followed" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "last_vote" : "<div class=\"last_vote\"><div class=\"movie\"><a href=\"/movies/{movie_id}\">{movie_title}</a></div><div class=\"date\">{date}</div><div class=\"rating\">{translations.rated_with}{fuser_rating}</div><div class=\"login\">{translations.by}<a href=\"/compare_tastes/{fuser.user.id}\">{fuser.user.login}</a></div><div class=\"photo\"><a href=\"/compare_tastes/{fuser.user.id}\"><img src={fuser_photo}/></a></div></div>"}
+  var templates = {"alert": "<div id=\"{alert.id}\">{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div></div>", "alert_edit": "<br/>{translations.genre} {alert.name}<br/>{translations.rating} {alert.rating}<br/><div class=\"alert_edit\"><a href=\"/users/{user}/weekly_alerts/{alert.id}/edit\">{translations.edit}</a></div><div class=\"alert_delete\"><a href=\"/users/{user}/weekly_alerts/{alert.id}\">{translations.del}</a></div>", "flash": "{flash}", "user_rating" : "{user_rating}", "average_rating" : "{average_rating}", "compared_user" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"add_followed_user\"><button><img height=\"10\" width=\"10\" src=\"/images/add.png\" alt=\"Add\"/></button></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "compared_user_followed" : "<div class=\"compared_user\" data-id=\"{user_id}\"><div class=\"photo\"><a href=\"/compare_tastes/{user_id}\"><img src=\"{gravatar}\" alt=\"image unavailable\"/></a></div><div class=\"login\"><a href=\"/compare_tastes/{user_id}\">{user}</a><br/><span>{translations.rated_with}{rating}</span></div><div class=\"comparison\">{translations.compability} {user}<div class=\"tastemeter\"><span style=\"width: {comparison_value}%;\"></span></div><div class=\"percent\"> {comparison_value}% </div></div></div>", "last_vote" : "<div class=\"last_vote\"><div class=\"movie\"><a href=\"/movies/{movie_id}\">{movie_title}</a></div><div class=\"date\">{date}</div><div class=\"rating\">{translations.rated_with}{fuser_rating}</div><div class=\"login\">{translations.by}<a href=\"/compare_tastes/{fuser.user.id}\">{fuser.user.login}</a></div><div class=\"photo\"><a href=\"/compare_tastes/{fuser.user.id}\"><img src={fuser_photo}/></a></div></div>", "movie_ranked_by_followed_user" : "<div id={movie_id} class=\"one_movie_is_poster\" rel=\"voted\"><div id=\"poster\"><a href=\"/movies/{movie_id}\"><img height=\"80\" src={movie_poster}></a></div><div class=\"rest\"><div id=\"title\"><a href=\"/movies/{movie_id}\">{movie_title}</a></div><div id=\"user_rating\"><span>{translations.your_rating} {current_user_rating} </span><br/>{translations.follower_rating} {compared_user_rating}</div><div class=\"date\"> {translations.voted_at} {date} </div></div></div>", "desired_movies" : "<div id={movie_id} class=\"one_movie_alert_is_poster\"><div id=\"poster\"><img height=\"80\" src={movie_poster}></div><div class=\"rest\"><div id=\"title\"><a href=\"/movies/{movie_id}\">{movie_title}</a></div><div id=\"del_from_movie_list\"><button><a href=\"/desirable_alerts/{movie_id}\"><img height=\"15\" width=\"15\" src=\"/images/3.png?1250171843\" alt=\"3\"/></a></button></div></div></div>"}
   
   //set the language of the site  #####################################
   $('#locale').change(function() {
@@ -172,7 +172,8 @@ $(document).ready(function() {
     return false
   })
   
-  // last votes of friends 
+  // last votes of friends pagination
+  
   if ($(".fuser_votes_paginate").attr("data-page") == 1) {
     $(".fuser_votes_paginate > .prev").hide()
   }
@@ -180,7 +181,7 @@ $(document).ready(function() {
   $(".fuser_votes_paginate > .next").click(function() {
     var page = parseInt($(this).parents().find(".fuser_votes_paginate").attr("data-page")) + 1 
     $.get("/movies/fusers_votes/", {page: page} , function(xhr) {
-      if (xhr.length < 5) {
+      if (xhr.length < 10) {
         $(".fuser_votes_paginate > .next").hide()
       }
       $(".last_voting").empty()
@@ -437,5 +438,91 @@ $(document).ready(function() {
 
   $(".compared_user_votes > div[rel=\"voted\"]").css({"border" : "solid 1px red"}) 
   
+  
+  // movies ranked by compared user pagination
+  
+  if ($(".compared_user_votes_paginate").attr("data-page") == 1) {
+    $(".compared_user_votes_paginate > .prev").hide()
+  }
+  
+  $(".compared_user_votes_paginate > .next").click(function() {
+    var user = $(this).parents().find(".compared_user_votes_paginate").attr("data-user")
+    var page = parseInt($(this).parents().find(".compared_user_votes_paginate").attr("data-page")) + 1 
+    $.get("/compare_tastes/compared_user_votes/", {page: page, id: user} , function(xhr) {
+      if (xhr.length < 10) {
+        $(".compared_user_votes_paginate > .next").hide()
+      }
+      $(".compared_user_movies").empty()
+      $(".compared_user_votes_paginate").attr("data-page" , page)
+      $(".compared_user_votes_paginate > .prev").show()
+      $.each(xhr, function(i, xhr){
+        xhr.translations = translations
+        $(".compared_user_movies").append($.tmpl(templates.movie_ranked_by_followed_user, xhr))
+      })  
+    }, "json") 
+    return false
+  })  
+  
+   
+  $(".compared_user_votes_paginate > .prev").click(function() {
+    var user = $(this).parents().find(".compared_user_votes_paginate").attr("data-user")
+    var page = parseInt($(this).parents().find(".compared_user_votes_paginate").attr("data-page")) - 1 
+    $.get("/compare_tastes/compared_user_votes/", {page: page, id: user} , function(xhr) {
+      if ($(".compared_user_votes_paginate").attr("data-page") == 2) {
+        $(".compared_user_votes_paginate > .prev").hide()
+      }
+      $(".compared_user_votes_paginate > .next").show()
+      $(".compared_user_movies").empty()
+      $(".compared_user_votes_paginate").attr("data-page" , page)
+      $.each(xhr, function(i, xhr){
+        xhr.translations = translations
+        $(".compared_user_movies").append($.tmpl(templates.movie_ranked_by_followed_user, xhr))
+      })  
+    }, "json") 
+    return false
+  })  
+  
+  // desired movies pagination
+  
+  if ($(".desired_movies_paginate").attr("data-page") == 1) {
+    $(".desired_movies_paginate > .prev").hide()
+  }
+  
+  $(".desired_movies_paginate > .next").click(function() {
+    var user = $(this).parents().find(".desired_movies_paginate").attr("data-user")
+    var page = parseInt($(this).parents().find(".desired_movies_paginate").attr("data-page")) + 1 
+    $.get("/users/desired_movies/", {page: page, id: user} , function(xhr) {
+      if (xhr.length < 10) {
+        $(".desired_movies_paginate > .next").hide()
+      }
+      $(".movie_list_results").empty()
+      $(".desired_movies_paginate").attr("data-page" , page)
+      $(".desired_movies_paginate > .prev").show()
+      $.each(xhr, function(i, xhr){
+        xhr.translations = translations
+        $(".movie_list_results").append($.tmpl(templates.desired_movies, xhr))
+      })  
+    }, "json") 
+    return false
+  })  
+  
+   
+  $(".desired_movies_paginate > .prev").click(function() {
+    var user = $(this).parents().find(".desired_movies_paginate").attr("data-user")
+    var page = parseInt($(this).parents().find(".desired_movies_paginate").attr("data-page")) - 1 
+    $.get("/users/desired_movies/", {page: page, id: user} , function(xhr) {
+      if ($(".desired_movies_paginate").attr("data-page") == 2) {
+        $(".desired_movies_paginate > .prev").hide()
+      }
+      $(".desired_movies_paginate > .next").show()
+      $(".movie_list_results").empty()
+      $(".desired_movies_paginate").attr("data-page" , page)
+      $.each(xhr, function(i, xhr){
+        xhr.translations = translations
+        $(".movie_list_results").append($.tmpl(templates.desired_movies, xhr))
+      })  
+    }, "json") 
+    return false
+  })  
   
 })

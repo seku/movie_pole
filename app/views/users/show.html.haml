@@ -55,8 +55,17 @@
     %button=image_tag(("/images/query2.png"), :rel => "#{t('user.movies_list_info1')} \n #{t('user.movies_list_info2')} \n #{t('user.movies_list_info3')}")
   .alerts_topic  
     = t("user.movies_list")
+  .desired_movies_paginate{"data-page" => 1, "data-user" => @user.id}
+    - unless @desired_movies[1] < 11
+      %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
+      %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
   .movie_list_results
-    = render :partial => "users/movie_list"  
+    - @desired_movies[0].each do |m| 
+      = render :partial => "users/movie_list", :locals => {:movie_id => m[:movie_id], :movie_poster => m[:movie_poster], :movie_title => m[:movie_title]}
+  .desired_movies_paginate{"data-page" => 1, "data-user" => @user.id}
+    - unless @desired_movies[1] < 11
+      %button{:class => "prev"}=image_tag("/images/previous.png", :width => 10, :height => 10)
+      %button{:class => "next"}=image_tag("/images/next1.png", :width => 10, :height => 10)
 .link_comunication
   = link_to t('txt.main'), genres_path
   >>

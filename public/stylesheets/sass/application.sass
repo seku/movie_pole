@@ -610,6 +610,9 @@ h2
     :font-weight bold  
     :text-align center  
     :margin-bottom 5px    
+  .desired_movies_paginate
+    :padding-top 3px
+    :text-align right
   .movie_list_results
     :clear both
     :width 100%
@@ -682,9 +685,11 @@ h2
   :-moz-border-radius 10px
   :-webkit-border-radius 10px
   :z-index 5
-  :position absolute
-  :left 600px
-  :top 200px
+  :position fixed
+  :top 20%
+  :left 50%
+  :width 300px
+  :margin-left -150px
   :border 2px solid #cecece  
   :text-align center
   h1
@@ -818,6 +823,9 @@ h2
   :padding 10px
   :width 300px
   :font-weight bold
+  .compared_user_votes_paginate
+    :padding-top 3px
+    :text-align right  
   .one_movie_is_poster
     +desired_movies_variable
     :height 85px

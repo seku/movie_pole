@@ -76,6 +76,7 @@ es:
   followed_users: "Followed users:"
   user:
     vote: 
+      not: "not exist"
       vote: "Vote: "
       create: "Thank you for your vote with rating"
       update: "Your vote was updated with rating"

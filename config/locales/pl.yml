@@ -75,6 +75,7 @@ pl:
   followed_users: "Obserwujesz:"  
   user:
     vote: 
+      not: "brak"
       vote: "Zagłosuj: "
       create: "Dziękujemy za oddany głos z oceną "
       update: "Twoja ocena została zaktualizowana o wartość "

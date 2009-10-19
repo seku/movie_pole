@@ -36,7 +36,24 @@ class UsersController < ApplicationController
     @weekly_alert = current_user.weekly_alerts.new
     @followers = current_user.followers
     @followed_users = current_user.followed_users
+    @desired_movies = desired_movies
   end
+
+  def desired_movies
+    @desired_movies = []
+    User.find(params[:id]).desired_movies.each do |m|
+      @movie = Movie.find(m.id)
+      @desired_movies << {:movie_title => @movie.title, :movie_poster => @movie.poster, :movie_id => @movie.id}
+    end
+    @desired_movies_size = @desired_movies.size
+    @desired_movies = @desired_movies.paginate :page => params[:page], :per_page => 10
+    if request.xhr?
+      render :json => @desired_movies
+    else
+      [@desired_movies, @desired_movies_size]
+    end
+  end
+
 
   def edit
     @user = @current_user

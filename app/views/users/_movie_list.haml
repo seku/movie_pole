@@ -1,17 +1,9 @@
--@user.desired_movies.each do |movie|
-  -if movie.poster
-    -content_tag :div, :class => "one_movie_alert_is_poster", :id => movie.id do
-      #poster
-        = image_tag(movie.poster, :height => 80)
-      .rest
-        #title 
-          = link_to(movie.title, movie_path(movie))
-        #del_from_movie_list
-          %button= link_to(image_tag("/images/3.png", :width => 15, :height => 15), desirable_alert_path(movie))
-  -else
-    -content_tag :div, :class => "one_movie_alert", :id => movie.id do
-      #title 
-        = link_to(movie.title, movie_path(movie))
-      .rest
-        #del_from_movie_list
-          %button= link_to(image_tag("/images/3.png", :width => 15, :height => 15), desirable_alert_path(movie))
+-content_tag :div, :class => "one_movie_alert_is_poster", :id => movie_id do
+  #poster
+    = image_tag(movie_poster, :height => 80) if movie_poster
+  .rest
+    #title 
+      = link_to(movie_title, movie_path(movie_id))
+    #del_from_movie_list
+      %button= link_to(image_tag("/images/3.png", :width => 15, :height => 15), desirable_alert_path(movie_id))
+

@@ -1,27 +1,14 @@
--if movie.poster
-  -content_tag :div, :class => "one_movie_is_poster", :id => movie.id, :rel => rel do
-    #poster
-      = link_to(image_tag(movie.poster, :height => 80), movie_path(movie.id))
-    .rest
-      #title 
-        = link_to(movie.title, movie_path(movie))
-      #user_rating
-        %span
-          = "#{t('user.your_rating')} #{current_user_rating}" if current_user_rating
-        <br/>
-        = "#{t('user.follower_rating')} #{compared_user_rating}"    
-      .date
-        = "#{t('user.voted_at')} #{date.strftime("%d.%m.%Y")}" 
-        
-
--else
-  -content_tag :div, :class => "one_movie", :id => movie.id, :rel => rel do
+-content_tag :div, :class => "one_movie_is_poster", :id => movie_id, :rel => rel do
+  #poster
+    = link_to(image_tag(movie_poster, :height => 80), movie_path(movie_id)) if movie_poster 
+  .rest
     #title 
-      = link_to(movie.title, movie_path(movie))
+      = link_to(movie_title, movie_path(movie_id))
     #user_rating
       %span
-        = "#{t('user.your_rating')} #{current_user_rating}" if current_user_rating      
+        = "#{t('user.your_rating')} #{current_user_rating}" 
       <br/>
-      = "#{t('user.follower_rating')} #{compared_user_rating}" 
+      = "#{t('user.follower_rating')} #{compared_user_rating}"    
     .date
-      = "#{t('user.voted_at')} #{date.strftime("%d.%m.%Y")}"
+      = "#{t('user.voted_at')} #{date}" 
+
